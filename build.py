@@ -35,7 +35,6 @@ def main(args):
                     toggles[toggle_name] = toggle_value
                     
         
-
     with open(args.filter, 'r') as fp:
         filter_lines = []
         for line in fp.readlines():
@@ -49,7 +48,7 @@ def main(args):
                     else:
                         pre_toggle = pre_toggle.replace('Show', 'Hide')
                     
-                    line = '#TOGGLE-'.join(pre_toggle, after_toggle)
+                    line = '#TOGGLE-'.join([pre_toggle, after_toggle])
                 
                 filter_lines.append(line)
             else:
