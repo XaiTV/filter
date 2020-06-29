@@ -23,9 +23,14 @@
 # [SECTION 12] RARES
 
 # [SECTION 13] BASES
-BaseType $big_melee {
-    Rarity <= Magic {
-        ItemLevel >= 83 {
+Rarity <= Magic {
+    ItemLevel >= 86 {
+    }
+
+    # merciless roll
+    ItemLevel >= 83 {
+        BaseType $big_melee {
+            SetBorderColor 255 122 0
             Show
         }
     }
