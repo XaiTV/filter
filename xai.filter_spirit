@@ -23,6 +23,13 @@
 # [SECTION 12] RARES
 
 # [SECTION 13] BASES
+BaseType $big_melee {
+    Rarity <= Magic {
+        ItemLevel >= 83 {
+            Show
+        }
+    }
+}
 
 # [SECTION 14] CHROMES
 
