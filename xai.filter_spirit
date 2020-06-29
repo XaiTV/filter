@@ -1,6 +1,22 @@
 # [SECTION 1] OVERRIDES
 
 # [SECTION 2] LEVELING LINKS
+SocketGroup = $link4_colors {
+    LinkedSockets = 4 {
+        Sockets < 6 {
+            ItemLevel <= 67 {
+                Rarity <= Rare {
+                    Class "Gloves" "Helm" "Boots" "Body Armour" {
+                        AreaLevel <= 52 {
+                            MinimapIcon 1 Purple Pentagon
+                        }
+                        Show
+                    }
+                }
+            }
+        }
+    }
+}
 
 # [SECTION 3] CURRENCY
 
@@ -20,11 +36,18 @@
 
 # [SECTION 11] ID HIGHLIGHTING
 
-# [SECTION 12] RARES
-
-# [SECTION 13] BASES
+# [SECTION 12] BASES
 Rarity <= Magic {
+    # highest ele damage with attacks and %es
     ItemLevel >= 86 {
+    }
+
+    # some random high rolls like T1 +attributes and chance to block
+    ItemLevel >= 85 {
+    }
+
+    # Highest defense rolls & caster weapons
+    ItemLevel >= 84 {
     }
 
     # merciless roll
@@ -34,6 +57,11 @@ Rarity <= Magic {
             Show
         }
     }
+}
+
+# [SECTION 13] RARES
+Rarity = Rare {
+
 }
 
 # [SECTION 14] CHROMES
