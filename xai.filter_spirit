@@ -10,7 +10,7 @@ SocketGroup = $link4_colors {
                         AreaLevel <= 52 {
                             MinimapIcon 1 Purple Pentagon
                         }
-                        Show
+                        Show #TOGGLE-LEVELING
                     }
                 }
             }

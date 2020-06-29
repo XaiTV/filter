@@ -23,8 +23,37 @@ def main(args):
 
         var_lines = new_lines
 
+    toggles = {}
+    if args.toggle:
+        with open(args.toggle, 'r') as fp:
+            for line in fp.readlines():
+                line = line.strip()
+                if line.startswith('$'):
+                    toggle_name, toggle_value = line.split('=')
+                    toggle_name = toggle_name.strip()[1:]
+                    toggle_value = toggle_value.strip()
+                    toggles[toggle_name] = toggle_value
+                    
+        
+
     with open(args.filter, 'r') as fp:
-        filter_lines = fp.readlines()
+        filter_lines = []
+        for line in fp.readlines():
+            if '#TOGGLE-' in line:
+                # PREPARE FOR SOME UGLY ASS CODE
+                pre_toggle, after_toggle = line.split('#TOGGLE-')
+                toggle_name = after_toggle.strip()
+                if toggle_name in toggles:
+                    if toggles[toggle_name] == 'Show':
+                        pre_toggle = pre_toggle.replace('Hide', 'Show')
+                    else:
+                        pre_toggle = pre_toggle.replace('Show', 'Hide')
+                    
+                    line = '#TOGGLE-'.join(pre_toggle, after_toggle)
+                
+                filter_lines.append(line)
+            else:
+                filter_lines.append(line)
 
     # let's be nice and add a newline between the var and filter
     combined_lines = var_lines + [''] + filter_lines
@@ -44,8 +73,9 @@ if __name__ == '__main__':
     parser.add_argument('--var-base-file', '-b', default='base.vars', help='The variable file you want to use as a base')
     parser.add_argument('--var-file', '-v', required=False, help='The variable file you want to use to override base vars')
     parser.add_argument('--filter', '-f', default='xai.filter_spirit', help='The filter file you want to use')
+    parser.add_argument('--toggle', '-t', required=False, help='The toggle file you want to use')
     parser.add_argument('--spirit', '-s', required=True, help='The path to the filter spirit executable')
     parser.add_argument('--output', '-o', default='xai.filter', help='The path you want to output the final filter to')
-    parser.add_argument('--temp-file', '-t', default='_filter.tmp', help='Path to temporary file to store combined filter in')
+    parser.add_argument('--temp-file', default='_filter.tmp', help='Path to temporary file to store combined filter in')
 
     main(parser.parse_args())
