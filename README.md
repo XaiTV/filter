@@ -1,3 +1,4 @@
 # Building
 
-Use `python3 build.py --help` to see how to build it.
+`python build.by -s <path_to_filter_spirit_executable>`  
+Use `python build.py --help` to see more options.
