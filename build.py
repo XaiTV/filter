@@ -27,8 +27,8 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Filter Spirit variable helper')
-    parser.add_argument('--var-base-file', '-b', default='default.vars', help='The variable file you want to use as a base')
-    parser.add_argument('--var-file', '-v', required=False, help='The variable file you want to use as an override for the base vars')
+    parser.add_argument('--var-base-file', '-b', default='base.vars', help='The variable file you want to use as a base')
+    parser.add_argument('--var-file', '-v', default='default.vars', help='The variable file you want to use for extra vars')
     parser.add_argument('--filter', '-f', default='xai.filter_spirit', help='The filter file you want to use')
     parser.add_argument('--spirit', '-s', required=True, help='The path to the filter spirit executable')
     parser.add_argument('--output', '-o', default='xai.filter', help='The path you want to output the final filter to')
