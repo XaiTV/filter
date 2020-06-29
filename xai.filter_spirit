@@ -41,3 +41,15 @@
 # [SECTION 21] SAFETY NETS
 
 # [SECTION 22] FAILSAFE & HIDE ALL
+Rarity <= Magic {
+    SetFontSize 22
+    SetBackgroundColor 0 0 0 200
+    DisableDropSound
+    Hide
+}
+
+Class "Amulets" "Belts" "Body Armour" "Boots" "Bows" "Claws" "Daggers" "Flask" "Gloves" "Helmets" "Jewel" "One Hand" "Quivers" "Rings" "Rune Dagger" "Sceptre" "Shields" "Staves" "Two Hand" "Wand" "Warstaves" {
+    SetFontSize 18
+    DisableDropSound
+    Hide
+}
