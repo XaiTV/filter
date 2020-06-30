@@ -305,6 +305,17 @@ BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delir
     Show
 }
 
+# this really feels like currency to me -_-
+BaseType "Divine Vessel" {
+    Set $comp_divine_vessel
+    Show
+}
+
+Class "Pantheon Soul" {
+    Set $comp_divine_vessel
+    Show
+}
+
 # [SECTION 4] 6L
 LinkedSockets = 6 {
     Set $comp_6l
@@ -341,7 +352,25 @@ LinkedSockets = 6 {
     Show
 }
 
-# [SECTION 5] LEAGUE OVERRIDES
+# [SECTION 5] LEAGUE OVERRIDES & STUFF THAT NEEDS TO BE ABOVE ALL ELSE
+# Enchanted items
+AnyEnchantment True {
+    Class "Helmets"{
+        Set $comp_rare_t1
+        SetBorderColor $color_special_rares_border
+        SetAlertSound $alert_special_rares
+        PlayEffect $beam_special
+        MinimapIcon 2 Blue Diamond
+        Show
+    }
+    Class "Boots" "Gloves"{
+        Set $comp_rare_t1
+        SetBorderColor $color_special_rares_border
+        SetAlertSound $alert_special_rares
+        Show
+    }
+
+}
 
 # [SECTION 6] UNIQUES
 
@@ -418,6 +447,46 @@ Rarity = Rare {
 # [SECTION 17] LEVELING
 
 # [SECTION 18] QUEST SHIT
+Class "Quest Items"{
+    SetFontSize $font_max
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    Show
+}
+
+BaseType "Watchstone" {
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    SetFontSize $font_max
+    PlayEffect $beam_quest
+    PlayAlertSound $alert_t3_currency
+    Show
+}
+
+Class "Labyrinth Item" "Labyrinth Map Item" "Labyrinth Trinket"{
+    SetFontSize 45
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    Show
+}
+
+BaseType "Offering to the Goddess"{
+    SetFontSize 45
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    SetAlertSound $alert_t3_currency
+    Show
+}
 
 # [SECTION 19] FRAGMENTS
 
