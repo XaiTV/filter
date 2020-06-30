@@ -119,3 +119,6 @@ Class "Amulets" "Belts" "Body Armour" "Boots" "Bows" "Claws" "Daggers" "Flask" "
     DisableDropSound
     Hide
 }
+
+Set $comp_failsafe
+Show
