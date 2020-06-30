@@ -45,6 +45,7 @@ Class "Map" {
 }
 
 # [SECTION 2] LEVELING LINKS
+# @TODO: do we really want this all the way at the top? Risk of hiding stuff when for example a "special" low level area(like Menagerie and Mine Encampment) start dropping high bases that happen to be our leveling colors when leveling section is disabled
 # 4-links with colors
 SocketGroup = $leveling_link4_colors {
     LinkedSockets = 4 {
