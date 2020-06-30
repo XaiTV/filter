@@ -79,7 +79,7 @@ def main(args):
     if args.toggle_directory:
         toggle_files += glob.glob(os.path.join(args.toggle_directory, '*.toggle'))
 
-    output_path = os.path.sep.join(args.output.split(os.path.sep)[:-1])
+    output_path = os.path.split(args.output)[0]
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
@@ -87,12 +87,12 @@ def main(args):
         for toggle_file in toggle_files:
             output_name = '{0}'.format(args.output)
             if toggle_file:
-                output_name += '.{0}'.format(toggle_file.split(os.path.sep)[-1][:-7])
+                output_name += '.{0}'.format(os.path.split(toggle_file)[-1][:-7])
             else:
                 output_name += '.generic'
 
             if var_file:
-                output_name += '.{0}'.format(var_file.split(os.path.sep)[-1][:-5])
+                output_name += '.{0}'.format(os.path.split(var_file)[-1][:-5])
 
             output_name += '.filter'
 
