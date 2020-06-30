@@ -69,7 +69,8 @@ Rarity <= Magic {
 
     # merciless roll
     ItemLevel >= 83 {
-        BaseType $bases_2h_melee {
+        # @TODO: split these up, 2h should probably be a bit smaller
+        BaseType $bases_2h_melee $bases_1h_melee {
             SetBorderColor 255 122 0
             Show #TOGGLE-HIGH-BASES
         }
