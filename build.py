@@ -87,6 +87,8 @@ def main(args):
             output_name = '{0}'.format(args.output)
             if toggle_file:
                 output_name += '.{0}'.format(toggle_file.split('/')[-1][:-7])
+            else:
+                output_name += '.generic'
 
             if var_file:
                 output_name += '.{0}'.format(var_file.split('/')[-1][:-5])
