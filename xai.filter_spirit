@@ -40,7 +40,7 @@ SocketGroup = $link4_colors {
 Rarity <= Magic {
     # highest ele damage with attacks, +3 minions and %es
     ItemLevel >= 86 {
-        BaseType $bases_energyShield_t1 $bases_evasionEnergyShield_t1 {
+        BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
             Show #TOGGLE-ES-BASES
         }
 
@@ -50,7 +50,7 @@ Rarity <= Magic {
     }
 
     ItemLevel >= 84 {
-        BaseType $bases_energyShield_t1 $bases_evasionEnergyShield_t1 {
+        BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
             Show #TOGGLE-ES-BASES
         }
     }
@@ -79,7 +79,7 @@ Rarity <= Magic {
     }
 
     ItemLevel >= 73 {
-        BaseType $bases_evasionEnergyShield_t1 {
+        BaseType $bases_evasion_energy_shield_t1 {
             Hide #TOGGLE-EARLY-TRICKSTER-CI
         }
     }
