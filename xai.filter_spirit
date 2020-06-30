@@ -1,15 +1,64 @@
 # [SECTION 1] OVERRIDES
+BaseType $priority_base_types {
+    ItemLevel >= $priority_min_ilvl {
+        Rarity <= Rare {
+            Corrupted False {
+                FracturedItem False {
+                    ElderItem False {
+                        ShaperItem False {
+                            Sockets < 6 {
+                                Set $comp_override
+                                Show
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+BaseType $chance_base_types {
+    Corrupted False {
+        Mirrored False {
+            FracturedItem False {
+                ItemLevel >= 50 {
+                    Sockets < 6 {
+                        Rarity = Normal {
+                            Set $comp_chance
+                            Show
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+Class "Map" {
+    Rarity <= Rare {
+        BaseType $map_highlighting {
+            Set $comp_t1_map
+            Show
+        }
+    }
+}
 
 # [SECTION 2] LEVELING LINKS
-SocketGroup = $link4_colors {
+# 4-links with colors
+SocketGroup = $leveling_link4_colors {
     LinkedSockets = 4 {
         Sockets < 6 {
-            ItemLevel <= 67 {
-                Rarity <= Rare {
-                    Class "Gloves" "Helm" "Boots" "Body Armour" {
-                        AreaLevel <= 52 {
-                            MinimapIcon 1 Purple Pentagon
-                        }
+            Rarity <= Rare {
+                Class "Gloves" "Helm" "Boots" "Body Armour" {
+                    AreaLevel <= 52 {
+                        Set $comp_leveling_links
+                        MinimapIcon $icon_leveling_4link
+                        SetAlertSound $alert_leveling_link
+                        Show #TOGGLE-LEVELING
+                    }
+                    AreaLevel <= 67 {
+                        Set $comp_leveling_links
                         Show #TOGGLE-LEVELING
                     }
                 }
@@ -18,7 +67,78 @@ SocketGroup = $link4_colors {
     }
 }
 
+# 3-links
+SocketGroup = $leveling_link3_colors {
+    LinkedSockets = 3 {
+        Sockets < 6 {
+            Rarity <= Rare {
+                Class "Gloves" "Helm" "Boots" "Body Armour" {
+                    AreaLevel <= 25 {
+                        Set $comp_leveling_links
+                        MinimapIcon $icon_leveling_3link
+                        SetAlertSound $alert_leveling_link
+                        Show #TOGGLE-LEVELING
+                    }
+                    AreaLevel <= 47 {
+                        Set $comp_leveling_links
+                        Show #TOGGLE-LEVELING
+                    }
+                }
+            }
+        }
+    }
+}
+
+# 2-links
+SocketGroup = $leveling_link2_colors {
+    LinkedSockets = 2 {
+        Sockets < 6 {
+            Rarity <= Rare {
+                AreaLevel <= 15 {
+                    Class "Gloves" "Helm" "Boots" {
+                        Set $comp_leveling_2l
+                        Show #TOGGLE-LEVELING
+                    }
+                }
+            }
+        }
+    }
+}
+
+# caster weapons
+SocketGroup = $leveling_link3_colors {
+    LinkedSockets = 3 {
+        Rarity <= Rare {
+            AreaLevel <= 25 {
+                Class $leveling_caster_weapons {
+                    Set $comp_leveling_links
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+    }
+}
+
+# 4-links without specific colors
+LinkedSockets = 4 {
+    Sockets < 6 {
+        AreaLevel <= 52 {
+            Rarity <= Rare {
+                Class "Gloves" "Helm" "Boots" "Body Armour" {
+                    Set $comp_leveling_links
+                    SetFontSize $font_medium
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+    }
+}
+
 # [SECTION 3] CURRENCY
+BaseType "Fishing Rod" "Albino Rhoa Feather" {
+    Set $comp_t1_currency
+    Show
+}
 
 # [SECTION 4] 6L
 
