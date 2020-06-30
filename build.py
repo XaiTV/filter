@@ -21,7 +21,7 @@ def generate_filter_version(spirit, var_base_file, filter_file, output_path, var
             for line in fp.readlines() + var_lines:
                 var = get_var_from_line(line)
                 # if the var isn't used before, the line can be added
-                if not any(get_var_from_line(line2) == var for line2 in new_lines):
+                if var is None or not any(get_var_from_line(line2) == var for line2 in new_lines):
                     new_lines.append(line)
 
         var_lines = new_lines
