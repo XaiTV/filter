@@ -55,12 +55,6 @@ Rarity <= Magic {
         }
     }
 
-    ItemLevel >= 73 {
-        BaseType $bases_evasionEnergyShield_t1 {
-            Hide #TOGGLE-EARLY-TRICKSTER-CI
-        }
-    }
-
     # some random high rolls like T1 +attributes and chance to block
     ItemLevel >= 85 {
         BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
@@ -81,6 +75,12 @@ Rarity <= Magic {
         BaseType $bases_2h_melee $bases_1h_melee {
             SetBorderColor 255 122 0
             Show #TOGGLE-HIGH-BASES
+        }
+    }
+
+    ItemLevel >= 73 {
+        BaseType $bases_evasionEnergyShield_t1 {
+            Hide #TOGGLE-EARLY-TRICKSTER-CI
         }
     }
 }
