@@ -57,7 +57,7 @@ def generate_filter_version(spirit, var_base_file, filter_file, output_path, var
                 filter_lines.append(line)
 
     # let's be nice and add a newline between the var and filter
-    combined_lines = var_lines + [''] + filter_lines
+    combined_lines = var_lines + ['\n'] + filter_lines
 
     with open(temp_file, 'w') as fp:
         fp.writelines(combined_lines)
