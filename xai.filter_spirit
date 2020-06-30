@@ -135,12 +135,211 @@ LinkedSockets = 4 {
 }
 
 # [SECTION 3] CURRENCY
+# meme items
 BaseType "Fishing Rod" "Albino Rhoa Feather" {
     Set $comp_t1_currency
     Show
 }
 
+# SHAPER VOICELINES
+Class $shaper_voicelines {
+    BaseType "Mirror of Kalandra" {
+        Set $comp_t1_currency
+        SetAlertSound ShMirror 300
+        Show
+    }
+    
+    BaseType "Exalted Orb" {
+        Set $comp_t1_currency
+        SetAlertSound ShExalted 300
+        Show
+    }
+    
+    BaseType "Divine Orb" {
+        Set $comp_t2_currency
+        SetAlertSound ShDivine 300
+        Show
+    }
+    
+    BaseType "Orb of Annulment" "Harbinger's Orb" "Ancient Orb" "Exalted Shard" {
+        Set $comp_t2_currency
+        SetAlertSound ShGeneral 300
+        Show
+    }
+    
+    BaseType "Regal Orb" {
+        Set $comp_t4_currency
+        SetAlertSound ShRegal 300
+        Show
+    }
+    
+    BaseType "Chaos Orb" {
+        Set $comp_t4_currency
+        SetAlertSound ShChaos 300
+        Show
+    }
+    
+    BaseType "Vaal Orb" {
+        Set $comp_t4_currency
+        SetAlertSound ShVaal 300
+        Show
+    }
+    
+    BaseType "Orb of Alchemy" {
+        Set $comp_t5_currency
+        SetAlertSound ShAlchemy 300
+        Show #TOGGLE-T5-CURRENCY
+    }
+    
+    BaseType "Orb of Fusing" {
+        Set $comp_t5_currency
+        SetAlertSound ShFusing 300
+        Show #TOGGLE-T5-CURRENCY
+    }
+}
+
+# Generic currency handling
+Class "Currency" {
+    BaseType $currency_t1 {
+        Set $comp_t1_currency
+        Show
+    }
+    BaseType $currency_t2 {
+        Set $comp_t2_currency
+        Show
+    }
+    BaseType $currency_t3 {
+        Set $comp_t3_currency
+        Show
+    }
+    BaseType $currency_t4 {
+        Set $comp_t4_currency
+        Show
+    }
+    BaseType $currency_t5 {
+        Set $comp_t5_currency
+        StackSize >= 3 {
+            Set $comp_t3_currency
+            Show
+        }
+        
+        Show #TOGGLE-T5-CURRENCY
+    }
+    BaseType $currency_t6 {
+        Set $comp_t6_currency
+        StackSize >= 3 {
+            Set $comp_t4_currency
+            Show #TOGGLE-T4-CURRENCY
+        }
+        AreaLevel <= 67 {
+            SetFontSize $font_max
+            Show #TOGGLE-T6-CURRENCY
+        }
+        
+        Show #TOGGLE-T6-CURRENCY
+    }
+    BaseType $currency_t7 {
+        Set $comp_t7_currency
+        StackSize >= 3 {
+            Set $comp_t5_currency
+            Show #TOGGLE-T5-CURRENCY
+        }
+        AreaLevel <= 67 {
+            SetFontSize $font_max
+            Show #TOGGLE-T7-CURRENCY
+        }
+        
+        Show #TOGGLE-T7-CURRENCY
+    }
+    BaseType $currency_t8 {
+        Set $comp_t8_currency
+        StackSize >= 3 {
+            Set $comp_t6_currency
+            Show #TOGGLE-T6-CURRENCY
+        }
+        AreaLevel <= 67 {
+            SetFontSize $font_max
+            Show #TOGGLE-T8-CURRENCY
+        }
+        
+        Show #TOGGLE-T8-CURRENCY
+    }
+    
+    BaseType "Portal Scroll" {
+        Set $comp_portal
+        StackSize >= 20 {
+            Set $comp_t4_currency
+            Show #TOGGLE-T4-CURRENCY
+        }
+        AreaLevel <= 67 {
+            SetFontSize $font_max
+            Show #TOGGLE-T8-CURRENCY
+        }
+        Show #TOGGLE-T8-CURRENCY
+    }
+
+    BaseType "Scroll of Wisdom" {
+        Set $comp_wisdom
+        StackSize >= 40 {
+            Set $comp_t4_currency
+            Show #TOGGLE-T4-CURRENCY
+        }
+        
+        AreaLevel <= 67 {
+            SetFontSize $font_max
+            Show #TOGGLE-T9-CURRENCY
+        }
+        
+        AreaLevel <= 72 {
+            SetFontSize $font_medium
+            Show #TOGGLE-T9-CURRENCY
+        }
+        
+        Hide
+    }
+}
+
+BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Decadent Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Portentous Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" {
+    Set $comp_t2_currency
+    SetAlertSound $alert_t3_currency
+    Show
+}
+
 # [SECTION 4] 6L
+LinkedSockets = 6 {
+    Set $comp_6l
+
+    Rarity = Unique {
+        Set $comp_t1_unique
+        BaseType "Simple Robe" {
+            SocketGroup WWWWWW {
+                # TABULA
+                SetAlertSound $alert_t2_unique
+                Show
+            }
+        }
+        Show
+    }
+    
+    Corrupted False {
+        # block for good 6Ls
+        SetBorderColor $red
+        SetTextColor $red
+        
+        Class "Body Armour" {
+            Show
+        }
+        
+        Class "Bow" {
+            ItemLevel >= 64 {
+                Show
+            }
+        }
+    }
+    
+    # rest of the 6L
+    Show
+}
 
 # [SECTION 5] LEAGUE OVERRIDES
 
