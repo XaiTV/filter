@@ -64,7 +64,7 @@ def generate_filter_version(spirit, var_base_file, filter_file, output_path, var
 
     # @TODO: don't use os.system, it's lame and potentially unsafe
     # @TODO: listen to exit codes
-    os.system('{0} -g --input-path={1} --output-path={2} -e'.format(
+    os.system('{0} -g --input-path="{1}" --output-path="{2}" -e'.format(
         spirit, temp_file, output_path,
     ))
     print('Filter now available at: {0}'.format(output_path))
