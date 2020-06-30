@@ -41,7 +41,7 @@ Rarity <= Magic {
     # highest ele damage with attacks, +3 minions and %es
     ItemLevel >= 86 {
         BaseType $bases_energyShield_t1 {
-            Show #TOGGLE-ES-BASES
+            Show #TOGGLE-86-BASES
         }
 
         BaseType $bases_helmets_t1 {
@@ -59,7 +59,7 @@ Rarity <= Magic {
     # Highest defense rolls & caster weapons
     ItemLevel >= 84 {
         BaseType $bases_energyShield_t1 {
-            Show #TOGGLE-ES-BASES
+            Show #TOGGLE-HIGH-BASES
         }
 
         BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
