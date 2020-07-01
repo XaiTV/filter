@@ -597,13 +597,13 @@ BaseType "Thaumaturgical Net" "Necromancy Net" "Strong Steel Net" "Simple Steel 
 # Incursion
 BaseType $incursion_vials_t1 {
     Set $comp_t1_currency
-    SetBackgroundColor $incursion
+    SetBackgroundColor $color_incursion
     MinimapIcon 0 Red Cross
     PlayEffect Red
     Show
 }
 BaseType $incursion_vials_t2 {
-    SetBackgroundColor $incursion
+    SetBackgroundColor $color_incursion
     SetBorderColor $black
     SetTextColor $black
     MinimapIcon 0 Red Circle
@@ -624,7 +624,7 @@ BaseType "Stone of Passage" "Flashpowder Keg" {
 #Good Incursion mod combos
 HasExplicitMod $incursion_good_mods {
     SetFontSize $font_medium
-    SetTextColor $incursion
+    SetTextColor $color_incursion
     MinimapIcon 0 Red Diamond
     PlayEffect Red
     Show
@@ -693,9 +693,130 @@ HasExplicitMod "Veil" {
     }
 }
 
+# Synthesis
+SynthesisedItem True {
+    Rarity <= Rare {
+        Set $comp_failsafe # in case some league mechanic starts dropping Synthesized items
+        Show
+    }
+}
+FracturedItem True {
+    Rarity <= Rare {
+        ItemLevel >= 86 {
+            Set $comp_rare_t1
+            SetFontSize $font_max
+            SetBorderColor $color_synthesis
+            MinimapIcon 1 Blue Diamond
+            SetAlertSound $alert_special_rares
+            PlayEffect Blue
+            Show
+        }
+        BaseType "Vaal Regalia" "Hubris Circlet" "Sorcerer Boots" "Sorcerer Gloves" "Titanium Spirit Shield" {
+            Set $comp_rare_t1
+            SetFontSize $font_max
+            SetBorderColor $color_synthesis
+            MinimapIcon 1 Blue Diamond
+            SetAlertSound $alert_special_rares
+            PlayEffect Blue
+            Show
+        }
+        ItemLevel >= 84 {
+            Set $comp_rare_t1
+            SetFontSize $font_max
+            SetBorderColor $color_synthesis
+            MinimapIcon 1 Blue Diamond
+            SetAlertSound $alert_special_rares
+            PlayEffect Blue
+            Show
+        }
+        Class "Boots" "Body Armour" "Gloves" "Jewel" "Abyss Jewel" "Amulet" "Shield" "Wand" "Sceptre" "Staves" "Bow" {
+            Set $comp_rare_t1
+            SetFontSize $font_max
+            SetBorderColor $color_synthesis
+            MinimapIcon 2 Blue Diamond
+            SetAlertSound $alert_special_rares
+            PlayEffect Blue
+            Show
+        }
+        Set $comp_rare_t2
+        SetBorderColor $color_synthesis
+        MinimapIcon 2 Blue Diamond
+        Show
+    }
+}
+
+# Legion
+# Incubators
+Class "Incubator"{
+    BaseType $incubators_t1 {
+        Set $comp_t2_currency
+        Show
+    }
+    Set $comp_t3_currency
+    Show
+}
+
+# Splinters @TODO: color code
+BaseType "Timeless Maraketh Splinter" "Timeless Templar Splinter" {
+    StackSize >= 2 {
+        Set $comp_splinters_stacked
+        Show
+    }
+    Set $comp_splinters_t1
+    Show
+}
+BaseType "Timeless Vaal Splinter" "Timeless Karui Splinter" "Timeless Eternal Empire Splinter"{
+    StackSize >= 2 {
+        Set $comp_splinters_stacked
+        Show
+    }
+    Set $comp_splinters_t2
+    Show
+}
+
+# Blight
+#Oils
+BaseType $oils_t1 {
+    SetFontSize $font_max
+    SetBackgroundColor $white
+    SetBorderColor $color_oil_t1
+    SetTextColor $color_oil_t1
+    PlayEffect Pink
+    MinimapIcon 0 Pink Cross
+    SetAlertSound $alert_t1_currency
+    Show
+}
+BaseType $oils_t2 {
+    SetFontSize $font_max
+    SetBackgroundColor $color_oil_t1
+    SetBorderColor $white
+    SetTextColor $white
+    PlayEffect Pink
+    MinimapIcon 0 Pink Circle
+    SetAlertSound $alert_t2_currency
+    Show
+}
+BaseType $oils_t3 {
+    SetFontSize $font_max
+    SetBackgroundColor $color_oil_t3
+    SetBorderColor $black
+    SetTextColor $black
+    PlayEffect Pink
+    MinimapIcon 1 Pink Circle
+    SetAlertSound $alert_t3_currency
+    Show
+}
+BaseType $oils_t4 {
+    SetFontSize $font_medium
+    SetBackgroundColor $color_oil_t4
+    SetBorderColor $black
+    SetTextColor $black
+    Show #TOGGLE-T4-OILS
+}
+
 
 # [SECTION 6] UNIQUES
-# @TODO: don't forget unique watchstone & talisman
+# @TODO: don't forget unique watchstone, synthesis items & talisman
 
 # [SECTION 7] DIVINATION CARDS
 
@@ -812,6 +933,7 @@ BaseType "Offering to the Goddess"{
 }
 
 # [SECTION 19] FRAGMENTS
+# @TODO: don't forget scarabs & Breachstones
 
 # [SECTION 20] MISC
 
