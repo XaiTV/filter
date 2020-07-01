@@ -509,7 +509,7 @@ Class "Rings" {
 }
 
 BaseType "Splinter of Chayula" {
-    StackSize >= 3 {
+    StackSize >= 2 {
         Set $comp_splinters_stacked
         Show
     }
@@ -518,11 +518,17 @@ BaseType "Splinter of Chayula" {
 }
 
 BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter of Tul" {
-    StackSize >= 3 {
+    StackSize >= 2 {
         Set $comp_splinters_stacked
         Show
     }
     Set $comp_splinters_t2
+    Show
+}
+
+# @TODO: perhaps move to fragments? I kind of like it here with the rest of the Breach stuff though else splinters would be frags too...
+BaseType "Breachstone" {
+    Set $comp_t1_currency
     Show
 }
 
@@ -531,7 +537,23 @@ BaseType "Blessing of Chayula" "Blessing of Esh" "Blessing of Xoph" "Blessing of
     Show
 }
 
-# @TODO: Breachstones
+# Legacy
+Class "Leaguestone" {
+    SetFontSize 40
+    SetTextColor 0 0 0
+    SetBackgroundColor 150 250 50
+    SetBorderColor 0 0 0
+    PlayEffect Green Temp
+    SetAlertSound 2 300
+    Show
+}
+
+# Garbinger Harbinger
+Class "Piece" {
+    Set $comp_t3_unique
+    Show
+}
+
 
 # [SECTION 6] UNIQUES
 # @TODO: don't forget unique watchstone & talisman
