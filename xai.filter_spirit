@@ -775,6 +775,7 @@ BaseType "Timeless Vaal Splinter" "Timeless Karui Splinter" "Timeless Eternal Em
 }
 
 # Blight
+# Blighted maps are in the maps section
 #Oils
 BaseType $oils_t1 {
     SetFontSize $font_max
