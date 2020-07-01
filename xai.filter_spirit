@@ -815,6 +815,47 @@ BaseType $oils_t4 {
     Show #TOGGLE-T4-OILS
 }
 
+# Metamorph
+Class "Metamorph Sample" {
+    SetFontSize $font_max
+    SetBackgroundColor $color_metamorph
+    SetBorderColor $light_gray
+    SetTextColor $light_gray
+    MinimapIcon 1 Green Kite
+    PlayEffect Green
+    SetAlertSound $alert_t3_currency
+    Show
+}
+Class "Currency"{
+    BaseType $catalysts_t1 {
+        SetFontSize $font_max
+        MinimapIcon 0 Brown Circle
+        SetBorderColor $white
+        SetBackgroundColor 250 230 200
+        PlayEffect Brown
+        SetTextColor $black
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    BaseType $catalysts_t2 {
+        SetFontSize $font_max
+        MinimapIcon 2 Brown Circle
+        SetBorderColor $black
+        SetTextColor $black
+        SetBackgroundColor 250 230 200
+        PlayEffect Brown
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    BaseType "Catalyst" {
+        SetFontSize $font_max
+        SetBorderColor $black
+        SetTextColor $black
+        SetBackgroundColor 220 208 180
+        PlayEffect Brown Temp
+        Show
+    }
+}
 
 # [SECTION 6] UNIQUES
 # @TODO: don't forget unique watchstone, synthesis items & talisman
