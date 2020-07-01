@@ -1251,71 +1251,260 @@ Sockets = 6 { #6 Sockets
 }
 
 # [SECTION 11] ID HIGHLIGHTING
+# @TODO
 
 # [SECTION 12] BASES
 # @TODO: don't forget to include atlas bases
-Rarity <= Magic {
-    # highest ele damage with attacks, +3 minions and %es
-    ItemLevel >= 86 {
-        BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+# highest ele damage with attacks, +3 minions and %es
+ItemLevel >= 86 {
+    BaseType $bases_atlas_jewellery_t1 {
+        Set $comp_atlas_t1
+        Show
+    }
+    
+    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+        Set $comp_atlas_t2
+        Show
+    }
+
+    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-ES-BASES
         }
+    }
 
-        BaseType $bases_helmets_t1 {
+    BaseType $bases_helmets_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-HIGH-BASES
         }
     }
+}
 
-    ItemLevel >= 84 {
-        BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+# 84 energy shield stuff gets priority
+ItemLevel >= 84 {
+    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-ES-BASES
         }
     }
+}
 
-    # some random high rolls like T1 +attributes and chance to block
-    ItemLevel >= 85 {
-        BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+# some random high rolls like T1 +attributes and chance to block
+ItemLevel >= 85 {
+    BaseType $bases_atlas_jewellery_t1 {
+        Set $comp_atlas_t1
+        MinimapIcon 1 Yellow Diamond
+        SetBorderColor 250 200 150
+        Show
+    }
+    
+    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+        Set $comp_atlas_t2
+        SetBorderColor 200 150 0
+        Show
+    }
+
+    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-HIGH-BASES
         }
     }
+}
 
-    # Highest defense rolls & caster weapons
-    ItemLevel >= 84 {
-        BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+# Highest defense rolls & caster weapons
+ItemLevel >= 84 {
+    BaseType $bases_atlas_jewellery_t1 {
+        Set $comp_atlas_t1
+        MinimapIcon 1 Yellow Diamond
+        SetBorderColor 200 150 0
+        Show
+    }
+    
+    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+        Set $comp_atlas_t2
+        SetBorderColor 150 100 0
+        Show
+    }
+
+    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-HIGH-BASES
         }
     }
+}
 
-    # merciless roll
-    ItemLevel >= 83 {
-        # @TODO: split these up, 2h should probably be a bit smaller
-        BaseType $bases_2h_melee $bases_1h_melee {
-            SetBorderColor 255 122 0
+# merciless roll
+ItemLevel >= 83 {
+    # @TODO: split these up, 2h should probably be a bit smaller
+    BaseType $bases_2h_melee $bases_1h_melee {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Show #TOGGLE-HIGH-BASES
         }
     }
+}
 
-    ItemLevel >= 73 {
-        BaseType $bases_evasion_energy_shield_t1 {
+ItemLevel >= 73 {
+    BaseType $bases_evasion_energy_shield_t1 {
+        Rarity <= Magic {
+            # @TODO: make pretty
             Hide #TOGGLE-EARLY-TRICKSTER-CI
         }
     }
 }
 
-# [SECTION 13] RARES
-Rarity = Rare {
-
+BaseType $bases_atlas_jewellery_t1 {
+    Set $comp_atlas_t1
+    SetBorderColor 220 0 220
+    MinimapIcon 2 Yellow Diamond
+    Show
 }
 
-# [SECTION 14] CHROMES
+BaseType $bases_atlas_jewellery_t2 {
+    Set $comp_atlas_t2
+    SetBackgroundColor 50 0 100
+    SetBorderColor 175 75 255
+    Show
+}
 
-# [SECTION 15] FLASKS
+BaseType $bases_atlas_armour {
+    Set $comp_atlas_t2
+    Rarity = Rare {
+        SetFontSize $font_large
+		SetBorderColor 200 0 200
+        Show
+    }
+    SetBorderColor 200 0 200
+    Show #TOGGLE-LOW-ATLAS-ARMOUR
+}
 
-# [SECTION 16] GEMS
+# Tier 1 armour rares(Is made up of T1 and T2 bases)
+Rarity = Rare {
+    Set $comp_rare_t1
+    BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
+        SetBorderColor $color_rare_t1_border
+        Show
+    }
+    
+    BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
+        SetBorderColor $color_rare_t1_border
+        SetFontSize $font_medium
+        Show  #TOGGLE-BIG-RARES
+    }
+}
 
-# [SECTION 17] LEVELING
+# Tier 2 armour rares(Is made up of T3 bases)
+Rarity = Rare {
+    Set $comp_rare_t2
+    BaseType $bases_small_armour_t3 {
+        SetBorderColor $color_rare_t2_border
+        Show
+    }
+    
+    BaseType $bases_big_armour_t3 {
+        SetBorderColor $color_rare_t2_border
+        SetFontSize $font_medium
+        Show  #TOGGLE-BIG-RARES
+    }
+}
 
-# [SECTION 18] QUEST SHIT
+# Tier 3 armour rares(Either not shown or consists of helmet/gloves/boots)
+Rarity = Rare {
+    Class $t3_rare_classes {
+        AreaLevel <= $t3_rare_cutoff {
+            AreaLevel >= 68 {
+                Set $comp_rare_t3
+                Show
+            }
+        }
+    }
+}
+
+Rarity = Rare {
+    BaseType $bases_caster_t1 {
+        Set $comp_rare_t1
+        SetBorderColor $color_rare_caster_border
+        Show
+    }
+    BaseType $bases_caster_t2 {
+        Set $comp_rare_t2
+        SetBorderColor $color_rare_caster_border 200
+        Show
+    }
+    BaseType $bases_1h_melee {
+        Set $comp_rare_t1
+        SetFontSize $font_medium
+        SetBorderColor $color_rare_melee_border
+        Show
+    }
+    BaseType $bases_2h_melee {
+        Set $comp_rare_t1
+        SetBorderColor $color_rare_melee_border
+        Show
+    }
+    BaseType $bases_bow {
+        Set $comp_rare_t1
+        SetBorderColor $color_rare_bow_border
+        Show
+    }
+    BaseType $bases_quiver {
+        Set $comp_rare_t1
+        SetBorderColor $color_rare_bow_border
+        Show
+    }
+}
+
+Rarity = Rare {
+    Class "Amulets" "Belts" "Rings" {
+        BaseType $bases_jewellery_t1 {
+            SetFontSize $font_xl
+            SetBackgroundColor 50 0 100
+            SetBorderColor 175 75 255
+            
+            ItemLevel <= 12 { # Sound for very low levels
+                SetFontSize $font_xl
+                SetAlertSound $alert_t3
+                MinimapIcon 2 Purple Diamond
+                Show
+            }
+            
+            ItemLevel <= 67 { # Leveling exception
+                SetFontSize $font_max
+                Show
+            }
+            Show
+        }
+        
+        BaseType $bases_jewellery_t2 {
+            SetFontSize $font_small
+            SetBackgroundColor 0 50 100
+            SetBorderColor 75 150 255
+            ItemLevel <= 67 {#Leveling exception
+                SetFontSize $font_xl
+                Show
+            }
+            Show
+        }
+        
+        Set $comp_failsafe
+        Show
+    }
+}
+
+# [SECTION 13] CHROMES
+
+# [SECTION 14] FLASKS
+
+# [SECTION 15] GEMS
+
+# [SECTION 16] LEVELING
+
+# [SECTION 17] QUEST SHIT
 Class "Quest Items"{
     SetFontSize $font_max
     SetTextColor $white
@@ -1357,14 +1546,14 @@ BaseType "Offering to the Goddess"{
     Show
 }
 
-# [SECTION 19] FRAGMENTS
+# [SECTION 18] FRAGMENTS
 # @TODO: don't forget scarabs & Breachstones
 
-# [SECTION 20] MISC
+# [SECTION 19] MISC
 
-# [SECTION 21] SAFETY NETS
+# [SECTION 20] SAFETY NETS
 
-# [SECTION 22] FAILSAFE & HIDE ALL
+# [SECTION 21] FAILSAFE & HIDE ALL
 Rarity <= Magic {
     SetFontSize 22
     SetBackgroundColor 0 0 0 200
