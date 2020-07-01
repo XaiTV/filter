@@ -523,7 +523,7 @@ BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter 
         Show
     }
     Set $comp_splinters_t2
-    Show
+    Show #TOGGLE-T2-BREACH-SPLINTERS
 }
 
 # @TODO: perhaps move to fragments? I kind of like it here with the rest of the Breach stuff though else splinters would be frags too...
@@ -551,6 +551,50 @@ Class "Leaguestone" {
 # Garbinger Harbinger
 Class "Piece" {
     Set $comp_t3_unique
+    Show
+}
+
+# Bestiary :)
+BaseType "Bestiary Orb" "Imprinted Bestiary Orb" {
+    SetFontSize $font_max
+    SetTextColor $black
+    SetBackgroundColor $color_bestiary
+    SetBorderColor $black
+    SetAlertSound $alert_t3
+    PlayEffect Green
+    Show
+}
+
+HasExplicitMod "Craiceann" "Fenumus" {
+    SetFontSize $font_max
+    Class "Ring" "Amulet" "Belt" {
+        SetTextColor $color_bestiary
+        SetBorderColor $color_bestiary
+        MinimapIcon 0 Green Diamond
+        PlayEffect Green
+        SetAlertSound $alert_special_rares
+        Show
+    }
+    SetTextColor $color_bestiary
+    MinimapIcon 1 Green Diamond
+    PlayEffect Green
+    Show
+}
+
+HasExplicitMod "Farrul" "Saqawal"{
+    SetFontSize $font_max
+    SetTextColor $color_bestiary
+    MinimapIcon 2 Green Diamond
+    PlayEffect Green
+    Show
+}
+
+#No tiering for nets because they are redundant, and only needs support for legacy reasons.
+BaseType "Thaumaturgical Net" "Necromancy Net" "Strong Steel Net" "Simple Steel Net" "Reinforced Steel Net" "Simple Iron Net" "Reinforced Iron Net" "Strong Iron Net" "Simple Rope Net" "Reinforced Rope Net" "Strong Rope Net" {
+    SetFontSize $font_medium
+    SetTextColor 250 250 250
+    SetBackgroundColor 125 175 0
+    SetBorderColor 250 250 250
     Show
 }
 
