@@ -498,6 +498,7 @@ Class "Currency" {
 }
 
 # Breach
+# Breachstones are located under fragments
 Class "Rings" {
     BaseType "Breach Ring"{
         # @TODO: id filtering
@@ -526,12 +527,6 @@ BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter 
     Show #TOGGLE-T2-BREACH-SPLINTERS
 }
 
-# @TODO: perhaps move to fragments? I kind of like it here with the rest of the Breach stuff though else splinters would be frags too...
-BaseType "Breachstone" {
-    Set $comp_t1_currency
-    Show
-}
-
 BaseType "Blessing of Chayula" "Blessing of Esh" "Blessing of Xoph" "Blessing of Tul" "Blessing of Uul-Netol" {
     Set $comp_t2_currency
     Show
@@ -555,6 +550,7 @@ Class "Piece" {
 }
 
 # Bestiary :)
+# @TODO: at least for the id filtering this should probably use some compounds
 BaseType "Bestiary Orb" "Imprinted Bestiary Orb" {
     SetFontSize $font_max
     SetTextColor $black
@@ -596,6 +592,105 @@ BaseType "Thaumaturgical Net" "Necromancy Net" "Strong Steel Net" "Simple Steel 
     SetBackgroundColor 125 175 0
     SetBorderColor 250 250 250
     Show
+}
+
+# Incursion
+BaseType $incursion_vials_t1 {
+    Set $comp_t1_currency
+    SetBackgroundColor $incursion
+    MinimapIcon 0 Red Cross
+    PlayEffect Red
+    Show
+}
+BaseType $incursion_vials_t2 {
+    SetBackgroundColor $incursion
+    SetBorderColor $black
+    SetTextColor $black
+    MinimapIcon 0 Red Circle
+    SetFontSize $font_max
+    SetAlertSound $alert_t3
+    PlayEffect Red
+    Show
+}
+BaseType "Stone of Passage" "Flashpowder Keg" {
+    SetFontSize $font_max
+    SetBackgroundColor 160 0 0
+    SetTextColor $white
+    SetBorderColor $white
+    MinimapIcon 1 Red Kite
+    SetAlertSound $alert_t3
+    Show
+}
+#Good Incursion mod combos
+HasExplicitMod $incursion_good_mods {
+    SetFontSize $font_medium
+    SetTextColor $incursion
+    MinimapIcon 0 Red Diamond
+    PlayEffect Red
+    Show
+}
+
+# Delve - BLEH
+Class "Currency"{
+    BaseType "Prime Alchemical Resonator" "Prime Chaotic Resonator"{
+        Set $comp_t2_currency
+        Show
+    }
+    BaseType "Powerful Chaotic Resonator" "Potent Chaotic Resonator" "Primitive Chaotic Resonator"{
+        Set $comp_t3_currency
+        Show
+    }
+    BaseType "Powerful Alchemical Resonator" "Potent Alchemical Resonator" "Primitive Alchemical Resonator"{
+        Set $comp_t5_currency
+        Show
+    }
+
+    BaseType $fossil_t1 {
+        Set $comp_t1_currency
+        Show
+    }
+    BaseType $fossil_t2 {
+        Set $comp_t2_currency
+        Show
+    }
+    BaseType $fossil_t3 {
+        Set $comp_t3_currency
+        Show
+    }
+    BaseType $fossil_t4 {
+        Set $comp_t4_currency
+        Show
+    }
+    BaseType "Fossil" {
+        Set $comp_failsafe
+        Show
+    }
+}
+HasExplicitMod "of Weaponcraft" "of Spellcraft" "of Crafting" "Subterranean" "of the Underground"{
+    SetFontSize $font_xl
+    SetTextColor 150 250 250
+    PlayEffect Blue
+    Show
+}
+
+BaseType "Reliquary Key" {
+    Set $comp_t1_currency
+    Show
+}
+
+# Betrayal
+# Scarabs are located under the Fragments section since they are technically fragments
+# @TODO: veiled mod tiering
+HasExplicitMod "Veil" {
+    Rarity <= Rare {
+        Set $comp_rare_t1
+        SetBorderColor $white
+        MinimapIcon 2 White Diamond
+        PlayEffect White
+        SetAlertSound $alert_special_rares
+        SetFontSize $font_large
+        Show
+    }
 }
 
 
