@@ -46,12 +46,12 @@ Class "Map" {
 
 # [SECTION 2] LEVELING LINKS
 # 4-links with colors
-SocketGroup = $leveling_link4_colors {
-    LinkedSockets = 4 {
-        Sockets < 6 {
-            Rarity <= Rare {
-                Class "Gloves" "Helm" "Boots" "Body Armour" {
-                    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+    SocketGroup = $leveling_link4_colors {
+        LinkedSockets = 4 {
+            Sockets < 6 {
+                Rarity <= Rare {
+                    Class "Gloves" "Helm" "Boots" "Body Armour" {
                         AreaLevel <= 52 {
                             Set $comp_leveling_links
                             MinimapIcon $icon_leveling_4link
@@ -67,15 +67,13 @@ SocketGroup = $leveling_link4_colors {
             }
         }
     }
-}
 
-# 3-links
-SocketGroup = $leveling_link3_colors {
-    LinkedSockets = 3 {
-        Sockets < 6 {
-            Rarity <= Rare {
-                Class "Gloves" "Helm" "Boots" "Body Armour" {
-                    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+    # 3-links
+    SocketGroup = $leveling_link3_colors {
+        LinkedSockets = 3 {
+            Sockets < 6 {
+                Rarity <= Rare {
+                    Class "Gloves" "Helm" "Boots" "Body Armour" {
                         AreaLevel <= 25 {
                             Set $comp_leveling_links
                             MinimapIcon $icon_leveling_3link
@@ -91,14 +89,12 @@ SocketGroup = $leveling_link3_colors {
             }
         }
     }
-}
 
-# 2-links
-SocketGroup = $leveling_link2_colors {
-    LinkedSockets = 2 {
-        Sockets < 6 {
-            Rarity <= Rare {
-                AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+    # 2-links
+    SocketGroup = $leveling_link2_colors {
+        LinkedSockets = 2 {
+            Sockets < 6 {
+                Rarity <= Rare {
                     AreaLevel <= 15 {
                         Class "Gloves" "Helm" "Boots" {
                             Set $comp_leveling_2l
@@ -109,13 +105,11 @@ SocketGroup = $leveling_link2_colors {
             }
         }
     }
-}
 
-# caster weapons
-SocketGroup = $leveling_link3_colors {
-    LinkedSockets = 3 {
-        Rarity <= Rare {
-            AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+    # caster weapons
+    SocketGroup = $leveling_link3_colors {
+        LinkedSockets = 3 {
+            Rarity <= Rare {
                 AreaLevel <= 25 {
                     Class $leveling_caster_weapons {
                         Set $comp_leveling_links
@@ -125,12 +119,10 @@ SocketGroup = $leveling_link3_colors {
             }
         }
     }
-}
 
-# 4-links without specific colors
-LinkedSockets = 4 {
-    Sockets < 6 {
-        AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+    # 4-links without specific colors
+    LinkedSockets = 4 {
+        Sockets < 6 {
             AreaLevel <= 52 {
                 Rarity <= Rare {
                     Class "Gloves" "Helm" "Boots" "Body Armour" {
