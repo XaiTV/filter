@@ -406,16 +406,94 @@ Rarity <= Rare {
     BaseType "Talisman" {
         HasExplicitMod "Virile" "Rotund" "Athlete's" "Overpowering" "Devastating" "of Exile" "of Bameth" {
             Set $comp_good_talisman
-            Show
+            Show #TOGGLE-GOOD-TALISMAN
         }
     }
     BaseType "Primal Skull Talisman" "Fangjaw Talisman" "Clutching Talisman" "Horned Talisman" "Wereclaw Talisman" "Rotfeather Talisman" "Longtooth Talisman" "Spinefuse Talisman" "Three Rat Talisman" {
         Set $comp_good_talisman_base
-        Show
+        Show #TOGGLE-GOOD-TALISMAN
     }
     BaseType "Talisman" {
         Set $comp_talisman
+        Show #TOGGLE-TALISMAN
+    }
+}
+
+# Prophecy
+Class "Currency"{
+    Prophecy $prophecy_t1 {
+        Set $comp_prophecy_t1
         Show
+    }
+    Prophecy $prophecy_t2 {
+        Set $comp_prophecy_t2
+        Show
+    }
+    Prophecy $prophecy_t3 {
+        Set $comp_prophecy_t3
+        Show
+    }
+    Prophecy $prophecy_t5 {
+        SetFontSize $font_small
+        SetTextColor $color_prophecy
+        SetBackgroundColor $black
+        Hide
+    }
+    BaseType "Prophecy" {
+        Set $comp_prophecy_t4
+        Show # TOGGLE-T4-PROPHECIES
+    }
+}
+
+# Essences
+# @TODO: just straight up copied from Alek's filter now
+Class "Currency" {
+    BaseType "Essence of Hysteria" "Essence of Insanity" "Essence of Horror" "Essence of Delirium" {
+        SetBackgroundColor $color_t2_currency_bg
+        SetBorderColor $white
+        SetFontSize $font_max
+        SetTextColor $white
+        SetAlertSound $alert_t2_currency
+        PlayEffect Green
+        MinimapIcon 0 Green Circle
+        Show
+    }
+
+    BaseType "Shrieking Essence" "Deafening Essence" "Remnant of Corruption" {
+        SetBackgroundColor $color_t3_currency_bg
+        SetBorderColor $black
+        SetFontSize $font_max
+        SetTextColor $black
+        SetAlertSound $alert_t3_currency
+        PlayEffect Green
+        MinimapIcon 1 Green Circle
+        Show
+    }
+    BaseType "Screaming Essence" {
+        SetBackgroundColor $color_t4_currency_bg
+        SetBorderColor $black
+        SetFontSize $font_xl
+        SetTextColor $black
+        SetAlertSound $alert_t4_currency
+        PlayEffect Green Temp
+        MinimapIcon 2 Green Circle
+        Show
+    }
+    BaseType "Wailing Essence" {
+        SetBackgroundColor $color_t5_currency_bg
+        SetBorderColor $black
+        SetFontSize $font_xl
+        SetTextColor $black
+        SetAlertSound $alert_t5_currency
+        Show
+
+    }
+    BaseType "Essence" {
+        SetBackgroundColor $color_t6_currency_bg
+        SetBorderColor $black
+        SetFontSize $font_medium
+        SetTextColor $black
+        Show #TOGGLE-LOW-ESSENCES
     }
 }
 
