@@ -999,19 +999,261 @@ Class "Harvest Seed" {
 }
 
 # [SECTION 6] UNIQUES
-# @TODO: don't forget unique watchstone, synthesis items & talisman
+Rarity = Unique {
+    BaseType $uniques_t1 {
+        Set $comp_t1_unique
+        Show
+    }
+    BaseType $uniques_t2_guaranteed $uniques_t2_specific {
+        Set $comp_t2_unique
+        Show
+    }
+    BaseType "Steelscale Gauntlets" "Murder Boots" {
+        #Exception for 2xAbyss socket uniques
+        SocketGroup = A A {
+            Set $comp_t2_unique
+            Show
+        }
+    }
+    BaseType $uniques_t3_guaranteed $uniques_t3_specific {
+        Set $comp_t3_unique
+        Show
+    }
+    Set $comp_t4_unique
+    Show
+}
 
 # [SECTION 7] DIVINATION CARDS
+Class "Divination Card" {
+    BaseType == $div_cards_t1 {
+        Set $comp_div_t1
+        Show
+    }
+    
+    BaseType == $div_cards_t2 {
+        Set $comp_div_t2
+        Show
+    }
+    
+    BaseType == $div_cards_t3 {
+        Set $comp_div_t3
+        Show
+    }
+    
+    BaseType == $div_cards_t4 {
+        Set $comp_div_t4
+        Show
+    }
+    
+    BaseType == $div_cards_t6 {
+        Set $comp_div_t5
+        Hide #TOGGLE-T6-DIV-CARDS
+    }
+    
+    Set $comp_div_t5
+    Show #TOGGLE-T5-DIV-CARDS
+}
 
 # [SECTION 8] MAPS
+# Influenced Maps
+Class "Map" {
+    HasInfluence Shaper {
+        Set $comp_map_influence
+        Show
+    }
+    HasInfluence Elder {
+        Set $comp_map_influence
+        Show
+    }
+}
+
+# Blighted Maps
+Class "Map" {
+    BlightedMap True {
+        MapTier >= 15 {
+            Set $comp_map_t1
+            SetAlertSound $alert_t1
+            MinimapIcon 0 Red Hexagon
+            Show
+        }
+        Set $comp_map_t2
+        SetAlertSound $alert_t2
+        MinimapIcon 0 Yellow Hexagon
+        Show
+    }
+}
+
+# real maps
+Class "Map" {
+    MapTier >= 16 {
+        Set $comp_map_t1
+        # Exception for "Vaal" maps from temple
+        Identified True {
+            HasExplicitMod "Vaal" {
+                SetBorderColor $color_frag_dark
+                Show
+            }
+        }
+        Show
+    }
+    MapTier >= 11 {
+        Set $comp_map_t2
+        # Exception for "Vaal" maps from temple
+        Identified True {
+            HasExplicitMod "Vaal" {
+                SetBorderColor $color_frag_dark
+                Show
+            }
+        }
+        Show
+    }
+    MapTier >= 6 {
+        Set $comp_map_t3
+        # Exception for "Vaal" maps from temple
+        Identified True {
+            HasExplicitMod "Vaal" {
+                SetBorderColor $color_frag_dark
+                Show
+            }
+        }
+        Show
+    }
+    
+    # Exception for "Vaal" maps from temple
+    Identified True {
+        HasExplicitMod "Vaal" {
+            Set $comp_map_t4
+            SetBorderColor $color_frag_dark
+            Show
+        }
+    }
+    
+    MapTier >= 5 {
+        ItemLevel < 84 {
+            Set $comp_map_t4
+            Show
+        }
+        Set $comp_map_outleveled
+        Show #TOGGLE-OUTLEVELED-MAPS
+    }
+    MapTier >= 4 {
+        ItemLevel < 83 {
+            Set $comp_map_t4
+            Show
+        }
+        Set $comp_map_outleveled
+        Show #TOGGLE-OUTLEVELED-MAPS
+    }
+    MapTier >= 3 {
+        ItemLevel < 82 {
+            Set $comp_map_t4
+            Show
+        }
+        Set $comp_map_outleveled
+        Show #TOGGLE-OUTLEVELED-MAPS
+    }
+    MapTier >= 2 {
+        ItemLevel < 81 {
+            Set $comp_map_t4
+            Show
+        }
+        Set $comp_map_outleveled
+        Show #TOGGLE-OUTLEVELED-MAPS
+    }
+    MapTier <= 1 {
+        ItemLevel < 80 {
+            Set $comp_map_t4
+            Show
+        }
+        Set $comp_map_outleveled
+        Show #TOGGLE-OUTLEVELED-MAPS
+    }
+}
+
 
 # [SECTION 9] INFLUENCED ITEMS
+# @TODO: extend this part a lot. Perhaps highlight t1 rares a bit here?
+HasInfluence Crusader {
+    Class "Body Armour" {
+        Set $comp_rare_influence_t1
+        Show
+    }
+}
+
+HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
+    BaseType $bases_atlas {
+        Set $comp_rare_influence_t1
+        Show
+    }
+    
+    BaseType $bases_rings_t1 {
+        ItemLevel >= 75 {
+            Set $comp_rare_influence_t2
+        }
+    }
+    
+    Set $comp_rare_influence_t3
+    Show
+}
 
 # [SECTION 10] LINKS & SOCKETS
+LinkedSockets = 5  { #5-Link rules
+    Sockets = 6 {
+        Rarity <= Rare {
+            Set $comp_recipe_base
+            SetFontSize $font_max
+            SetBorderColor $color_special_rares_border
+            SetAlertSound $alert_t3
+            PlayEffect Grey
+            MinimapIcon 2 White Pentagon
+            Show
+        }
+    }
+    Rarity < Unique {
+        ItemLevel >= 65 {
+            Class "Body Armours" {
+                SetFontSize $font_max
+                SetBorderColor $color_special_rares_border
+                SetAlertSound $alert_t3
+                PlayEffect Grey
+                MinimapIcon 2 White Pentagon
+                Show
+            }
+            SetFontSize $font_max
+            SetBorderColor $color_special_rares_border
+            SetAlertSound $alert_t3
+            PlayEffect Grey
+            MinimapIcon 2 White Pentagon
+            Show #TOGGLE-5-LINKS
+        }
+        ItemLevel < 65 {
+            SetFontSize $font_max
+            SetBorderColor $color_special_rares_border
+            SetBackgroundColor $black
+            SetAlertSound $alert_t3
+            PlayEffect Blue
+            MinimapIcon 1 White Pentagon
+            Show
+        }
+    }
+}
+Sockets = 6 { #6 Sockets
+    Rarity <= Rare  {
+        Set $comp_recipe_base
+        SetFontSize $font_large
+        SetBorderColor $white
+        SetTextColor $white
+        PlayEffect Grey
+        MinimapIcon 2 White Pentagon
+        SetAlertSound $alert_6s
+        Show
+    }
+}
 
 # [SECTION 11] ID HIGHLIGHTING
 
 # [SECTION 12] BASES
+# @TODO: don't forget to include atlas bases
 Rarity <= Magic {
     # highest ele damage with attacks, +3 minions and %es
     ItemLevel >= 86 {
