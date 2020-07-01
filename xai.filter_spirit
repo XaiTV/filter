@@ -354,7 +354,7 @@ LinkedSockets = 6 {
     Show
 }
 
-# [SECTION 5] LEAGUE OVERRIDES & STUFF THAT NEEDS TO BE ABOVE ALL ELSE
+# [SECTION 5] LEAGUES & SOME SPECIAL STUFF
 # Enchanted items
 AnyEnchantment True {
     Class "Helmets"{
@@ -374,7 +374,33 @@ AnyEnchantment True {
 
 }
 
+# Warbands
+HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
+    Set $comp_warbands
+    Show
+}
+
+# Talisman
+# uniques are handled in uniques section
+Rarity <= Rare {
+    BaseType "Talisman" {
+        HasExplicitMod "Virile" "Rotund" "Athlete's" "Overpowering" "Devastating" "of Exile" "of Bameth" {
+            Set $comp_good_talisman
+            Show
+        }
+    }
+    BaseType "Primal Skull Talisman" "Fangjaw Talisman" "Clutching Talisman" "Horned Talisman" "Wereclaw Talisman" "Rotfeather Talisman" "Longtooth Talisman" "Spinefuse Talisman" "Three Rat Talisman" {
+        Set $comp_good_talisman_base
+        Show
+    }
+    BaseType "Talisman" {
+        Set $comp_talisman
+        Show
+    }
+}
+
 # [SECTION 6] UNIQUES
+# @TODO: don't forget unique watchstone & talisman
 
 # [SECTION 7] DIVINATION CARDS
 
