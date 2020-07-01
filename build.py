@@ -45,6 +45,7 @@ def generate_filter_version(spirit, var_base_file, filter_file, output_path, var
                 pre_toggle, after_toggle = line.split('#TOGGLE-')
                 toggle_name = after_toggle.strip()
                 if toggle_name in toggles:
+                    # @TODO: perhaps we want a COMMENT option besides Hide/Show that comments the entire block out?
                     if toggles[toggle_name] == 'Show':
                         pre_toggle = pre_toggle.replace('Hide', 'Show')
                     else:

@@ -45,22 +45,23 @@ Class "Map" {
 }
 
 # [SECTION 2] LEVELING LINKS
-# @TODO: do we really want this all the way at the top? Risk of hiding stuff when for example a "special" low level area(like Menagerie and Mine Encampment) start dropping high bases that happen to be our leveling colors when leveling section is disabled
 # 4-links with colors
 SocketGroup = $leveling_link4_colors {
     LinkedSockets = 4 {
         Sockets < 6 {
             Rarity <= Rare {
                 Class "Gloves" "Helm" "Boots" "Body Armour" {
-                    AreaLevel <= 52 {
-                        Set $comp_leveling_links
-                        MinimapIcon $icon_leveling_4link
-                        SetAlertSound $alert_leveling_link
-                        Show #TOGGLE-LEVELING
-                    }
-                    AreaLevel <= 67 {
-                        Set $comp_leveling_links
-                        Show #TOGGLE-LEVELING
+                    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+                        AreaLevel <= 52 {
+                            Set $comp_leveling_links
+                            MinimapIcon $icon_leveling_4link
+                            SetAlertSound $alert_leveling_link
+                            Show #TOGGLE-LEVELING
+                        }
+                        AreaLevel <= 67 {
+                            Set $comp_leveling_links
+                            Show #TOGGLE-LEVELING
+                        }
                     }
                 }
             }
@@ -74,15 +75,17 @@ SocketGroup = $leveling_link3_colors {
         Sockets < 6 {
             Rarity <= Rare {
                 Class "Gloves" "Helm" "Boots" "Body Armour" {
-                    AreaLevel <= 25 {
-                        Set $comp_leveling_links
-                        MinimapIcon $icon_leveling_3link
-                        SetAlertSound $alert_leveling_link
-                        Show #TOGGLE-LEVELING
-                    }
-                    AreaLevel <= 47 {
-                        Set $comp_leveling_links
-                        Show #TOGGLE-LEVELING
+                    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+                        AreaLevel <= 25 {
+                            Set $comp_leveling_links
+                            MinimapIcon $icon_leveling_3link
+                            SetAlertSound $alert_leveling_link
+                            Show #TOGGLE-LEVELING
+                        }
+                        AreaLevel <= 47 {
+                            Set $comp_leveling_links
+                            Show #TOGGLE-LEVELING
+                        }
                     }
                 }
             }
@@ -95,10 +98,12 @@ SocketGroup = $leveling_link2_colors {
     LinkedSockets = 2 {
         Sockets < 6 {
             Rarity <= Rare {
-                AreaLevel <= 15 {
-                    Class "Gloves" "Helm" "Boots" {
-                        Set $comp_leveling_2l
-                        Show #TOGGLE-LEVELING
+                AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+                    AreaLevel <= 15 {
+                        Class "Gloves" "Helm" "Boots" {
+                            Set $comp_leveling_2l
+                            Show #TOGGLE-LEVELING
+                        }
                     }
                 }
             }
@@ -110,10 +115,12 @@ SocketGroup = $leveling_link2_colors {
 SocketGroup = $leveling_link3_colors {
     LinkedSockets = 3 {
         Rarity <= Rare {
-            AreaLevel <= 25 {
-                Class $leveling_caster_weapons {
-                    Set $comp_leveling_links
-                    Show #TOGGLE-LEVELING
+            AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+                AreaLevel <= 25 {
+                    Class $leveling_caster_weapons {
+                        Set $comp_leveling_links
+                        Show #TOGGLE-LEVELING
+                    }
                 }
             }
         }
@@ -123,12 +130,14 @@ SocketGroup = $leveling_link3_colors {
 # 4-links without specific colors
 LinkedSockets = 4 {
     Sockets < 6 {
-        AreaLevel <= 52 {
-            Rarity <= Rare {
-                Class "Gloves" "Helm" "Boots" "Body Armour" {
-                    Set $comp_leveling_links
-                    SetFontSize $font_medium
-                    Show #TOGGLE-LEVELING
+        AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+            AreaLevel <= 52 {
+                Rarity <= Rare {
+                    Class "Gloves" "Helm" "Boots" "Body Armour" {
+                        Set $comp_leveling_links
+                        SetFontSize $font_medium
+                        Show #TOGGLE-LEVELING
+                    }
                 }
             }
         }
