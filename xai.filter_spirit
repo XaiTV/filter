@@ -216,7 +216,7 @@ Class "Currency" {
     }
     BaseType $currency_t4 {
         Set $comp_t4_currency
-        Show
+        Show  #TOGGLE-T4-CURRENCY
     }
     BaseType $currency_t5 {
         Set $comp_t5_currency
@@ -298,6 +298,26 @@ Class "Currency" {
         }
         
         Hide
+    }
+
+    BaseType "Perandus Coin"{
+        StackSize >= 15{
+            SetFontSize $font_max
+            SetTextColor $color_perandus
+            SetBorderColor $color_perandus
+            PlayEffect White
+            Show #TOGGLE-T4-CURRENCY
+        }
+        StackSize > 4 {
+            SetFontSize $font_xl
+            SetTextColor $color_perandus
+            SetBorderColor $color_perandus
+            PlayEffect White Temp
+            Show #TOGGLE-T6-CURRENCY
+        }
+        SetFontSize $font_medium
+        SetTextColor $color_perandus
+        Show #TOGGLE-T7-CURRENCY
     }
 }
 
