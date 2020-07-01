@@ -1254,8 +1254,7 @@ Sockets = 6 { #6 Sockets
 # @TODO
 
 # [SECTION 12] BASES
-# @TODO: don't forget to include atlas bases
-# highest ele damage with attacks, +3 minions and %es
+# @TODO: high rare highlighting
 ItemLevel >= 86 {
     BaseType $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
@@ -1266,17 +1265,43 @@ ItemLevel >= 86 {
         Set $comp_atlas_t2
         Show
     }
-
+    
+    # t1 %es
     BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i86_bases
             Show #TOGGLE-ES-BASES
         }
     }
 
+    # +3 minions
     BaseType $bases_helmets_t1 {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i86_bases
+            Show #TOGGLE-HIGH-BASES
+        }
+    }
+    
+    # t1 %ms
+    BaseType $bases_boots_t1 {
+        Rarity <= Magic {
+            Set $comp_i86_bases
+            Show #TOGGLE-HIGH-BASES
+        }
+    }
+    
+    # t1 defense
+    BaseType $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
+        Rarity <= Magic {
+            Set $comp_i86_bases
+            Show #TOGGLE-HIGH-BASES
+        }
+    }
+    
+    # ele damage with attacks
+    BaseType $bases_1h_melee $bases_2h_melee $bases_bow $bases_quiver $bases_jewellery_t1 {
+        Rarity <= Magic {
+            Set $comp_i86_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1284,15 +1309,15 @@ ItemLevel >= 86 {
 
 # 84 energy shield stuff gets priority
 ItemLevel >= 84 {
+    # t2 %es
     BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i84_bases
             Show #TOGGLE-ES-BASES
         }
     }
 }
 
-# some random high rolls like T1 +attributes and chance to block
 ItemLevel >= 85 {
     BaseType $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
@@ -1307,15 +1332,24 @@ ItemLevel >= 85 {
         Show
     }
 
-    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+    # t1 attributes
+    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i85_bases
+            Show #TOGGLE-HIGH-BASES
+        }
+    }
+    
+    # chance to block
+    BaseType $bases_shield_t1 {
+        Rarity <= Magic {
+            Set $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
 }
 
-# Highest defense rolls & caster weapons
+# High defense rolls, resists & caster damage mods
 ItemLevel >= 84 {
     BaseType $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
@@ -1330,9 +1364,18 @@ ItemLevel >= 84 {
         Show
     }
 
-    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 {
+    # t1 resists
+    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i84_bases
+            Show #TOGGLE-HIGH-BASES
+        }
+    }
+    
+    # t1 spell damage etc.
+    BaseType $bases_caster_t1 {
+        Rarity <= Magic {
+            Set $comp_i84_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1341,9 +1384,9 @@ ItemLevel >= 84 {
 # merciless roll
 ItemLevel >= 83 {
     # @TODO: split these up, 2h should probably be a bit smaller
-    BaseType $bases_2h_melee $bases_1h_melee {
+    BaseType $bases_2h_melee $bases_1h_melee $bases_bow {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i83_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1497,6 +1540,47 @@ Rarity = Rare {
 }
 
 # [SECTION 13] CHROMES
+AreaLevel >= $chrome_cutoff {
+    Sockets >= 3 {
+        SocketGroup = RGB {
+            Height = 3{
+                Width = 1{
+                    Set $comp_recipe_base
+                    SetFontSize $font_medium
+                    Hide
+                }
+            }
+            Height = 2{
+                Width = 2 {
+                    Set $comp_recipe_base
+                    SetFontSize $font_medium
+                    Hide
+                }
+            }
+        }
+    }
+}
+#Yellow maps and below (Shown by default)
+AreaLevel < $chrome_cutoff {
+    Sockets >= 3 {
+        SocketGroup = RGB {
+            Height = 3{
+                Width = 1{
+                    Set $comp_recipe_base
+                    SetFontSize $font_medium
+                    Show #TOGGLE-CHROMATIC-ITEMS
+                }
+            }
+            Height = 2{
+                Width = 2 {
+                    Set $comp_recipe_base
+                    SetFontSize $font_medium
+                    Show#TOGGLE-CHROMATIC-ITEMS
+                }
+            }
+        }
+    }
+}
 
 # [SECTION 14] FLASKS
 
@@ -1550,6 +1634,43 @@ BaseType "Offering to the Goddess"{
 # @TODO: don't forget scarabs & Breachstones
 
 # [SECTION 19] MISC
+BaseType "Avian Slippers" "Sacrificial Garb" "Ruby Amulet" {
+    SetFontSize $font_xl
+    SetBorderColor 0 255 255
+    SetBackgroundColor 100 66 0
+    Show
+}
+# Special race-reward bases
+BaseType "Jet Amulet" "Jet Ring" "Golden Obi" "Golden Mantle" "Golden Bracers" "Golden Caligae" "Golden Hoop" "Golden Wreath" "Golden Flame" {
+    SetFontSize $font_xl
+    SetBorderColor 0 255 255
+    SetBackgroundColor 100 66 0
+    Show
+}
+# High quality items...
+DropLevel >= 60 {
+    ShaperItem False {
+        ElderItem False {
+            LinkedSockets <= 4 {
+                Rarity <= Rare {
+                    ItemLevel >= 75 {
+                        Quality >= 26 {
+                            SetFontSize $font_max
+                            SetBorderColor $light_gray
+                            Show
+                        }
+                        Quality >= 21 {
+                            SetFontSize $font_xl
+                            SetBorderColor $light_gray
+                            Show
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
 
 # [SECTION 20] SAFETY NETS
 
