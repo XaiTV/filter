@@ -1419,7 +1419,7 @@ BaseType $bases_atlas_armour {
     Set $comp_atlas_t2
     Rarity = Rare {
         SetFontSize $font_large
-		SetBorderColor 200 0 200
+        SetBorderColor 200 0 200
         Show
     }
     SetBorderColor 200 0 200
@@ -1799,7 +1799,9 @@ Class "Flask" {
 }
 
 # [SECTION 15] GEMS
-Class "Gem"{
+# @TODO: toggles and comps
+
+Class "Gem" {
     BaseType $gems_t0 {
         Set $comp_t1_currency
         SetBorderColor $color_t1_gem
@@ -1992,6 +1994,693 @@ Class "Gem" {
 }
 
 # [SECTION 16] LEVELING
+# @TODO: this section can improve a lot
+# Global leveling
+# Rings
+ItemLevel <= 15 {
+    AreaLevel <= 13 {
+        SetFontSize $font_max
+        BaseType "Sapphire Ring" { # Cold res for mervail
+            SetBackgroundColor $color_leveling_rings_bg
+            SetBorderColor $color_leveling_rings_border
+            SetAlertSound $alert_leveling_rings
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 18 {
+    AreaLevel <= 16 {
+        SetFontSize $font_max
+        BaseType "Topaz Ring" { # Light res for A2
+            SetBackgroundColor $color_leveling_rings_bg
+            SetBorderColor $color_leveling_rings_border
+            SetAlertSound $alert_leveling_rings
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel >= 20 {
+    AreaLevel <= 25 {
+        SetFontSize $font_max
+        BaseType "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Two-Stone Ring" {
+            SetBackgroundColor $color_leveling_rings_bg
+            SetBorderColor $color_leveling_rings_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 25 {
+    SetFontSize $font_max
+    BaseType "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Two-Stone Ring" {
+        SetBorderColor $color_leveling_rings_border
+        Show #TOGGLE-LEVELING
+    }
+    BaseType "Iron Ring" {
+        SetBorderColor $color_leveling_iron_ring_border
+        Show #TOGGLE-LEVELING
+    }
+}
+ItemLevel <= 35 {
+    SetFontSize $font_max
+    BaseType "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Two-Stone Ring" {
+        SetBorderColor $color_leveling_rings_border
+        Show #TOGGLE-LEVELING
+    }
+    BaseType "Coral Ring" {
+        SetBorderColor $color_leveling_life_border
+        Show #TOGGLE-LEVELING
+    }
+}
+ItemLevel <= 47 {
+    SetFontSize $font_large
+    BaseType "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Two-Stone Ring" {
+        SetBorderColor $color_leveling_rings_border
+        Show #TOGGLE-LEVELING
+    }
+    BaseType "Coral Ring" {
+        SetBorderColor $color_leveling_life_border
+        Show #TOGGLE-LEVELING
+    }
+}
+ItemLevel <= 67 {
+    SetFontSize $font_medium
+    Rarity = Magic {
+        BaseType "Sapphire Ring" "Topaz Ring" "Ruby Ring" "Two-Stone Ring" {
+            SetBorderColor $color_leveling_rings_border
+            Show #TOGGLE-LEVELING
+        }
+        BaseType "Coral Ring" {
+            SetBorderColor $color_leveling_life_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+
+# Amulets
+ItemLevel <= 8 {
+    AreaLevel <= 6 {
+        SetFontSize $font_large
+        BaseType "Paua Amulet" {
+            SetBackgroundColor $color_leveling_amulet_bg
+            SetBorderColor $color_leveling_amulet_border
+            #SetAlertSound $alert_leveling_amulets
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 15 {
+    AreaLevel <= 13 {
+        SetFontSize $font_max
+        BaseType $leveling_amulets {
+            SetBackgroundColor $color_leveling_amulet_bg
+            SetBorderColor $color_leveling_amulet_border
+            SetAlertSound $alert_leveling_amulets
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 25 {
+    AreaLevel <= 25 {
+        SetFontSize $font_max
+        BaseType $leveling_amulets {
+            SetBackgroundColor $color_leveling_amulet_bg
+            SetBorderColor $color_leveling_amulet_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 25 {
+    SetFontSize $font_max
+    BaseType "Citrine Amulet" "Turquoise Amulet" "Agate Amulet" {
+        SetBackgroundColor $color_leveling_amulet_bg
+        SetBorderColor $color_leveling_amulet_border
+        Show #TOGGLE-LEVELING
+    }
+}
+ItemLevel <= 47 {
+    SetFontSize $font_large
+    BaseType "Citrine Amulet" "Turquoise Amulet" "Agate Amulet" {
+        SetBorderColor $color_leveling_amulet_border
+        Show #TOGGLE-LEVELING
+    }
+}
+ItemLevel <= 67 {
+    SetFontSize $font_medium
+    Rarity = Magic {
+        BaseType "Citrine Amulet" "Turquoise Amulet" "Agate Amulet" {
+            SetBorderColor $color_leveling_amulet_border
+            Show #TOGGLE-LEVELING
+        }
+        BaseType "Jade Amulet" "Amber Amulet" "Lapis Amulet" {
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+# Belts
+ItemLevel <= 15 {
+    AreaLevel <= 13 {
+        SetFontSize $font_max
+        BaseType "Leather Belt" "Heavy Belt" {
+            SetBorderColor $color_leveling_life_border
+            Show #TOGGLE-LEVELING
+        }
+        BaseType "Rustic Sash" {
+            SetBorderColor $color_leveling_iron_ring_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 25 {
+    SetFontSize $font_large
+    BaseType "Leather Belt" "Heavy Belt" {
+        SetBorderColor $color_leveling_life_border
+        Show #TOGGLE-LEVELING
+    }
+    BaseType "Rustic Sash" {
+        SetBorderColor $color_leveling_iron_ring_border
+        Show #TOGGLE-LEVELING
+    }
+}
+
+ItemLevel <= 47 {
+    SetFontSize $font_large
+    Rarity = Magic {
+        BaseType "Rustic Sash"{
+            SetBorderColor $color_leveling_iron_ring_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+ItemLevel <= 67 {
+    SetFontSize $font_medium
+    Rarity = Magic {
+        BaseType "Leather Belt"{
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+#Section [2214] - Boots
+Class "Boots" {
+    ItemLevel <= 25 {
+        SetFontSize $font_max
+        SetBorderColor $color_leveling_boots_border
+        HasExplicitMod "Runner's" "Sprinter's" {
+            SetTextColor $color_high_value_rare
+            Show #TOGGLE-LEVELING
+        }
+        Rarity >= Magic {
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 35 {
+        Rarity = Magic {
+            SetFontSize $font_large
+            SetBorderColor $color_leveling_boots_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 67 {
+        SetBorderColor $color_leveling_boots_border
+        HasExplicitMod "Stallion's" "Gazelle's" "Cheetah's" {
+            SetFontSize $font_max
+            SetTextColor $color_high_value_rare
+            Show #TOGGLE-LEVELING
+        }
+        Rarity = Rare {
+            SetFontSize $font_large
+            Show #TOGGLE-LEVELING
+        }
+    }
+
+}
+
+# Shields
+BaseType $leveling_shields {
+    AreaLevel <= 50 {
+        SetFontSize $font_large
+        SetBorderColor 150 100 0
+        Show #TOGGLE-LEVELING
+    }
+    ItemLevel <= 68 {
+        SetFontSize $font_small
+        SetBorderColor 150 100 0
+        Show #TOGGLE-LEVELING
+    }
+}
+
+# Armours
+Class "Body Armours" {
+    Rarity = Magic {
+        ItemLevel <= 25 {
+            SetFontSize $font_large
+            Show #TOGGLE-LEVELING
+        }
+    }
+    Rarity = Rare {
+        ItemLevel <= 25 {
+            SetFontSize $font_xl
+            Show #TOGGLE-LEVELING
+        }
+        ItemLevel <= 67 {
+            SetFontSize $font_large
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+Class "Helmets" "Gloves" "Shields" {
+    Rarity = Magic {
+        ItemLevel <= 25 {
+            SetFontSize $font_xl
+            Show #TOGGLE-LEVELING
+        }
+    }
+    Rarity = Rare {
+        ItemLevel <= 67 {
+            SetFontSize $font_xl
+            Show #TOGGLE-LEVELING
+        }
+
+    }
+}
+
+# Caster leveling
+HasInfluence $leveling_caster_toggle {
+    Class "Wand" "Sceptre" {
+        SetBorderColor $color_leveling_caster_border
+        # Special rule for 3 linked high value bases
+        LinkedSockets = 3 {
+            SetBorderColor $color_leveling_caster_border
+            SetFontSize $font_medium
+            ItemLevel <= 47 {
+                BaseType "Quartz Sceptre" "Shadow Sceptre" "Quartz Wand" {
+                    SetBackgroundColor 40 50 60
+                    Show #TOGGLE-LEVELING
+                }
+                Rarity = Magic {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 61 {
+                BaseType "Crystal Sceptre" "Abyssal Sceptre" "Crystal Wand" {
+                    SetBackgroundColor 40 50 60
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 67 {
+                BaseType $bases_caster_t1  {
+                    SetBackgroundColor 40 50 60
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+        ItemLevel <= 47 {
+            BaseType "Quartz Sceptre" "Shadow Sceptre" "Quartz Wand" {
+                Show #TOGGLE-LEVELING
+            }
+            Rarity = Magic {
+                Show #TOGGLE-LEVELING
+            }
+        }
+        ItemLevel <= 59 {
+            BaseType "Crystal Sceptre" "Abyssal Sceptre" "Pagan Wand" "Crystal Wand" {
+                Show #TOGGLE-LEVELING
+            }
+
+        }
+        ItemLevel <= 67 {
+            BaseType $bases_caster_t1 {
+                Show #TOGGLE-LEVELING
+            }
+            BaseType "Bone Spirit Shield" "Ivory Spirit Shield" "Fossilised Spirit Shield" {
+                Show #TOGGLE-LEVELING
+            }
+        }
+
+
+        ItemLevel <= 15 {
+            SetFontSize $font_large
+            Show #TOGGLE-LEVELING
+        }
+        #Catch all for rare wands and sceptres up to level 67
+        Rarity = Rare {
+            ItemLevel <= 67 {
+                SetFontSize $font_large
+                SetBorderColor $color_leveling_caster_border
+                Show #TOGGLE-LEVELING
+            }
+        }
+    }
+}
+
+# Melee leveling
+HasInfluence $leveling_melee_toggle {
+    Class $leveling_melee_classes {
+        SetBorderColor $color_leveling_melee_border
+        Rarity = Rare {
+            SetFontSize $font_xl
+
+            ItemLevel <= 12 {
+                Show #TOGGLE-LEVELING
+            }
+            ItemLevel <= 15 {
+                DropLevel > 5 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 20 {
+                DropLevel > 10 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 25 {
+                DropLevel > 15 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 30 {
+                DropLevel > 20 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 35 {
+                DropLevel > 25 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 40 {
+                DropLevel > 30 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 45 {
+                DropLevel > 35 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 50 {
+                DropLevel > 40 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 55 {
+                DropLevel > 45 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 60 {
+                DropLevel > 50 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 70 {
+                BaseType $leveling_best_melee_bases {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+        Rarity <= Magic {
+            SetFontSize $font_large
+
+            ItemLevel <= 12 {
+                Show #TOGGLE-LEVELING
+            }
+            ItemLevel <= 15 {
+                DropLevel > 5 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 20 {
+                DropLevel > 10 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 25 {
+                DropLevel > 15 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 30 {
+                DropLevel > 20 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 35 {
+                DropLevel > 25 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 40 {
+                DropLevel > 30 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 45 {
+                DropLevel > 35 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 50 {
+                DropLevel > 40 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 70 {
+                BaseType $leveling_best_melee_bases {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+    }
+}
+
+# Bow leveling
+HasInfluence $leveling_bow_toggle {
+    Class "Bows" {
+        SetBorderColor $color_leveling_bows_border
+        SetFontSize $font_large
+        Rarity = Rare {
+            ItemLevel <= 12 {
+                SetFontSize $font_medium
+                Show #TOGGLE-LEVELING
+            }
+            ItemLevel <= 15 {
+                DropLevel > 5 {
+                    SetFontSize $font_medium
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 20 {
+                DropLevel > 10 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 25 {
+                DropLevel > 15 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 30 {
+                DropLevel > 20 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 35 {
+                DropLevel > 25 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 40 {
+                DropLevel > 30 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 45 {
+                DropLevel > 35 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 50 {
+                DropLevel > 40 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 55 {
+                DropLevel > 45 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 60 {
+                DropLevel > 50 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 70 {
+                BaseType $leveling_best_bow_bases {
+                    SetFontSize $font_xl
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+        Rarity <= Magic {
+            SetFontSize $font_large
+
+            ItemLevel <= 12 {
+                Show #TOGGLE-LEVELING
+            }
+            ItemLevel <= 15 {
+                DropLevel > 5 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 20 {
+                DropLevel > 10 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 25 {
+                DropLevel > 15 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 30 {
+                DropLevel > 20 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 35 {
+                DropLevel > 25 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 40 {
+                DropLevel > 30 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 45 {
+                DropLevel > 35 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 50 {
+                DropLevel > 40 {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+            ItemLevel <= 70 {
+                BaseType $leveling_best_bow_bases {
+                    Show #TOGGLE-LEVELING
+                }
+            }
+        }
+    }
+
+    # Bow leveling (Quivers)
+    Class "Quivers" {
+        ItemLevel <= 15 {
+            Rarity >= Magic {
+                SetBorderColor $color_leveling_bows_border
+                SetFontSize $font_max
+                Show #TOGGLE-LEVELING
+            }
+            BaseType "Serrated Arrow Quiver" {
+                SetBorderColor $color_leveling_bows_border
+                SetBackgroundColor 60 100 20
+                SetFontSize $font_max
+                Show #TOGGLE-LEVELING
+            }
+        }
+        ItemLevel <= 25 {
+            BaseType "Serrated Arrow Quiver" {
+                SetBorderColor $color_leveling_bows_border
+                SetFontSize $font_max
+                Show #TOGGLE-LEVELING
+            }
+        }
+        ItemLevel <= 30 {
+            BaseType "Broadhead Arrow Quiver" {
+                SetBorderColor $color_leveling_bows_border
+                SetBackgroundColor 60 100 20
+                SetFontSize $font_max
+                Show #TOGGLE-LEVELING
+            }
+        }
+        ItemLevel <= 47 {
+            BaseType "Broadhead Arrow Quiver" "Fire Arrow Quiver" "Penetrating Arrow Quiver" {
+                SetBorderColor $color_leveling_bows_border
+                SetFontSize $font_medium
+                Show #TOGGLE-LEVELING
+            }
+        }
+        ItemLevel <= 67 {
+            BaseType "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver" "Fire Arrow Quiver" {
+                SetBorderColor $color_leveling_bows_border
+                Show #TOGGLE-LEVELING
+            }
+        }
+    }
+}
+
+# Summoner leveling
+HasInfluence $leveling_summoner_toggle {
+    BaseType "Pagan Wand" {
+        ItemLevel <= 67 {
+            LinkedSockets = 3 {
+                SetFontSize $font_xl
+                SetBorderColor $color_leveling_summoner_border
+                SetBackgroundColor 25 0 50
+                Show
+            }
+        }
+        ItemLevel <= 50 {
+            SetFontSize $font_large
+            SetBorderColor $color_leveling_summoner_border
+            Show
+        }
+    }
+    Class "Wand" "Sceptre" {
+        ItemLevel <= 22 {
+            Rarity>= Magic {
+                SetBorderColor $color_leveling_summoner_border
+                SetFontSize $font_xl
+                Show
+            }
+        }
+    }
+    Class "Wand" {
+        ItemLevel <= 15{
+            AreaLevel >= 2 {
+                Show
+            }
+        }
+    }
+    BaseType "Helmet" {
+        HasExplicitMod "Reanimator's" {
+            ItemLevel <= 64 {
+                SetBorderColor $color_leveling_summoner_border
+                SetFontSize $font_large
+                Show
+            }
+
+        }
+        HasExplicitMod "Summoner's" {
+            ItemLevel <= 75 {
+                SetBorderColor $color_leveling_summoner_border
+                SetFontSize $font_large
+                Show
+            }
+        }
+    }
+    BaseType "Bone Spirit Shield" {
+        AreaLevel <= 35 {
+            SetBorderColor $color_leveling_summoner_border
+            SetBackgroundColor $color_leveling_summoner_border 200
+            SetTextColor $black
+            SetFontSize $font_large
+            Show
+        }
+    }
+}
 
 # [SECTION 17] QUEST SHIT
 Class "Quest Items"{
@@ -2087,7 +2776,7 @@ Rarity <= Magic {
     Hide
 }
 
-Class "Amulets" "Belts" "Body Armour" "Boots" "Bows" "Claws" "Daggers" "Flask" "Gloves" "Helmets" "Jewel" "One Hand" "Quivers" "Rings" "Rune Dagger" "Sceptre" "Shields" "Staves" "Two Hand" "Wand" "Warstaves" {
+Class $all_classes {
     SetFontSize 18
     DisableDropSound
     Hide
