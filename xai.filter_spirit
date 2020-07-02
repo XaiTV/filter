@@ -57,11 +57,11 @@ Height < $leveling_links_toggle {
                                 Set $comp_leveling_links
                                 MinimapIcon $icon_leveling_4link
                                 SetAlertSound $alert_leveling_link
-                                Show #TOGGLE-LEVELING
+                                Show
                             }
                             AreaLevel <= 67 {
                                 Set $comp_leveling_links
-                                Show #TOGGLE-LEVELING
+                                Show
                             }
                         }
                     }
@@ -79,11 +79,11 @@ Height < $leveling_links_toggle {
                                 Set $comp_leveling_links
                                 MinimapIcon $icon_leveling_3link
                                 SetAlertSound $alert_leveling_link
-                                Show #TOGGLE-LEVELING
+                                Show
                             }
                             AreaLevel <= 47 {
                                 Set $comp_leveling_links
-                                Show #TOGGLE-LEVELING
+                                Show
                             }
                         }
                     }
@@ -99,7 +99,7 @@ Height < $leveling_links_toggle {
                         AreaLevel <= 15 {
                             Class "Gloves" "Helm" "Boots" {
                                 Set $comp_leveling_2l
-                                Show #TOGGLE-LEVELING
+                                Show
                             }
                         }
                     }
@@ -114,7 +114,7 @@ Height < $leveling_links_toggle {
                     AreaLevel <= 25 {
                         Class $leveling_caster_weapons {
                             Set $comp_leveling_links
-                            Show #TOGGLE-LEVELING
+                            Show
                         }
                     }
                 }
@@ -129,7 +129,7 @@ Height < $leveling_links_toggle {
                         Class "Gloves" "Helm" "Boots" "Body Armour" {
                             Set $comp_leveling_links
                             SetFontSize $font_medium
-                            Show #TOGGLE-LEVELING
+                            Show
                         }
                     }
                 }
@@ -971,77 +971,67 @@ Class "Harvest Seed" {
     }
     # Grain (tier-2)
     BaseType "Wild Bristlebeast Grain" "Wild Chieftain Grain" "Wild Homunculus Grain" "Wild Snap Hound Grain" "Wild Spikeback Grain" {
-        SetBackgroundColor $color_harvest_light_blue
+        Set $comp_seeds_t2
         SetBorderColor $color_harvest_wild
         SetTextColor $color_harvest_wild
-        SetFontSize $font_max
-        MinimapIcon 2 Blue Circle
-        PlayEffect Blue Temp
-        SetAlertSound $alert_t3_currency
         Show
     }
     BaseType "Vivid Nestback Grain" "Vivid Parasite Grain" "Vivid Razorleg Grain" "Vivid Sapsucker Grain" "Vivid Striketail Grain"{
-        SetBackgroundColor $color_harvest_light_blue
+        Set $comp_seeds_t2
         SetBorderColor $color_harvest_vivid
         SetTextColor $color_harvest_vivid
-        SetFontSize $font_max
-        MinimapIcon 2 Blue Circle
-        PlayEffect Blue Temp
-        SetAlertSound $alert_t3_currency
         Show
     }
     BaseType "Primal Chimeral Grain" "Primal Dustcrab Grain" "Primal Rhex Grain" "Primal Scrabbler Grain" "Primal Viper Grain" {
-        SetBackgroundColor $color_harvest_light_blue
+        Set $comp_seeds_t2
         SetBorderColor $color_harvest_primal
         SetTextColor $color_harvest_primal
-        SetFontSize $font_max
-        MinimapIcon 2 Blue Circle
-        PlayEffect Blue Temp
-        SetAlertSound $alert_t3_currency
         Show
     }
     # Bulbs (tier-3)
     BaseType "Wild Brambleback Bulb" "Wild Bristle Matron Bulb" "Wild Hellion Alpha Bulb" "Wild Infestation Queen Bulb" "Wild Thornmaw Bulb" {
-        SetBackgroundColor $color_harvest_light_blue
-        SetTextColor $white
+        Set $comp_seeds_t3
         SetBorderColor $color_harvest_wild
-        SetFontSize $font_max
-        MinimapIcon 1 Blue Circle
-        PlayEffect Blue
-        SetAlertSound $alert_t2_currency
         Show
     }
     BaseType "Vivid Abberarach Bulb" "Vivid Devourer Bulb" "Vivid Vulture Bulb" "Vivid Watcher Bulb" "Vivid Whipleg Bulb" {
-        SetBackgroundColor $color_harvest_light_blue
-        SetTextColor $white
+        Set $comp_seeds_t3
         SetBorderColor $color_harvest_vivid
-        SetFontSize $font_max
-        MinimapIcon 1 Blue Circle
-        PlayEffect Blue
-        SetAlertSound $alert_t2_currency
         Show
     }
     BaseType "Primal Blisterlord Bulb" "Primal Crushclaw Bulb" "Primal Cystcaller Bulb" "Primal Reborn Bulb" "Primal Rhex Matriarch Bulb" {
-        SetBackgroundColor $color_harvest_light_blue
-        SetTextColor $white
+        Set $comp_seeds_t3
         SetBorderColor $color_harvest_primal
-        SetFontSize $font_max
-        MinimapIcon 1 Blue Circle
-        PlayEffect Blue
-        SetAlertSound $alert_t2_currency
         Show
     }
     # Fruits (tier-4)
     BaseType "Wild Thornfruit" "Vivid Scalefruit" "Primal Blisterfruit"{
-        SetBackgroundColor $white
-        SetBorderColor $color_harvest_light_blue
-        SetTextColor $color_harvest_light_blue
-        SetFontSize $font_max
-        MinimapIcon 0 Blue Cross
-        PlayEffect Blue
-        SetAlertSound $alert_t1_currency
+        Set $comp_seeds_t4
         Show
     }
+    
+    Set $comp_failsafe
+    Show
+}
+
+Class "Seed Enhancer" {
+    BaseType "Bud" {
+        Set $comp_seeds_t2
+        Show
+    }
+    
+    BaseType "Flower" {
+        Set $comp_seeds_t3
+        Show
+    }
+    
+    BaseType "Blossom" {
+        Set $comp_seeds_t4
+        Show
+    }
+    
+    Set $comp_failsafe
+    Show
 }
 
 # [SECTION 6] UNIQUES
