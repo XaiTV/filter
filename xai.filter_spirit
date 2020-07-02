@@ -690,7 +690,7 @@ HasExplicitMod "Veil" {
         MinimapIcon 2 White Diamond
         PlayEffect White
         SetAlertSound $alert_special_rares
-        SetFontSize $font_large
+        SetFontSize $font_max
         Show
     }
 }
@@ -758,21 +758,65 @@ Class "Incubator"{
     Show
 }
 
-# Splinters @TODO: color code
-BaseType "Timeless Maraketh Splinter" "Timeless Templar Splinter" {
+# Splinters
+BaseType "Timeless Maraketh Splinter" {
     StackSize >= 2 {
         Set $comp_splinters_stacked
+        SetBackgroundColor 40 40 0
+        SetTextColor 225 225 0
         Show
     }
     Set $comp_splinters_t1
+    SetBackgroundColor 40 40 0
+    SetTextColor 225 225 0
     Show
 }
-BaseType "Timeless Vaal Splinter" "Timeless Karui Splinter" "Timeless Eternal Empire Splinter"{
+BaseType "Timeless Templar Splinter" {
     StackSize >= 2 {
         Set $comp_splinters_stacked
+        SetBackgroundColor 0 40 0
+        SetTextColor 0 225 0
+        Show
+    }
+    Set $comp_splinters_t1
+    SetBackgroundColor 0 40 0
+    SetTextColor 0 225 0
+    Show
+}
+BaseType "Timeless Vaal Splinter" {
+    StackSize >= 2 {
+        Set $comp_splinters_stacked
+        SetBackgroundColor 40 0 0
+        SetTextColor 225 0 0
         Show
     }
     Set $comp_splinters_t2
+    SetBackgroundColor 40 0 0
+    SetTextColor 225 0 0
+    Show
+}
+BaseType "Timeless Karui Splinter" {
+    StackSize >= 2 {
+        Set $comp_splinters_stacked
+        SetBackgroundColor 60 20 0
+        SetTextColor 225 125 0
+        Show
+    }
+    Set $comp_splinters_t2
+    SetBackgroundColor 60 20 0
+    SetTextColor 225 125 0
+    Show
+}
+BaseType "Timeless Eternal Empire Splinter"{
+    StackSize >= 2 {
+        Set $comp_splinters_stacked
+        SetBackgroundColor 40 40 40
+        SetTextColor 225 225 225
+        Show
+    }
+    Set $comp_splinters_t2
+    SetBackgroundColor 40 40 40
+    SetTextColor 225 225 225
     Show
 }
 
