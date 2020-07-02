@@ -999,7 +999,16 @@ Class "Harvest Seed" {
 }
 
 # [SECTION 6] UNIQUES
+# @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
+    # Ziggy ring exception
+    BaseType "Unset Ring" {
+        SocketGroup W {
+            Set $comp_t4_unique
+            Show
+        }
+    }
+
     BaseType $uniques_t1 {
         Set $comp_t1_unique
         Show
