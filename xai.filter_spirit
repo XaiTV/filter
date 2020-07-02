@@ -2264,7 +2264,7 @@ Class "Helmets" "Gloves" "Shields" {
 }
 
 # Caster leveling
-HasInfluence $leveling_caster_toggle {
+Height < $leveling_caster_toggle {
     Class "Wand" "Sceptre" {
         SetBorderColor $color_leveling_caster_border
         # Special rule for 3 linked high value bases
@@ -2333,7 +2333,7 @@ HasInfluence $leveling_caster_toggle {
 }
 
 # Melee leveling
-HasInfluence $leveling_melee_toggle {
+Height < $leveling_melee_toggle {
     Class $leveling_melee_classes {
         SetBorderColor $color_leveling_melee_border
         Rarity = Rare {
@@ -2454,7 +2454,7 @@ HasInfluence $leveling_melee_toggle {
 }
 
 # Bow leveling
-HasInfluence $leveling_bow_toggle {
+Height < $leveling_bow_toggle {
     Class "Bows" {
         SetBorderColor $color_leveling_bows_border
         SetFontSize $font_large
@@ -2622,7 +2622,7 @@ HasInfluence $leveling_bow_toggle {
 }
 
 # Summoner leveling
-HasInfluence $leveling_summoner_toggle {
+Height < $leveling_summoner_toggle {
     BaseType "Pagan Wand" {
         ItemLevel <= 67 {
             LinkedSockets = 3 {
