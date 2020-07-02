@@ -349,7 +349,7 @@ LinkedSockets = 6 {
         BaseType "Simple Robe" {
             SocketGroup WWWWWW {
                 # TABULA
-                SetAlertSound $alert_t2_unique
+                Set $comp_t2_unique
                 Show
             }
         }
@@ -894,12 +894,12 @@ Class "Currency" {
     }
 }
 Class "Harvest Seed" {
-    #Seed (tier-4)
+    # Seed (tier-1)
     BaseType "Wild Ape Seed" "Wild Hatchling Seed" "Wild Hellion Seed" "Wild Thornwolf Seed" "Wild Ursaling Seed" {
         SetBackgroundColor $black 200
         SetBorderColor $color_harvest_wild
         SetTextColor $color_harvest_wild
-        SetFontSize $font_medium
+        SetFontSize $font_xl
         PlayEffect Blue Temp
         #Not sure if sound is necessary
         #SetAlertSound alert_t4_currency
@@ -909,7 +909,7 @@ Class "Harvest Seed" {
         SetBackgroundColor $black 200
         SetBorderColor $color_harvest_vivid
         SetTextColor $color_harvest_vivid
-        SetFontSize $font_medium
+        SetFontSize $font_xl
         PlayEffect Blue Temp
         #Not sure if sound is necessary
         #SetAlertSound alert_t4_currency
@@ -919,18 +919,18 @@ Class "Harvest Seed" {
         SetBackgroundColor $black 200
         SetBorderColor $color_harvest_primal
         SetTextColor $color_harvest_primal
-        SetFontSize $font_medium
+        SetFontSize $font_xl
         PlayEffect Blue Temp
         #Not sure if sound is necessary
         #SetAlertSound alert_t4_currency
         Show
     }
-    #Grain (tier-3)
+    # Grain (tier-2)
     BaseType "Wild Bristlebeast Grain" "Wild Chieftain Grain" "Wild Homunculus Grain" "Wild Snap Hound Grain" "Wild Spikeback Grain" {
         SetBackgroundColor $color_harvest_light_blue
         SetBorderColor $color_harvest_wild
         SetTextColor $color_harvest_wild
-        SetFontSize $font_large
+        SetFontSize $font_max
         MinimapIcon 2 Blue Circle
         PlayEffect Blue Temp
         SetAlertSound $alert_t3_currency
@@ -940,7 +940,7 @@ Class "Harvest Seed" {
         SetBackgroundColor $color_harvest_light_blue
         SetBorderColor $color_harvest_vivid
         SetTextColor $color_harvest_vivid
-        SetFontSize $font_large
+        SetFontSize $font_max
         MinimapIcon 2 Blue Circle
         PlayEffect Blue Temp
         SetAlertSound $alert_t3_currency
@@ -950,13 +950,13 @@ Class "Harvest Seed" {
         SetBackgroundColor $color_harvest_light_blue
         SetBorderColor $color_harvest_primal
         SetTextColor $color_harvest_primal
-        SetFontSize $font_large
+        SetFontSize $font_max
         MinimapIcon 2 Blue Circle
         PlayEffect Blue Temp
         SetAlertSound $alert_t3_currency
         Show
     }
-    #Bulbs (tier-2)
+    # Bulbs (tier-3)
     BaseType "Wild Brambleback Bulb" "Wild Bristle Matron Bulb" "Wild Hellion Alpha Bulb" "Wild Infestation Queen Bulb" "Wild Thornmaw Bulb" {
         SetBackgroundColor $color_harvest_light_blue
         SetTextColor $white
@@ -987,7 +987,7 @@ Class "Harvest Seed" {
         SetAlertSound $alert_t2_currency
         Show
     }
-    #Fruits (tier-1)
+    # Fruits (tier-4)
     BaseType "Wild Thornfruit" "Vivid Scalefruit" "Primal Blisterfruit"{
         SetBackgroundColor $white
         SetBorderColor $color_harvest_light_blue
