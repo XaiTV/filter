@@ -1539,6 +1539,8 @@ Rarity = Rare {
     }
 }
 
+# @TODO: JEWELS JEWELS JEWELS
+
 # [SECTION 13] CHROMES
 AreaLevel >= $chrome_cutoff {
     Sockets >= 3 {
@@ -1700,7 +1702,7 @@ Class "Life Flasks"{
     }
 }
 
-Class "Mana Flasks"{
+Class "Mana Flasks" {
     ItemLevel <= 5 {
         DropLevel >= 0 {
             SetFontSize $font_large
@@ -2725,7 +2727,87 @@ BaseType "Offering to the Goddess"{
 }
 
 # [SECTION 18] FRAGMENTS
-# @TODO: don't forget scarabs & Breachstones
+# Scarabs
+Class "Map Fragments" {
+    BaseType "Winged" {
+        SetFontSize $font_max
+        SetBackgroundColor $color_scarab_light
+        SetBorderColor $white
+        SetTextColor $white
+        MinimapIcon 0 Blue Circle
+        PlayEffect Blue
+        SetAlertSound $alert_t2_currency
+        Show
+    }
+    BaseType "Gilded" {
+        SetFontSize $font_max
+        SetBackgroundColor $color_scarab_dark
+        SetBorderColor $white
+        SetTextColor $color_scarab_light
+        MinimapIcon 1 Blue Circle
+        PlayEffect Blue
+        SetAlertSound $alert_t2_currency
+        Show
+    }
+    BaseType "Rusted" "Polished" {
+        SetFontSize $font_max
+        SetBackgroundColor $color_scarab_light
+        SetBorderColor $black
+        SetTextColor $color_scarab_dark
+        MinimapIcon 2 Blue Circle
+        PlayEffect Blue
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+}
+
+Class "Map Fragments" {
+    SetFontSize $font_max
+    PlayEffect Red
+    BaseType $fragments_t0 {
+        SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Cross
+        SetAlertSound $alert_t1
+        Show
+    }
+    BaseType $fragments_t1 {
+        SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Moon
+        SetAlertSound $alert_t2
+        Show
+    }
+    BaseType $fragments_t2 {
+        SetBackgroundColor $color_frag_light
+        SetBorderColor $white
+        SetTextColor $white
+        MinimapIcon 0 Red Moon
+        SetAlertSound $alert_t2
+        Show
+    }
+    BaseType $fragments_t3 {
+        SetBackgroundColor $color_frag_light
+        SetBorderColor $black
+        SetTextColor $black
+        MinimapIcon 1 Red Moon
+        SetAlertSound $alert_t3
+        Show
+    }
+    BaseType $fragments_t4 {
+        SetBackgroundColor $black
+        SetBorderColor $color_frag_dark
+        SetTextColor $color_frag_dark
+        MinimapIcon 2 Red Moon
+        SetAlertSound $alert_t3
+        Show
+    }
+    # SafetyNet for fragments
+    Set $comp_failsafe
+    Show
+}
 
 # [SECTION 19] MISC
 BaseType "Avian Slippers" "Sacrificial Garb" "Ruby Amulet" {
@@ -2767,6 +2849,18 @@ DropLevel >= 60 {
 }
 
 # [SECTION 20] SAFETY NETS
+BaseType "Sacrificial Garb" {
+    Show
+}
+# Exception to not make failsafe go ham on shit shards & fragments
+BaseType "Scroll Fragment" "Transmutation Shard" "Alteration Shard" {
+    Hide
+}
+# Failsafe to show currency
+Class "Currency" {
+    Set $comp_failsafe
+    Show
+}
 
 # [SECTION 21] FAILSAFE & HIDE ALL
 Rarity <= Magic {
