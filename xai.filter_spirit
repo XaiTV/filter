@@ -1009,6 +1009,14 @@ Rarity = Unique {
         }
     }
 
+    # Skyforth
+    BaseType "Sorcerer Boots" {
+        ItemLevel >= 84 {
+            Set $comp_t1_unique
+            Show
+        }
+    }
+
     BaseType $uniques_t1 {
         Set $comp_t1_unique
         Show
