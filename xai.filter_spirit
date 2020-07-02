@@ -1539,7 +1539,100 @@ Rarity = Rare {
     }
 }
 
-# @TODO: JEWELS JEWELS JEWELS
+# Cluster Jewels
+# @TODO: tier by enchantment
+Class "Jewel" {
+    BaseType "Large Cluster Jewel" "Medium Cluster Jewel" "Small Cluster Jewel" {
+        ItemLevel >= 80 {
+            SetFontSize $font_xl
+            SetTextColor $white
+            SetBorderColor $yellow
+            SetBackgroundColor $color_cluster_jewel_bg
+            MinimapIcon 0 Orange Raindrop
+            PlayEffect Orange
+            SetAlertSound $alert_t1_jewel
+            Show
+        }
+        # All other cluster jewels
+        SetFontSize $font_xl
+        SetTextColor $white
+        SetBorderColor $white
+        SetBackgroundColor $color_cluster_jewel_bg
+        MinimapIcon 1 Orange Raindrop
+        PlayEffect Orange
+        SetAlertSound $alert_t1_jewel
+        Show
+    }
+}
+# Abyss Jewels
+Class "Abyss Jewel"	{
+    ItemLevel >= 82 {
+        Rarity = Rare {
+            Set $comp_rare_jewel
+            SetBorderColor $white
+            MinimapIcon 1 Brown Raindrop
+            PlayEffect Brown
+            SetAlertSound $alert_t1_jewel
+            Show
+        }
+        Rarity = Magic {
+            Set $comp_rare_jewel
+            SetBorderColor $white
+            MinimapIcon 1 Brown Raindrop
+            PlayEffect Brown
+            SetAlertSound $alert_t1_jewel
+            Show
+        }
+    }
+
+    Rarity = Rare {
+        Set $comp_rare_jewel
+        SetBorderColor $black
+        SetFontSize $font_medium
+        Show
+    }
+    Rarity = Magic {
+        Set $comp_rare_jewel
+        SetBorderColor $black
+        SetFontSize $font_medium
+        Show
+    }
+    SetTextColor 0 0 0
+    SetBackgroundColor 150 125 225
+    SetBorderColor 0 0 0
+    Show
+}
+# Normal Jewels
+Class "Jewel" {
+    # Exception if there are certain vaal version you want of a type of jewel, change BaseType based on what corruption you want
+    BaseType $corrupt_jewel {
+        Rarity <= Rare {
+            SetFontSize $font_xl
+            SetBorderColor $yellow
+            SetTextColor $black
+            SetBackgroundColor 255 234 0
+            MinimapIcon 2 Cyan Raindrop
+            SetAlertSound $alert_t3
+            Show
+        }
+    }
+    Rarity = Rare {
+        SetFontSize $font_large
+        SetBorderColor $black
+        SetTextColor $black
+        SetBackgroundColor 255 234 0
+        Show
+    }
+    Rarity = Magic {
+        AreaLevel <= 69 {
+            SetFontSize $font_medium
+            SetBorderColor $black
+            SetTextColor $black
+            SetBackgroundColor 135 135 254
+            Show
+        }
+    }
+}
 
 # [SECTION 13] CHROMES
 AreaLevel >= $chrome_cutoff {
@@ -1930,66 +2023,66 @@ Class "Gem"{
 }
 
 Class "Gem" {
-        GemLevel >= 20 {
-            Quality >= 20{
-                SetFontSize 45
-                SetTextColor 75 255 250
-                SetBorderColor $white
-                MinimapIcon 0 Green Moon
-                PlayEffect Green
-                SetAlertSound $alert_t2
-                Show
-            }
-        }
-        GemLevel >=19 {
-            Quality >= 14 {
-                SetFontSize $font_xl
-                SetTextColor $cyan
-                SetBorderColor 255 204 102
-                MinimapIcon 1 Green Moon
-                PlayEffect Green Temp
-                SetAlertSound $alert_gems
-                Show
-            }
-            Quality >= 10 {
-                SetFontSize $font_xl
-                SetTextColor $cyan
-                SetBorderColor 200 160 80
-                MinimapIcon 2 Green Moon
-                SetAlertSound $alert_gems
-                Show
-            }
-            # Non Quality high level gems
-            SetTextColor $cyan
-            SetFontSize $font_medium
+    GemLevel >= 20 {
+        Quality >= 20{
+            SetFontSize 45
+            SetTextColor 75 255 250
+            SetBorderColor $white
+            MinimapIcon 0 Green Moon
+            PlayEffect Green
+            SetAlertSound $alert_t2
             Show
         }
-        Quality >= 20 {
-            SetFontSize $font_max
-            SetBorderColor 250 250 250
+    }
+    GemLevel >=19 {
+        Quality >= 14 {
+            SetFontSize $font_xl
+            SetTextColor $cyan
+            SetBorderColor 255 204 102
             MinimapIcon 1 Green Moon
             PlayEffect Green Temp
             SetAlertSound $alert_gems
             Show
         }
-        Quality >= 14 {
+        Quality >= 10 {
             SetFontSize $font_xl
-            SetBorderColor 255 204 102
+            SetTextColor $cyan
+            SetBorderColor 200 160 80
             MinimapIcon 2 Green Moon
             SetAlertSound $alert_gems
             Show
         }
-        Quality >= 10 {
-            SetFontSize $font_medium
-            SetBorderColor 200 160 80
-            Show
-        }
-        #Rule to make it easier picking up Gems on the Beach.
-        AreaLevel <= 1 {
-            SetFontSize $font_max
-            SetBorderColor $white
-            Show
-        }
+        # Non Quality high level gems
+        SetTextColor $cyan
+        SetFontSize $font_medium
+        Show
+    }
+    Quality >= 20 {
+        SetFontSize $font_max
+        SetBorderColor 250 250 250
+        MinimapIcon 1 Green Moon
+        PlayEffect Green Temp
+        SetAlertSound $alert_gems
+        Show
+    }
+    Quality >= 14 {
+        SetFontSize $font_xl
+        SetBorderColor 255 204 102
+        MinimapIcon 2 Green Moon
+        SetAlertSound $alert_gems
+        Show
+    }
+    Quality >= 10 {
+        SetFontSize $font_medium
+        SetBorderColor 200 160 80
+        Show
+    }
+    #Rule to make it easier picking up Gems on the Beach.
+    AreaLevel <= 1 {
+        SetFontSize $font_max
+        SetBorderColor $white
+        Show
+    }
     # Hide ALL other gems
     DisableDropSound
     Hide
@@ -1997,6 +2090,7 @@ Class "Gem" {
 
 # [SECTION 16] LEVELING
 # @TODO: this section can improve a lot
+# @TODO: figure out whether Hobbit shows all rares while leveling and copy that
 # Global leveling
 # Rings
 ItemLevel <= 15 {
