@@ -1583,6 +1583,219 @@ AreaLevel < $chrome_cutoff {
 }
 
 # [SECTION 14] FLASKS
+BaseType $flasks_t1 {
+    Quality = 20 {
+        SetFontSize $font_xl
+        SetBackgroundColor $recipe_gray
+        SetBorderColor $color_quality_flasks_border
+        SetAlertSound $alert_t3
+        Show #TOGGLE-QUALITY-FLASKS
+    }
+    Quality >= 10 {
+        SetFontSize $font_medium
+        SetBackgroundColor $recipe_gray 200
+        SetBorderColor $color_quality_flasks_border 200
+        Show #TOGGLE-QUALITY-FLASKS
+    }
+}
+Class "Flask" {
+    Quality >= 20 {
+        SetFontSize $font_xl
+        SetBackgroundColor $recipe_gray
+        SetBorderColor $color_quality_flasks_border
+        Show #TOGGLE-QUALITY-FLASKS
+    }
+}
+
+# Show all utility flasks until arealevel 75
+Class "Utility Flasks" {
+    Rarity <= Magic {
+        # AFTER LEVELING
+        ItemLevel >= 67 {
+            AreaLevel <= 75 {
+                SetFontSize $font_medium
+                Show #TOGGLE-UTILITY-FLASKS
+            }
+        }
+    }
+}
+
+Class "Life Flasks"{
+    ItemLevel <= 5 {
+        DropLevel >= 0 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 12 {
+        DropLevel >= 3 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 18 {
+        DropLevel >= 6 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 24 {
+        DropLevel >= 12 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 30 {
+        DropLevel >= 18 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 36 {
+        DropLevel >= 24 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 42 {
+        DropLevel >= 30 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 50 {
+        DropLevel >= 36 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 66 {
+        DropLevel >= 42 {
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 67 {
+        BaseType "Hallowed Life Flask"{
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 68 {
+        BaseType "Divine Life Flask"{
+            SetFontSize $font_large
+            SetBorderColor $color_life_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+
+Class "Mana Flasks"{
+    ItemLevel <= 5 {
+        DropLevel >= 0 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 12 {
+        DropLevel >= 3 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 18 {
+        DropLevel >= 6 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 24 {
+        DropLevel >= 12 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 30 {
+        DropLevel >= 18 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 36 {
+        DropLevel >= 24 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 42 {
+        DropLevel >= 30 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 50 {
+        DropLevel >= 36 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 66 {
+        DropLevel >= 42 {
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+    ItemLevel <= 69 {
+        BaseType "Eternal Mana Flask"{
+            SetFontSize $font_large
+            SetBorderColor $color_mana_flasks_border
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+
+ItemLevel <= 67 {
+    BaseType "Quicksilver Flask" "Silver Flask" {
+        SetTextColor 250 0 125
+        AreaLevel <= 42 {
+            SetAlertSound $alert_t3
+            SetFontSize $font_xl
+            Show #TOGGLE-LEVELING
+        }
+        Show #TOGGLE-LEVELING
+    }
+    BaseType $flasks_utility_leveling {
+        SetTextColor 200 150 250
+        SetBorderColor 200 150 250
+        SetFontSize $font_medium
+        Show #TOGGLE-LEVELING
+    }
+}
+
+Class "Flask" {
+    ItemLevel <= 11 {
+        Show
+    }
+}
 
 # [SECTION 15] GEMS
 
