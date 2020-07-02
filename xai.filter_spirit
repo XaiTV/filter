@@ -1261,7 +1261,7 @@ LinkedSockets = 5  { #5-Link rules
 Sockets = 6 { #6 Sockets
     Rarity <= Rare  {
         Set $comp_recipe_base
-        SetFontSize $font_large
+        SetFontSize $font_xl
         SetBorderColor $white
         SetTextColor $white
         PlayEffect Grey
