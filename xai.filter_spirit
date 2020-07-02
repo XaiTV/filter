@@ -1779,6 +1779,7 @@ ItemLevel <= 67 {
         AreaLevel <= 42 {
             SetAlertSound $alert_t3
             SetFontSize $font_xl
+            # @TODO: perhaps add minimap icon?
             Show #TOGGLE-LEVELING
         }
         Show #TOGGLE-LEVELING
@@ -1798,6 +1799,197 @@ Class "Flask" {
 }
 
 # [SECTION 15] GEMS
+Class "Gem"{
+    BaseType $gems_t0 {
+        Set $comp_t1_currency
+        SetBorderColor $color_t1_gem
+        SetTextColor $color_t1_gem
+        MinimapIcon 0 Cyan Moon
+        PlayEffect Cyan
+        Show
+    }
+    BaseType $gems_t1 $gems_t2 {
+        GemLevel >= 2{
+            Set $comp_t1_currency
+            SetBorderColor $color_t1_gem
+            SetTextColor $color_t1_gem
+            MinimapIcon 0 Cyan Moon
+            PlayEffect Cyan
+            Show
+        }
+    }
+    BaseType $gems_t1 {
+        Set $comp_t2_currency
+        SetBackgroundColor $color_t1_gem
+        MinimapIcon 1 Cyan Moon
+        PlayEffect Cyan
+        Quality >= 5 {
+            Show
+        }
+        SetBorderColor $black
+        Show
+    }
+    BaseType $gems_t2 {
+        Quality >= 5 {
+            Set $comp_t3_currency
+            SetBackgroundColor $color_t1_gem
+            MinimapIcon 2 Cyan Moon
+            PlayEffect Cyan Temp
+            SetAlertSound $alert_gems
+            Show
+        }
+        SetFontSize $font_xl
+        SetTextColor $cyan
+        SetAlertSound $alert_gems
+        Show
+    }
+}
+Class "Active Skill Gem" {
+    GemLevel >= 21 {
+        SetBackgroundColor $white
+        SetTextColor $color_t1_gem
+        SetAlertSound $alert_t2
+        MinimapIcon 1 Cyan Moon
+        PlayEffect Cyan
+    }
+}
+
+Class "Gem"{
+    BaseType "Vaal" {
+        Corrupted True {
+            GemLevel >= 20 {
+                Quality >= 20 {
+                    SetTextColor $cyan
+                    SetFontSize $font_xl
+                    SetBackgroundColor $color_vaal_gem_bg
+                    SetBorderColor $color_vaal_gem_bg
+                    SetAlertSound $alert_t2
+                    MinimapIcon 1 Red Moon
+                    PlayEffect Red Temp
+                    Show
+                }
+
+                # Gem Level 20, no quality
+                SetBackgroundColor $color_vaal_gem_bg
+                SetBorderColor $color_vaal_gem_bg
+                MinimapIcon 2 Red Moon
+                SetTextColor $cyan
+                SetAlertSound $alert_gems
+                SetFontSize $font_xl
+                Show
+            }
+
+            GemLevel >= 19 {
+                Quality >= 14 {
+                    SetFontSize $font_xl
+                    SetTextColor $cyan
+                    SetBackgroundColor $color_vaal_gem_bg
+                    SetBorderColor $color_vaal_gem_bg
+                    MinimapIcon 1 Red Moon
+                    PlayEffect Red Temp
+                    SetAlertSound $alert_gems
+                    Show
+                }
+                Quality >= 10 {
+                    SetFontSize $font_xl
+                    SetBackgroundColor $color_vaal_gem_bg
+                    SetBorderColor $color_vaal_gem_bg
+                    MinimapIcon 2 Red Moon
+                    PlayEffect Red Temp
+                    SetAlertSound $alert_gems
+                    Show
+                }
+            }
+            Quality >= 10 { # Gem level doesnt matter here
+                SetFontSize $font_xl
+                SetTextColor $cyan
+                SetBackgroundColor $color_vaal_gem_bg
+                SetBorderColor $color_vaal_gem_bg
+                MinimapIcon 1 Red Moon
+                PlayEffect Red Temp
+                SetAlertSound $alert_t3
+                Show
+            }
+            GemLevel >= 19 {
+                SetFontSize $font_medium
+                SetBackgroundColor $color_vaal_gem_bg
+                SetTextColor $cyan
+                Show
+            }
+        }
+        # Exception to show ALL Vaal gems
+        SetBackgroundColor $color_vaal_gem_bg
+        SetFontSize $font_medium
+        DisableDropSound
+        Show
+    }
+}
+
+Class "Gem" {
+        GemLevel >= 20 {
+            Quality >= 20{
+                SetFontSize 45
+                SetTextColor 75 255 250
+                SetBorderColor $white
+                MinimapIcon 0 Green Moon
+                PlayEffect Green
+                SetAlertSound $alert_t2
+                Show
+            }
+        }
+        GemLevel >=19 {
+            Quality >= 14 {
+                SetFontSize $font_xl
+                SetTextColor $cyan
+                SetBorderColor 255 204 102
+                MinimapIcon 1 Green Moon
+                PlayEffect Green Temp
+                SetAlertSound $alert_gems
+                Show
+            }
+            Quality >= 10 {
+                SetFontSize $font_xl
+                SetTextColor $cyan
+                SetBorderColor 200 160 80
+                MinimapIcon 2 Green Moon
+                SetAlertSound $alert_gems
+                Show
+            }
+            # Non Quality high level gems
+            SetTextColor $cyan
+            SetFontSize $font_medium
+            Show
+        }
+        Quality >= 20 {
+            SetFontSize $font_max
+            SetBorderColor 250 250 250
+            MinimapIcon 1 Green Moon
+            PlayEffect Green Temp
+            SetAlertSound $alert_gems
+            Show
+        }
+        Quality >= 14 {
+            SetFontSize $font_xl
+            SetBorderColor 255 204 102
+            MinimapIcon 2 Green Moon
+            SetAlertSound $alert_gems
+            Show
+        }
+        Quality >= 10 {
+            SetFontSize $font_medium
+            SetBorderColor 200 160 80
+            Show
+        }
+        #Rule to make it easier picking up Gems on the Beach.
+        AreaLevel <= 1 {
+            SetFontSize $font_max
+            SetBorderColor $white
+            Show
+        }
+    # Hide ALL other gems
+    DisableDropSound
+    Hide
+}
 
 # [SECTION 16] LEVELING
 
