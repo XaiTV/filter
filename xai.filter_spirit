@@ -45,90 +45,92 @@ Class "Map" {
 }
 
 # [SECTION 2] LEVELING LINKS
-# 4-links with colors
-AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
-    SocketGroup = $leveling_link4_colors {
+Height < $leveling_links_toggle {
+    # 4-links with colors
+    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+        SocketGroup = $leveling_link4_colors {
+            LinkedSockets = 4 {
+                Sockets < 6 {
+                    Rarity <= Rare {
+                        Class "Gloves" "Helm" "Boots" "Body Armour" {
+                            AreaLevel <= 52 {
+                                Set $comp_leveling_links
+                                MinimapIcon $icon_leveling_4link
+                                SetAlertSound $alert_leveling_link
+                                Show #TOGGLE-LEVELING
+                            }
+                            AreaLevel <= 67 {
+                                Set $comp_leveling_links
+                                Show #TOGGLE-LEVELING
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        # 3-links
+        SocketGroup = $leveling_link3_colors {
+            LinkedSockets = 3 {
+                Sockets < 6 {
+                    Rarity <= Rare {
+                        Class "Gloves" "Helm" "Boots" "Body Armour" {
+                            AreaLevel <= 25 {
+                                Set $comp_leveling_links
+                                MinimapIcon $icon_leveling_3link
+                                SetAlertSound $alert_leveling_link
+                                Show #TOGGLE-LEVELING
+                            }
+                            AreaLevel <= 47 {
+                                Set $comp_leveling_links
+                                Show #TOGGLE-LEVELING
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        # 2-links
+        SocketGroup = $leveling_link2_colors {
+            LinkedSockets = 2 {
+                Sockets < 6 {
+                    Rarity <= Rare {
+                        AreaLevel <= 15 {
+                            Class "Gloves" "Helm" "Boots" {
+                                Set $comp_leveling_2l
+                                Show #TOGGLE-LEVELING
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        # caster weapons
+        SocketGroup = $leveling_link3_colors {
+            LinkedSockets = 3 {
+                Rarity <= Rare {
+                    AreaLevel <= 25 {
+                        Class $leveling_caster_weapons {
+                            Set $comp_leveling_links
+                            Show #TOGGLE-LEVELING
+                        }
+                    }
+                }
+            }
+        }
+
+        # 4-links without specific colors
         LinkedSockets = 4 {
             Sockets < 6 {
-                Rarity <= Rare {
-                    Class "Gloves" "Helm" "Boots" "Body Armour" {
-                        AreaLevel <= 52 {
+                AreaLevel <= 52 {
+                    Rarity <= Rare {
+                        Class "Gloves" "Helm" "Boots" "Body Armour" {
                             Set $comp_leveling_links
-                            MinimapIcon $icon_leveling_4link
-                            SetAlertSound $alert_leveling_link
+                            SetFontSize $font_medium
                             Show #TOGGLE-LEVELING
                         }
-                        AreaLevel <= 67 {
-                            Set $comp_leveling_links
-                            Show #TOGGLE-LEVELING
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    # 3-links
-    SocketGroup = $leveling_link3_colors {
-        LinkedSockets = 3 {
-            Sockets < 6 {
-                Rarity <= Rare {
-                    Class "Gloves" "Helm" "Boots" "Body Armour" {
-                        AreaLevel <= 25 {
-                            Set $comp_leveling_links
-                            MinimapIcon $icon_leveling_3link
-                            SetAlertSound $alert_leveling_link
-                            Show #TOGGLE-LEVELING
-                        }
-                        AreaLevel <= 47 {
-                            Set $comp_leveling_links
-                            Show #TOGGLE-LEVELING
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    # 2-links
-    SocketGroup = $leveling_link2_colors {
-        LinkedSockets = 2 {
-            Sockets < 6 {
-                Rarity <= Rare {
-                    AreaLevel <= 15 {
-                        Class "Gloves" "Helm" "Boots" {
-                            Set $comp_leveling_2l
-                            Show #TOGGLE-LEVELING
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    # caster weapons
-    SocketGroup = $leveling_link3_colors {
-        LinkedSockets = 3 {
-            Rarity <= Rare {
-                AreaLevel <= 25 {
-                    Class $leveling_caster_weapons {
-                        Set $comp_leveling_links
-                        Show #TOGGLE-LEVELING
-                    }
-                }
-            }
-        }
-    }
-
-    # 4-links without specific colors
-    LinkedSockets = 4 {
-        Sockets < 6 {
-            AreaLevel <= 52 {
-                Rarity <= Rare {
-                    Class "Gloves" "Helm" "Boots" "Body Armour" {
-                        Set $comp_leveling_links
-                        SetFontSize $font_medium
-                        Show #TOGGLE-LEVELING
                     }
                 }
             }
@@ -1236,12 +1238,14 @@ LinkedSockets = 5  { #5-Link rules
                 MinimapIcon 2 White Pentagon
                 Show
             }
-            SetFontSize $font_max
-            SetBorderColor $color_special_rares_border
-            SetAlertSound $alert_t3
-            PlayEffect Grey
-            MinimapIcon 2 White Pentagon
-            Show #TOGGLE-5-LINKS
+            Height < $toggle_5l {
+                SetFontSize $font_max
+                SetBorderColor $color_special_rares_border
+                SetAlertSound $alert_t3
+                PlayEffect Grey
+                MinimapIcon 2 White Pentagon
+                Show
+            }
         }
         ItemLevel < 65 {
             SetFontSize $font_max
