@@ -1119,7 +1119,7 @@ Class "Divination Card" {
 
 # [SECTION 8] MAPS
 # Influenced Maps
-Class "Map" {
+Class "Maps" {
     HasInfluence Shaper {
         Set $comp_map_influence
         Show
@@ -1131,7 +1131,7 @@ Class "Map" {
 }
 
 # Blighted Maps
-Class "Map" {
+Class "Maps" {
     BlightedMap True {
         MapTier >= 15 {
             Set $comp_map_t1
@@ -1147,7 +1147,7 @@ Class "Map" {
 }
 
 # real maps
-Class "Map" {
+Class "Maps" {
     MapTier >= 16 {
         Set $comp_map_t1
         # Exception for "Vaal" maps from temple
