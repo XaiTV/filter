@@ -2799,13 +2799,13 @@ Height < $leveling_summoner_toggle {
                 SetFontSize $font_xl
                 SetBorderColor $color_leveling_summoner_border
                 SetBackgroundColor 25 0 50
-                Show
+                Show #TOGGLE-LEVELING
             }
         }
         ItemLevel <= 50 {
             SetFontSize $font_large
             SetBorderColor $color_leveling_summoner_border
-            Show
+            Show #TOGGLE-LEVELING
         }
     }
     Class "Wand" "Sceptre" {
@@ -2813,14 +2813,14 @@ Height < $leveling_summoner_toggle {
             Rarity>= Magic {
                 SetBorderColor $color_leveling_summoner_border
                 SetFontSize $font_xl
-                Show
+                Show #TOGGLE-LEVELING
             }
         }
     }
     Class "Wand" {
         ItemLevel <= 15{
             AreaLevel >= 2 {
-                Show
+                Show #TOGGLE-LEVELING
             }
         }
     }
@@ -2829,7 +2829,7 @@ Height < $leveling_summoner_toggle {
             ItemLevel <= 64 {
                 SetBorderColor $color_leveling_summoner_border
                 SetFontSize $font_large
-                Show
+                Show #TOGGLE-LEVELING
             }
 
         }
@@ -2837,7 +2837,7 @@ Height < $leveling_summoner_toggle {
             ItemLevel <= 75 {
                 SetBorderColor $color_leveling_summoner_border
                 SetFontSize $font_large
-                Show
+                Show #TOGGLE-LEVELING
             }
         }
     }
@@ -2847,7 +2847,35 @@ Height < $leveling_summoner_toggle {
             SetBackgroundColor $color_leveling_summoner_border 200
             SetTextColor $black
             SetFontSize $font_large
+            Show #TOGGLE-LEVELING
+        }
+    }
+}
+
+Class "Body Armours" "Helmets" "Shields" "Boots" "Gloves" "Belts" "Rings" "Amulets" "Quivers" "Bows" "One Hand Swords" "One Hand Axes" "One Hand Maces" "Two Hand Swords" "Two Hand Axes" "Two Hand Maces" "Staves" "Claws" "Daggers" "Wands" "Sceptres" {
+    ItemLevel <= 3 {
+        AreaLevel = 1 {
+            Rarity = Normal {
+                Show#TOGGLE-LEVELING
+            }
+        }
+    }
+    #Exception for blues and rares that doesnt get hit by the above, to farm alterations
+    ItemLevel <= 5 {
+        Rarity = Normal {
             Show
+        }
+    }
+    ItemLevel <= 16 {
+        AreaLevel <= 16 {
+            Rarity = Magic {
+                SetFontSize $font_large
+                Show#TOGGLE-LEVELING
+        }
+            Rarity = Rare {
+                SetFontSize $font_xl
+                Show#TOGGLE-LEVELING
+            }
         }
     }
 }
