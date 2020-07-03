@@ -1631,7 +1631,7 @@ Class "Abyss Jewel"	{
             Show
         }
         Rarity = Magic {
-            Set $comp_rare_jewel
+            Set $comp_magic_jewel
             SetBorderColor $white
             MinimapIcon 1 Brown Raindrop
             PlayEffect Brown
@@ -1647,7 +1647,7 @@ Class "Abyss Jewel"	{
         Show
     }
     Rarity = Magic {
-        Set $comp_rare_jewel
+        Set $comp_magic_jewel
         SetBorderColor $black
         SetFontSize $font_medium
         Show
