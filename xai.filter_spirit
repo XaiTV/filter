@@ -1514,17 +1514,19 @@ Rarity = Rare {
 }
 
 # Tier 2 armour rares(Is made up of T3 bases)
-Rarity = Rare {
-    Set $comp_rare_t2
-    BaseType $bases_small_armour_t3 {
-        SetBorderColor $color_rare_t2_border
-        Show
-    }
-    
-    BaseType $bases_big_armour_t3 {
-        SetBorderColor $color_rare_t2_border
-        SetFontSize $font_medium
-        Show  #TOGGLE-BIG-RARES
+Height < $toggle_t2_rares {
+    Rarity = Rare {
+        Set $comp_rare_t2
+        BaseType $bases_small_armour_t3 {
+            SetBorderColor $color_rare_t2_border
+            Show
+        }
+        
+        BaseType $bases_big_armour_t3 {
+            SetBorderColor $color_rare_t2_border
+            SetFontSize $font_medium
+            Show  #TOGGLE-BIG-RARES
+        }
     }
 }
 
