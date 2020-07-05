@@ -1228,8 +1228,10 @@ Class "Maps" {
 # @TODO: extend this part a lot. Perhaps highlight t1 rares a bit here?
 HasInfluence Crusader {
     Class "Body Armour" {
-        Set $comp_rare_influence_t1
-        Show
+        ItemLevel >= 85 {
+            Set $comp_rare_influence_t1
+            Show
+        }
     }
 }
 
@@ -1498,81 +1500,83 @@ BaseType $bases_atlas_armour {
     Show #TOGGLE-LOW-ATLAS-ARMOUR
 }
 
-# Tier 1 armour rares(Is made up of T1 and T2 bases)
-Rarity = Rare {
-    Set $comp_rare_t1
-    BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
-        SetBorderColor $color_rare_t1_border
-        Show
-    }
-    
-    BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
-        SetBorderColor $color_rare_t1_border
-        SetFontSize $font_medium
-        Show  #TOGGLE-BIG-RARES
-    }
-}
-
-# Tier 2 armour rares(Is made up of T3 bases)
-Height < $toggle_t2_rares {
+ItemLevel >= $non_jewellery_rare_min_level {
+    # Tier 1 armour rares(Is made up of T1 and T2 bases)
     Rarity = Rare {
-        Set $comp_rare_t2
-        BaseType $bases_small_armour_t3 {
-            SetBorderColor $color_rare_t2_border
+        Set $comp_rare_t1
+        BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
+            SetBorderColor $color_rare_t1_border
             Show
         }
         
-        BaseType $bases_big_armour_t3 {
-            SetBorderColor $color_rare_t2_border
+        BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
+            SetBorderColor $color_rare_t1_border
             SetFontSize $font_medium
             Show  #TOGGLE-BIG-RARES
         }
     }
-}
 
-# Tier 3 armour rares(Either not shown or consists of helmet/gloves/boots)
-Rarity = Rare {
-    Class $t3_rare_classes {
-        AreaLevel <= $t3_rare_cutoff {
-            AreaLevel >= 68 {
-                Set $comp_rare_t3
+    # Tier 2 armour rares(Is made up of T3 bases)
+    Height < $toggle_t2_rares {
+        Rarity = Rare {
+            Set $comp_rare_t2
+            BaseType $bases_small_armour_t3 {
+                SetBorderColor $color_rare_t2_border
                 Show
+            }
+            
+            BaseType $bases_big_armour_t3 {
+                SetBorderColor $color_rare_t2_border
+                SetFontSize $font_medium
+                Show  #TOGGLE-BIG-RARES
             }
         }
     }
-}
 
-Rarity = Rare {
-    BaseType $bases_caster_t1 {
-        Set $comp_rare_t1
-        SetBorderColor $color_rare_caster_border
-        Show
+    # Tier 3 armour rares(Either not shown or consists of helmet/gloves/boots)
+    Rarity = Rare {
+        Class $t3_rare_classes {
+            AreaLevel <= $t3_rare_cutoff {
+                AreaLevel >= 68 {
+                    Set $comp_rare_t3
+                    Show
+                }
+            }
+        }
     }
-    BaseType $bases_caster_t2 {
-        Set $comp_rare_t2
-        SetBorderColor $color_rare_caster_border 200
-        Show
-    }
-    BaseType $bases_1h_melee {
-        Set $comp_rare_t1
-        SetFontSize $font_medium
-        SetBorderColor $color_rare_melee_border
-        Show
-    }
-    BaseType $bases_2h_melee {
-        Set $comp_rare_t1
-        SetBorderColor $color_rare_melee_border
-        Show
-    }
-    BaseType $bases_bow {
-        Set $comp_rare_t1
-        SetBorderColor $color_rare_bow_border
-        Show
-    }
-    BaseType $bases_quiver {
-        Set $comp_rare_t1
-        SetBorderColor $color_rare_bow_border
-        Show
+
+    Rarity = Rare {
+        BaseType $bases_caster_t1 {
+            Set $comp_rare_t1
+            SetBorderColor $color_rare_caster_border
+            Show
+        }
+        BaseType $bases_caster_t2 {
+            Set $comp_rare_t2
+            SetBorderColor $color_rare_caster_border 200
+            Show
+        }
+        BaseType $bases_1h_melee {
+            Set $comp_rare_t1
+            SetFontSize $font_medium
+            SetBorderColor $color_rare_melee_border
+            Show
+        }
+        BaseType $bases_2h_melee {
+            Set $comp_rare_t1
+            SetBorderColor $color_rare_melee_border
+            Show
+        }
+        BaseType $bases_bow {
+            Set $comp_rare_t1
+            SetBorderColor $color_rare_bow_border
+            Show
+        }
+        BaseType $bases_quiver {
+            Set $comp_rare_t1
+            SetBorderColor $color_rare_bow_border
+            Show
+        }
     }
 }
 
