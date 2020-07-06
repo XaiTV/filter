@@ -1325,6 +1325,12 @@ Corrupted False {
             Show
         }
     }
+    HasExplicitMod "Magister's" { # +1 spell gems
+        Show
+    }
+    HasExplicitMod "Runic" {
+        Show
+    }
 }
 
 # [SECTION 12] BASES
