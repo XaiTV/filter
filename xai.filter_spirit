@@ -1315,7 +1315,7 @@ Corrupted False {
     SetFontSize $font_max
     SetAlertSound $alert_special_rares
     
-    BaseType $bases_1h_melee $bases_2h_melee {
+    BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 $bases_2h_melee_t1 $bases_2h_melee_t2 {
         HasExplicitMod "Merciless" {
             Show
         }
@@ -1379,7 +1379,7 @@ ItemLevel >= 86 {
     }
     
     # ele damage with attacks
-    BaseType $bases_1h_melee $bases_2h_melee $bases_bow $bases_quiver $bases_jewellery_t1 {
+    BaseType $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
@@ -1464,7 +1464,7 @@ ItemLevel >= 84 {
 # merciless roll
 ItemLevel >= 83 {
     # @TODO: split these up, 2h should probably be a bit smaller
-    BaseType $bases_2h_melee $bases_1h_melee $bases_bow {
+    BaseType $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
         Rarity <= Magic {
             Set $comp_i83_bases
             Show #TOGGLE-HIGH-BASES
@@ -1562,13 +1562,13 @@ ItemLevel >= $non_jewellery_rare_min_level {
             SetBorderColor $color_rare_caster_border 200
             Show
         }
-        BaseType $bases_1h_melee {
+        BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 {
             Set $comp_rare_t1
             SetFontSize $font_medium
             SetBorderColor $color_rare_melee_border
             Show
         }
-        BaseType $bases_2h_melee {
+        BaseType $bases_2h_melee_t1 $bases_2h_melee_t2 {
             Set $comp_rare_t1
             SetBorderColor $color_rare_melee_border
             Show
