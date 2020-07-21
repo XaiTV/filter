@@ -1235,6 +1235,32 @@ HasInfluence Crusader {
     }
 }
 
+# i83 elder for bleed
+HasInfluence Elder {
+    BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 $bases_2h_melee_t1 $bases_2h_melee_t2 $bases_bow $bases_bleed_bow {
+        ItemLevel >= 83 {
+            Set $comp_rare_influence_t2
+            Show
+        }
+    }
+}
+
+HasInfluence Shaper {
+    BaseType "Titanium Spirit Shield" {
+        ItemLevel >= 84 {
+            Set $comp_rare_influence_t1
+            Show
+        }
+    }
+    
+    BaseType "Hubris Circlet" {
+        ItemLevel >= 84 {
+            Set $comp_rare_influence_t2
+            Show
+        }
+    }
+}
+
 HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
     BaseType $bases_atlas {
         Set $comp_rare_influence_t1
