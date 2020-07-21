@@ -1247,8 +1247,12 @@ HasInfluence Elder {
 
 HasInfluence Shaper {
     BaseType "Titanium Spirit Shield" {
-        ItemLevel >= 84 {
+        ItemLevel >= 85 {
             Set $comp_rare_influence_t1
+            Show
+        }
+        ItemLevel >= 84 {
+            Set $comp_rare_influence_t2
             Show
         }
     }
