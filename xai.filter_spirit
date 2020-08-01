@@ -1538,17 +1538,19 @@ BaseType $bases_atlas_armour {
 
 ItemLevel >= $non_jewellery_rare_min_level {
     # Tier 1 armour rares(Is made up of T1 and T2 bases)
-    Rarity = Rare {
-        Set $comp_rare_t1
-        BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
-            SetBorderColor $color_rare_t1_border
-            Show
-        }
-        
-        BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
-            SetBorderColor $color_rare_t1_border
-            SetFontSize $font_medium
-            Show  #TOGGLE-BIG-RARES
+    Height < $toggle_t1_rares {
+        Rarity = Rare {
+            Set $comp_rare_t1
+            BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
+                SetBorderColor $color_rare_t1_border
+                Show
+            }
+            
+            BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
+                SetBorderColor $color_rare_t1_border
+                SetFontSize $font_medium
+                Show  #TOGGLE-BIG-RARES
+            }
         }
     }
 
@@ -1617,39 +1619,41 @@ ItemLevel >= $non_jewellery_rare_min_level {
 }
 
 Rarity = Rare {
-    Class "Amulets" "Belts" "Rings" {
-        BaseType $bases_jewellery_t1 {
-            SetFontSize $font_xl
-            SetBackgroundColor 50 0 100
-            SetBorderColor 175 75 255
-            
-            ItemLevel <= 12 { # Sound for very low levels
+    Height < $toggle_t1_rares {
+        Class "Amulets" "Belts" "Rings" {
+            BaseType $bases_jewellery_t1 {
                 SetFontSize $font_xl
-                SetAlertSound $alert_t3
-                MinimapIcon 2 Purple Diamond
+                SetBackgroundColor 50 0 100
+                SetBorderColor 175 75 255
+                
+                ItemLevel <= 12 { # Sound for very low levels
+                    SetFontSize $font_xl
+                    SetAlertSound $alert_t3
+                    MinimapIcon 2 Purple Diamond
+                    Show
+                }
+                
+                ItemLevel <= 67 { # Leveling exception
+                    SetFontSize $font_max
+                    Show
+                }
                 Show
             }
             
-            ItemLevel <= 67 { # Leveling exception
-                SetFontSize $font_max
+            BaseType $bases_jewellery_t2 {
+                SetFontSize $font_small
+                SetBackgroundColor 0 50 100
+                SetBorderColor 75 150 255
+                ItemLevel <= 67 {#Leveling exception
+                    SetFontSize $font_xl
+                    Show
+                }
                 Show
             }
+            
+            Set $comp_failsafe
             Show
         }
-        
-        BaseType $bases_jewellery_t2 {
-            SetFontSize $font_small
-            SetBackgroundColor 0 50 100
-            SetBorderColor 75 150 255
-            ItemLevel <= 67 {#Leveling exception
-                SetFontSize $font_xl
-                Show
-            }
-            Show
-        }
-        
-        Set $comp_failsafe
-        Show
     }
 }
 
@@ -1718,32 +1722,42 @@ Class "Abyss Jewel"	{
 }
 # Normal Jewels
 Class "Jewel" {
-    # Exception if there are certain vaal version you want of a type of jewel, change BaseType based on what corruption you want
-    BaseType $corrupt_jewel {
-        Rarity <= Rare {
-            SetFontSize $font_xl
-            SetBorderColor $yellow
-            SetTextColor $black
-            SetBackgroundColor 255 234 0
-            MinimapIcon 2 Cyan Raindrop
-            SetAlertSound $alert_t3
-            Show
+    Height < $toggle_jewels {
+        # Exception if there are certain vaal version you want of a type of jewel, change BaseType based on what corruption you want
+        BaseType $corrupt_jewel {
+            Rarity <= Rare {
+                SetFontSize $font_xl
+                SetBorderColor $yellow
+                SetTextColor $black
+                SetBackgroundColor 255 234 0
+                MinimapIcon 2 Cyan Raindrop
+                SetAlertSound $alert_t3
+                Show
+            }
         }
-    }
-    Rarity = Rare {
-        SetFontSize $font_large
-        SetBorderColor $black
-        SetTextColor $black
-        SetBackgroundColor 255 234 0
-        Show
-    }
-    Rarity = Magic {
-        AreaLevel <= 69 {
-            SetFontSize $font_medium
+        Rarity = Rare {
+            SetFontSize $font_large
             SetBorderColor $black
             SetTextColor $black
-            SetBackgroundColor 135 135 254
+            SetBackgroundColor 255 234 0
             Show
+        }
+        Rarity = Magic {
+            AreaLevel <= 69 {
+                SetFontSize $font_medium
+                SetBorderColor $black
+                SetTextColor $black
+                SetBackgroundColor 135 135 254
+                Show
+            }
+            
+            BaseType "Cobalt" {
+                SetFontSize $font_medium
+                SetBorderColor $black
+                SetTextColor $black
+                SetBackgroundColor 135 135 254
+                Show
+            }
         }
     }
 }
