@@ -1073,7 +1073,7 @@ Rarity = Unique {
         Show
     }
     Set $comp_t4_unique
-    Show
+    Show #TOGGLE-T4-UNIQUES
 }
 
 # [SECTION 7] DIVINATION CARDS
