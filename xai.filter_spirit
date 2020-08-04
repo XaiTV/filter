@@ -1296,15 +1296,15 @@ LinkedSockets = 5  { #5-Link rules
     }
     Rarity < Unique {
         ItemLevel >= 65 {
-            Class "Body Armours" {
-                SetFontSize $font_max
-                SetBorderColor $color_special_rares_border
-                SetAlertSound $alert_t3
-                PlayEffect Grey
-                MinimapIcon 2 White Pentagon
-                Show
-            }
             Height < $toggle_5l {
+                Class "Body Armours" {
+                    SetFontSize $font_max
+                    SetBorderColor $color_special_rares_border
+                    SetAlertSound $alert_t3
+                    PlayEffect Grey
+                    MinimapIcon 2 White Pentagon
+                    Show
+                }
                 SetFontSize $font_max
                 SetBorderColor $color_special_rares_border
                 SetAlertSound $alert_t3
