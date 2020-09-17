@@ -1162,7 +1162,7 @@ Class "Gem" {
 Rarity = Unique {
     Replica True {
         Set $comp_t2_unique
-        SetBorderColor $color_heist_dark
+        SetBorderColor $color_heist_light
         Show
     }
 }
