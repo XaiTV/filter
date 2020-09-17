@@ -1062,13 +1062,57 @@ Class "Currency" {
     }
 }
 
-Class "Blueprint" {
-    Set $comp_seeds_t3
+Class "Blueprint"{
+    #t1-blueprints
+    BaseType "Blueprint: Underbelly" {
+        SetBackgroundColor $color_harvest_primal
+        SetBorderColor $white
+        SetFontSize $font_xl
+        MinimapIcon 1 Blue Circle
+        PlayEffect Blue Temp
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    #t2-blueprints
+    BaseType "Blueprint" {
+        SetBackgroundColor $black
+        SetBorderColor $color_harvest_primal
+        SetFontSize $font_large
+        PlayEffect Blue Temp
+        MinimapIcon 2 Blue Circle
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    Set $comp_failsafe
     Show
 }
 
-Class "Contract" {
-    Set $comp_seeds_t2
+# Contracts
+Class "Contract"{
+    # t1-contracts
+    BaseType "Contract: Mansion" {
+        SetBackgroundColor $color_heist_light
+        SetBorderColor $color_heist_dark
+        SetTextColor $color_heist_dark
+        SetFontSize $font_max
+        PlayEffect Red
+        SetAlertSound $alert_t2_currency
+        MinimapIcon 1 Red Circle
+        Show
+    }
+    # t2-contracts
+    BaseType "Contract" {
+        SetBackgroundColor $black
+        SetTextColor $color_heist_light
+        SetBorderColor $color_heist_light
+        SetFontSize $font_large
+        PlayEffect Red Temp
+        MinimapIcon 2 Red Circle
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+
+    Set $comp_failsafe
     Show
 }
 
