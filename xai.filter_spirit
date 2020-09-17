@@ -1041,7 +1041,22 @@ Class "Currency" {
         Show
     }
 
-    BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" "Rogue's Marker" {
+    BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" {
+        Set $comp_t4_currency
+        Show
+    }
+
+    BaseType "Rogue's Marker" {
+        StackSize >= 5 {
+            Set $comp_t3_currency
+            Show
+        }
+
+        StackSize >= 15 {
+            Set $comp_t2_currency
+            Show
+        }
+
         Set $comp_t4_currency
         Show
     }
@@ -1070,6 +1085,30 @@ Class "Heist" {
     MinimapIcon 0 Green Kite
     PlayEffect Green
     Show
+}
+
+
+Class "Gem" {
+    AlternateQuality True {
+        Quality >= 1 {
+            SetFontSize $font_xl
+            SetTextColor $cyan
+            SetBorderColor 255 204 102
+            MinimapIcon 1 Green Moon
+            PlayEffect Green Temp
+            SetAlertSound $alert_gems
+            Show
+        }
+    }
+}
+
+# Replica Uniques
+Rarity = Unique {
+    Replica True {
+        Set $comp_t2_unique
+        SetBorderColor $color_heist_dark
+        Show
+    }
 }
 
 # @TODO: all the new bases are just T1 right now
