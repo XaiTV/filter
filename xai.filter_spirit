@@ -1064,10 +1064,10 @@ Class "Currency" {
 
 Class "Blueprint"{
     #t1-blueprints
-    BaseType "Blueprint: Underbelly" {
+    BaseType None {
         SetBackgroundColor $color_harvest_primal
         SetBorderColor $white
-        SetFontSize $font_xl
+        SetFontSize $font_max
         MinimapIcon 1 Blue Circle
         PlayEffect Blue Temp
         SetAlertSound $alert_t3_currency
@@ -1077,7 +1077,7 @@ Class "Blueprint"{
     BaseType "Blueprint" {
         SetBackgroundColor $black
         SetBorderColor $color_harvest_primal
-        SetFontSize $font_large
+        SetFontSize $font_xl
         PlayEffect Blue Temp
         MinimapIcon 2 Blue Circle
         SetAlertSound $alert_t3_currency
@@ -1090,7 +1090,7 @@ Class "Blueprint"{
 # Contracts
 Class "Contract"{
     # t1-contracts
-    BaseType "Contract: Mansion" {
+    BaseType None {
         SetBackgroundColor $color_heist_light
         SetBorderColor $color_heist_dark
         SetTextColor $color_heist_dark
@@ -1105,7 +1105,7 @@ Class "Contract"{
         SetBackgroundColor $black
         SetTextColor $color_heist_light
         SetBorderColor $color_heist_light
-        SetFontSize $font_large
+        SetFontSize $font_xl
         PlayEffect Red Temp
         MinimapIcon 2 Red Circle
         SetAlertSound $alert_t3_currency
