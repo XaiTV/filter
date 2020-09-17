@@ -1034,6 +1034,44 @@ Class "Seed Enhancer" {
     Show
 }
 
+# Heist
+Class "Currency" {
+    BaseType "Prime Regrading Lens" {
+        Set $comp_t2_currency
+        Show
+    }
+
+    BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" "Rogue's Marker" {
+        Set $comp_t4_currency
+        Show
+    }
+}
+
+Class "Blueprint" {
+    Set $comp_seeds_t3
+    Show
+}
+
+Class "Contract" {
+    Set $comp_seeds_t2
+    Show
+}
+
+Class "Trinket" {
+    Set $comp_atlas_t1
+    Show
+}
+
+Class "Heist" {
+    SetFontSize $font_max
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    Show
+}
+
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
