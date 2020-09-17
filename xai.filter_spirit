@@ -1072,6 +1072,32 @@ Class "Heist" {
     Show
 }
 
+# @TODO: all the new bases are just T1 right now
+# @TODO: currently overrides 6L/6S rules
+# Jewellery
+BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Highest Tier
+BaseType "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Mid Tier
+BaseType "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Lowest Tier
+BaseType "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield" {
+    Set $comp_atlas_t1
+    Show
+}
+
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
