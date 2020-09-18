@@ -1034,6 +1034,165 @@ Class "Seed Enhancer" {
     Show
 }
 
+# Heist
+Class "Currency" {
+    BaseType "Prime Regrading Lens" {
+        Set $comp_t2_currency
+        Show
+    }
+
+    BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" {
+        Set $comp_t4_currency
+        Show
+    }
+
+    BaseType "Rogue's Marker" {
+        StackSize >= 5 {
+            Set $comp_t3_currency
+            Show
+        }
+
+        StackSize >= 15 {
+            Set $comp_t2_currency
+            Show
+        }
+
+        Set $comp_t4_currency
+        Show
+    }
+}
+
+Class "Blueprint"{
+    #t1-blueprints
+    BaseType None {
+        SetBackgroundColor $color_harvest_primal
+        SetBorderColor $white
+        SetFontSize $font_max
+        MinimapIcon 1 Blue Circle
+        PlayEffect Blue Temp
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    #t2-blueprints
+    BaseType "Blueprint" {
+        SetBackgroundColor $black
+        SetBorderColor $color_harvest_primal
+        SetFontSize $font_xl
+        PlayEffect Blue Temp
+        MinimapIcon 2 Blue Circle
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    Set $comp_failsafe
+    Show
+}
+
+# Contracts
+Class "Contract"{
+    # t1-contracts
+    BaseType None {
+        SetBackgroundColor $color_heist_light
+        SetBorderColor $color_heist_dark
+        SetTextColor $color_heist_dark
+        SetFontSize $font_max
+        PlayEffect Red
+        SetAlertSound $alert_t2_currency
+        MinimapIcon 1 Red Circle
+        Show
+    }
+    # t2-contracts
+    BaseType "Contract" {
+        SetBackgroundColor $black
+        SetTextColor $color_heist_light
+        SetBorderColor $color_heist_light
+        SetFontSize $font_xl
+        PlayEffect Red Temp
+        MinimapIcon 2 Red Circle
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+
+    Set $comp_failsafe
+    Show
+}
+
+Class "Quest Item" {
+    BaseType "Contract" {
+        SetFontSize $font_max
+        SetTextColor $white
+        SetBackgroundColor $quest_green
+        SetBorderColor $white
+        MinimapIcon 0 Green Kite
+        PlayEffect Green
+        Show
+    }
+}
+
+Class "Trinket" {
+    Set $comp_atlas_t1
+    Show
+}
+
+Class "Heist" {
+    SetFontSize $font_max
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    Show
+}
+
+
+Class "Gem" {
+    AlternateQuality True {
+        Quality >= 1 {
+            SetFontSize $font_xl
+            SetTextColor $cyan
+            SetBorderColor 255 204 102
+            MinimapIcon 1 Green Moon
+            PlayEffect Green Temp
+            SetAlertSound $alert_gems
+            Show
+        }
+    }
+}
+
+# Replica Uniques
+Rarity = Unique {
+    Replica True {
+        Set $comp_t2_unique
+        SetBorderColor $color_heist_light
+        Show
+    }
+}
+
+# @TODO: all the new bases are just T1 right now
+# @TODO: currently overrides 6L/6S rules
+# Jewellery
+BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Highest Tier
+BaseType "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield" "Accumulator Wand" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Mid Tier
+BaseType "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield" "Congregator Wand" {
+    Set $comp_atlas_t1
+    Show
+}
+
+# Lowest Tier
+BaseType "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield" "Assembler Wand" {
+    Set $comp_atlas_t1
+    Show
+}
+
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
