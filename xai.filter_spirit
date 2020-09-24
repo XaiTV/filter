@@ -379,7 +379,7 @@ LinkedSockets = 6 {
 # [SECTION 5] LEAGUES & SOME SPECIAL STUFF
 # Enchanted items
 AnyEnchantment True {
-    Class "Helmets"{
+    Class "Helmets" {
         Set $comp_rare_t1
         SetBorderColor $color_special_rares_border
         SetAlertSound $alert_special_rares
@@ -387,12 +387,11 @@ AnyEnchantment True {
         MinimapIcon 2 Blue Diamond
         Show
     }
-    Class "Boots" "Gloves"{
-        Set $comp_rare_t1
-        SetBorderColor $color_special_rares_border
-        SetAlertSound $alert_special_rares
-        Show
-    }
+
+    Set $comp_rare_t1
+    SetBorderColor $color_special_rares_border
+    SetAlertSound $alert_special_rares
+    Show
 
 }
 
