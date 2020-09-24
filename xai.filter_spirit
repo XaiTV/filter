@@ -1046,17 +1046,17 @@ Class "Currency" {
     }
 
     BaseType "Rogue's Marker" {
-        StackSize >= 5 {
-            Set $comp_t3_currency
+        StackSize >= 100 {
+            Set $comp_t4_currency
+            Show
+        }
+        
+        StackSize >= 50 {
+            Set $comp_t5_currency
             Show
         }
 
-        StackSize >= 15 {
-            Set $comp_t2_currency
-            Show
-        }
-
-        Set $comp_t4_currency
+        Set $comp_t6_currency
         Show
     }
 }
