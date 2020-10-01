@@ -379,7 +379,7 @@ LinkedSockets = 6 {
 # [SECTION 5] LEAGUES & SOME SPECIAL STUFF
 # Enchanted items
 AnyEnchantment True {
-    Class "Helmets" {
+    Class "Helmets" "Belts" {
         Set $comp_rare_t1
         SetBorderColor $color_special_rares_border
         SetAlertSound $alert_special_rares
@@ -388,11 +388,12 @@ AnyEnchantment True {
         Show
     }
 
-    Set $comp_rare_t1
-    SetBorderColor $color_special_rares_border
-    SetAlertSound $alert_special_rares
-    Show
-
+    Class "Gloves" "Boots" "Claws" "Daggers" "Wands" "One Hand" "Bows" "Staves" "Sceptres" "Two Hand" "Quivers" "Body Armours" "Shields" {
+        Set $comp_rare_t1
+        SetBorderColor $color_special_rares_border
+        SetAlertSound $alert_special_rares
+        Show
+    }
 }
 
 # Warbands
