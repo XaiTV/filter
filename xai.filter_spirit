@@ -682,7 +682,18 @@ BaseType "Reliquary Key" {
 
 # Betrayal
 # Scarabs are located under the Fragments section since they are technically fragments
-# @TODO: veiled mod tiering
+HasExplicitMod "Elreon's" "Rin's" {
+    Rarity <= Rare {
+        Set $comp_rare_t1
+        SetBorderColor $white
+		SetBackgroundColor $white
+        MinimapIcon 2 White Diamond
+        PlayEffect White
+        SetAlertSound $alert_special_rares
+        SetFontSize $font_max
+        Show
+    }
+}
 HasExplicitMod "Veil" {
     Rarity <= Rare {
         Set $comp_rare_t1
@@ -1064,7 +1075,7 @@ Class "Currency" {
 
 Class "Blueprint"{
     #t1-blueprints
-    BaseType None {
+    BaseType "Blueprint" {
         SetBackgroundColor $color_harvest_primal
         SetBorderColor $white
         SetFontSize $font_max
@@ -1133,7 +1144,7 @@ Class "Trinket" {
     Show
 }
 
-Class "Heist" {
+Class "Heist Target" {
     SetFontSize $font_max
     SetTextColor $white
     SetBackgroundColor $quest_green
@@ -1141,6 +1152,12 @@ Class "Heist" {
     MinimapIcon 0 Green Kite
     PlayEffect Green
     Show
+}
+
+Class "Heist" {
+	SetBackgroundColor $color_heist_dark
+	SetBorderColor $color_heist_light
+	Show
 }
 
 
@@ -1903,14 +1920,6 @@ Class "Jewel" {
         }
         Rarity = Magic {
             AreaLevel <= 69 {
-                SetFontSize $font_medium
-                SetBorderColor $black
-                SetTextColor $black
-                SetBackgroundColor 135 135 254
-                Show
-            }
-            
-            BaseType "Cobalt" {
                 SetFontSize $font_medium
                 SetBorderColor $black
                 SetTextColor $black
