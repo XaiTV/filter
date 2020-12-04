@@ -2843,6 +2843,12 @@ Height < $leveling_melee_toggle {
             }
         }
     }
+	
+	BaseType "Astral Plate" {
+		ItemLevel <= 67 {
+			Show #TOGGLE-LEVELING
+		}
+	}
 }
 
 # Bow leveling
