@@ -948,102 +948,6 @@ Class "Currency" {
         Show
     }
 }
-Class "Harvest Seed" {
-    # Seed (tier-1)
-    BaseType "Wild Ape Seed" "Wild Hatchling Seed" "Wild Hellion Seed" "Wild Thornwolf Seed" "Wild Ursaling Seed" {
-        SetBackgroundColor $black 200
-        SetBorderColor $color_harvest_wild
-        SetTextColor $color_harvest_wild
-        SetFontSize $font_xl
-        PlayEffect Blue Temp
-        #Not sure if sound is necessary
-        #SetAlertSound alert_t4_currency
-        Show
-    }
-    BaseType "Vivid Arachnid Seed" "Vivid Leech Seed" "Vivid Scorpion Seed" "Vivid Thornweaver Seed" "Vivid Weta Seed"{
-        SetBackgroundColor $black 200
-        SetBorderColor $color_harvest_vivid
-        SetTextColor $color_harvest_vivid
-        SetFontSize $font_xl
-        PlayEffect Blue Temp
-        #Not sure if sound is necessary
-        #SetAlertSound alert_t4_currency
-        Show
-    }
-    BaseType "Primal Cleaveling Seed" "Primal Dustspitter Seed" "Primal Feasting Horror Seed" "Primal Maw Seed" "Primal Rhoa Seed" {
-        SetBackgroundColor $black 200
-        SetBorderColor $color_harvest_primal
-        SetTextColor $color_harvest_primal
-        SetFontSize $font_xl
-        PlayEffect Blue Temp
-        #Not sure if sound is necessary
-        #SetAlertSound alert_t4_currency
-        Show
-    }
-    # Grain (tier-2)
-    BaseType "Wild Bristlebeast Grain" "Wild Chieftain Grain" "Wild Homunculus Grain" "Wild Snap Hound Grain" "Wild Spikeback Grain" {
-        Set $comp_seeds_t2
-        SetBorderColor $color_harvest_wild
-        SetTextColor $color_harvest_wild
-        Show
-    }
-    BaseType "Vivid Nestback Grain" "Vivid Parasite Grain" "Vivid Razorleg Grain" "Vivid Sapsucker Grain" "Vivid Striketail Grain"{
-        Set $comp_seeds_t2
-        SetBorderColor $color_harvest_vivid
-        SetTextColor $color_harvest_vivid
-        Show
-    }
-    BaseType "Primal Chimeral Grain" "Primal Dustcrab Grain" "Primal Rhex Grain" "Primal Scrabbler Grain" "Primal Viper Grain" {
-        Set $comp_seeds_t2
-        SetBorderColor $color_harvest_primal
-        SetTextColor $color_harvest_primal
-        Show
-    }
-    # Bulbs (tier-3)
-    BaseType "Wild Brambleback Bulb" "Wild Bristle Matron Bulb" "Wild Hellion Alpha Bulb" "Wild Infestation Queen Bulb" "Wild Thornmaw Bulb" {
-        Set $comp_seeds_t3
-        SetBorderColor $color_harvest_wild
-        Show
-    }
-    BaseType "Vivid Abberarach Bulb" "Vivid Devourer Bulb" "Vivid Vulture Bulb" "Vivid Watcher Bulb" "Vivid Whipleg Bulb" {
-        Set $comp_seeds_t3
-        SetBorderColor $color_harvest_vivid
-        Show
-    }
-    BaseType "Primal Blisterlord Bulb" "Primal Crushclaw Bulb" "Primal Cystcaller Bulb" "Primal Reborn Bulb" "Primal Rhex Matriarch Bulb" {
-        Set $comp_seeds_t3
-        SetBorderColor $color_harvest_primal
-        Show
-    }
-    # Fruits (tier-4)
-    BaseType "Wild Thornfruit" "Vivid Scalefruit" "Primal Blisterfruit"{
-        Set $comp_seeds_t4
-        Show
-    }
-    
-    Set $comp_failsafe
-    Show
-}
-
-Class "Seed Enhancer" {
-    BaseType "Bud" {
-        Set $comp_seeds_t2
-        Show
-    }
-    
-    BaseType "Flower" {
-        Set $comp_seeds_t3
-        Show
-    }
-    
-    BaseType "Blossom" {
-        Set $comp_seeds_t4
-        Show
-    }
-    
-    Set $comp_failsafe
-    Show
-}
 
 # Heist
 Class "Currency" {
@@ -3111,6 +3015,16 @@ Class "Body Armours" "Helmets" "Shields" "Boots" "Gloves" "Belts" "Rings" "Amule
 # [SECTION 17] QUEST SHIT
 Class "Quest Items"{
     SetFontSize $font_max
+    SetTextColor $white
+    SetBackgroundColor $quest_green
+    SetBorderColor $white
+    MinimapIcon 0 Green Kite
+    PlayEffect Green
+    Show
+}
+
+BaseType "Maven's Invitation" {
+	SetFontSize $font_max
     SetTextColor $white
     SetBackgroundColor $quest_green
     SetBorderColor $white
