@@ -377,31 +377,6 @@ LinkedSockets = 6 {
 }
 
 # [SECTION 5] LEAGUES & SOME SPECIAL STUFF
-# Enchanted items
-AnyEnchantment True {
-    Class "Helmets" "Belts" {
-        Set $comp_rare_t1
-        SetBorderColor $color_special_rares_border
-        SetAlertSound $alert_special_rares
-        PlayEffect $beam_special
-        MinimapIcon 2 Blue Diamond
-        Show
-    }
-
-    Class "Gloves" "Boots" "Claws" "Daggers" "Wands" "One Hand" "Bows" "Staves" "Sceptres" "Two Hand" "Quivers" "Body Armours" "Shields" {
-        Set $comp_rare_t1
-        SetBorderColor $color_special_rares_border
-        SetAlertSound $alert_special_rares
-        Show
-    }
-}
-
-# Warbands
-HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
-    Set $comp_warbands
-    Show
-}
-
 # Talisman
 # uniques are handled in uniques section
 Rarity <= Rare {
@@ -419,6 +394,31 @@ Rarity <= Rare {
         Set $comp_talisman
         Show #TOGGLE-TALISMAN
     }
+}
+
+# Enchanted items
+AnyEnchantment True {
+    Class "Helmets" "Belts" {
+        Set $comp_rare_t1
+        SetBorderColor $color_special_rares_border
+        SetAlertSound $alert_special_rares
+        PlayEffect $beam_special
+        MinimapIcon 2 Blue Diamond
+        Show
+    }
+
+    Class "Gloves" "Boots" "Claws" "Daggers" "Wands" "One Hand" "Bows" "Staves" "Sceptres" "Two Hand" "Quivers" "Body Armours" "Shields" "Amulets" "Rings" {
+        Set $comp_rare_t1
+        SetBorderColor $color_special_rares_border
+        SetAlertSound $alert_special_rares
+        Show
+    }
+}
+
+# Warbands
+HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
+    Set $comp_warbands
+    Show
 }
 
 # Prophecy
@@ -1435,6 +1435,12 @@ Corrupted False {
             Show
         }
     }
+	Class "Jewel" {
+		HasExplicitMod "Shimmering" "Vivid" {
+			Show
+		}
+	}
+	
     HasExplicitMod "Magister's" { # +1 spell gems
         Show
     }
@@ -2059,14 +2065,15 @@ Class "Mana Flasks" {
             Show #TOGGLE-LEVELING
         }
     }
-    ItemLevel <= 69 {
+    ItemLevel <= 72 {
         BaseType "Eternal Mana Flask"{
             SetFontSize $font_large
             SetBorderColor $color_mana_flasks_border
-            Show #TOGGLE-LEVELING
+            Show #TOGGLE-UTILITY-FLASKS
         }
     }
 }
+
 
 ItemLevel <= 67 {
     BaseType "Quicksilver Flask" "Silver Flask" {
