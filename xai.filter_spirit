@@ -268,6 +268,15 @@ Class "Currency" {
         
         Show #TOGGLE-T8-CURRENCY
     }
+	
+	BaseType $currency_t9 {
+	    StackSize >= 10 {
+		    Set $comp_t8_currency
+			Show  #TOGGLE-T9-CURRENCY-BIGSTACK
+		}
+	
+		Hide #TOGGLE-T9-CURRENCY
+	}
     
     BaseType "Portal Scroll" {
         Set $comp_portal
@@ -632,6 +641,18 @@ HasExplicitMod $incursion_good_mods {
     Show
 }
 
+# Abyss
+Class "Gloves" "Helmet" "Boots" "Body Armour" "Ring" "Shield" "Amulet" "One Hand" "Two Hand" "Bow" "Quiver" {
+	Rarity <= Rare {
+		SocketGroup A {
+			SetFontSize $font_medium
+			SetTextColor $color_incursion
+			MinimapIcon 0 Red Diamond
+			PlayEffect Red
+			Show
+		}
+	}
+}
 # Delve - BLEH
 Class "Currency"{
     BaseType "Prime Alchemical Resonator" "Prime Chaotic Resonator"{
@@ -963,11 +984,6 @@ Class "Currency" {
 
     BaseType "Rogue's Marker" {
         StackSize >= 100 {
-            Set $comp_t4_currency
-            Show
-        }
-        
-        StackSize >= 50 {
             Set $comp_t5_currency
             Show
         }
@@ -1501,15 +1517,11 @@ ItemLevel >= 86 {
             Show #TOGGLE-86-BASES
         }
     }
-}
-
-# 84 energy shield stuff gets priority
-ItemLevel >= 84 {
-    # t2 %es
-    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+	
+	BaseType $bases_caster_t1 {
         Rarity <= Magic {
             Set $comp_i84_bases
-            Show #TOGGLE-ES-BASES
+            Show #TOGGLE-86-BASES
         }
     }
 }
@@ -1541,6 +1553,17 @@ ItemLevel >= 85 {
         Rarity <= Magic {
             Set $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
+        }
+    }
+}
+
+# 84 energy shield stuff gets priority
+ItemLevel >= 84 {
+    # t2 %es
+    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+        Rarity <= Magic {
+            Set $comp_i84_bases
+            Show #TOGGLE-ES-BASES
         }
     }
 }
