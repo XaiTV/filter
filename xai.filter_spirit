@@ -1468,18 +1468,18 @@ Corrupted False {
 # [SECTION 12] BASES
 # @TODO: high rare highlighting
 ItemLevel >= 86 {
-    BaseType $bases_atlas_jewellery_t1 {
+    BaseType == $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
         Show
     }
     
-    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+    BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Set $comp_atlas_t2
         Show
     }
     
     # t1 %es
-    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+    BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
@@ -1487,7 +1487,7 @@ ItemLevel >= 86 {
     }
 
     # +3 minions
-    BaseType $bases_helmets_t1 {
+    BaseType == $bases_helmets_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
@@ -1495,7 +1495,7 @@ ItemLevel >= 86 {
     }
     
     # t1 %ms
-    BaseType $bases_boots_t1 {
+    BaseType == $bases_boots_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
@@ -1503,7 +1503,7 @@ ItemLevel >= 86 {
     }
     
     # t1 defense
-    BaseType $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
+    BaseType == $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
@@ -1511,14 +1511,14 @@ ItemLevel >= 86 {
     }
     
     # ele damage with attacks
-    BaseType $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
+    BaseType == $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
         Rarity <= Magic {
             Set $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
 	
-	BaseType $bases_caster_t1 {
+	BaseType == $bases_caster_t1 {
         Rarity <= Magic {
             Set $comp_i84_bases
             Show #TOGGLE-86-BASES
@@ -1527,21 +1527,21 @@ ItemLevel >= 86 {
 }
 
 ItemLevel >= 85 {
-    BaseType $bases_atlas_jewellery_t1 {
+    BaseType == $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
         MinimapIcon 1 Yellow Diamond
         SetBorderColor 250 200 150
         Show
     }
     
-    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+    BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Set $comp_atlas_t2
         SetBorderColor 200 150 0
         Show
     }
 
     # t1 attributes
-    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
+    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
         Rarity <= Magic {
             Set $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
@@ -1549,7 +1549,7 @@ ItemLevel >= 85 {
     }
     
     # chance to block
-    BaseType $bases_shield_t1 {
+    BaseType == $bases_shield_t1 {
         Rarity <= Magic {
             Set $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
@@ -1560,7 +1560,7 @@ ItemLevel >= 85 {
 # 84 energy shield stuff gets priority
 ItemLevel >= 84 {
     # t2 %es
-    BaseType $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
+    BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
             Set $comp_i84_bases
             Show #TOGGLE-ES-BASES
@@ -1570,21 +1570,21 @@ ItemLevel >= 84 {
 
 # High defense rolls, resists & caster damage mods
 ItemLevel >= 84 {
-    BaseType $bases_atlas_jewellery_t1 {
+    BaseType == $bases_atlas_jewellery_t1 {
         Set $comp_atlas_t1
         MinimapIcon 1 Yellow Diamond
         SetBorderColor 200 150 0
         Show
     }
     
-    BaseType $bases_atlas_jewellery_t2 $bases_atlas_armour {
+    BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Set $comp_atlas_t2
         SetBorderColor 150 100 0
         Show
     }
 
     # t1 resists
-    BaseType $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
+    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
         Rarity <= Magic {
             Set $comp_i84_bases
             Show #TOGGLE-HIGH-BASES
@@ -1592,7 +1592,7 @@ ItemLevel >= 84 {
     }
     
     # t1 spell damage etc.
-    BaseType $bases_caster_t1 {
+    BaseType == $bases_caster_t1 {
         Rarity <= Magic {
             Set $comp_i84_bases
             Show #TOGGLE-HIGH-BASES
@@ -1603,7 +1603,7 @@ ItemLevel >= 84 {
 # merciless roll
 ItemLevel >= 83 {
     # @TODO: split these up, 2h should probably be a bit smaller
-    BaseType $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
+    BaseType == $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
         Rarity <= Magic {
             Set $comp_i83_bases
             Show #TOGGLE-HIGH-BASES
@@ -1612,12 +1612,21 @@ ItemLevel >= 83 {
 }
 
 ItemLevel >= 73 {
-    BaseType $bases_evasion_energy_shield_t1 {
+    BaseType == $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            # @TODO: make pretty
+            Set $comp_i84_bases
             Hide #TOGGLE-EARLY-TRICKSTER-CI
         }
     }
+}
+
+ItemLevel >= $bases_always_show_ilvl {
+	BaseType == $bases_always_show {
+		Rarity <= Magic {
+			Set $comp_i84_bases
+			Show
+		}
+	}
 }
 
 BaseType $bases_atlas_jewellery_t1 {
@@ -1650,12 +1659,12 @@ ItemLevel >= $non_jewellery_rare_min_level {
     Height < $toggle_t1_rares {
         Rarity = Rare {
             Set $comp_rare_t1
-            BaseType $bases_small_armour_t1 $bases_small_armour_t2 {
+            BaseType == $bases_small_armour_t1 $bases_small_armour_t2 {
                 SetBorderColor $color_rare_t1_border
                 Show
             }
             
-            BaseType $bases_big_armour_t1 $bases_big_armour_t2 {
+            BaseType == $bases_big_armour_t1 $bases_big_armour_t2 {
                 SetBorderColor $color_rare_t1_border
                 SetFontSize $font_medium
                 Show  #TOGGLE-BIG-RARES
@@ -1667,12 +1676,12 @@ ItemLevel >= $non_jewellery_rare_min_level {
     Height < $toggle_t2_rares {
         Rarity = Rare {
             Set $comp_rare_t2
-            BaseType $bases_small_armour_t3 {
+            BaseType == $bases_small_armour_t3 {
                 SetBorderColor $color_rare_t2_border
                 Show
             }
             
-            BaseType $bases_big_armour_t3 {
+            BaseType == $bases_big_armour_t3 {
                 SetBorderColor $color_rare_t2_border
                 SetFontSize $font_medium
                 Show  #TOGGLE-BIG-RARES
@@ -1693,33 +1702,33 @@ ItemLevel >= $non_jewellery_rare_min_level {
     }
 
     Rarity = Rare {
-        BaseType $bases_caster_t1 {
+        BaseType == $bases_caster_t1 {
             Set $comp_rare_t1
             SetBorderColor $color_rare_caster_border
             Show
         }
-        BaseType $bases_caster_t2 {
+        BaseType == $bases_caster_t2 {
             Set $comp_rare_t2
             SetBorderColor $color_rare_caster_border 200
             Show
         }
-        BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 {
+        BaseType == $bases_1h_melee_t1 $bases_1h_melee_t2 {
             Set $comp_rare_t1
             SetFontSize $font_medium
             SetBorderColor $color_rare_melee_border
             Show
         }
-        BaseType $bases_2h_melee_t1 $bases_2h_melee_t2 {
+        BaseType == $bases_2h_melee_t1 $bases_2h_melee_t2 {
             Set $comp_rare_t1
             SetBorderColor $color_rare_melee_border
             Show
         }
-        BaseType $bases_bow {
+        BaseType == $bases_bow {
             Set $comp_rare_t1
             SetBorderColor $color_rare_bow_border
             Show
         }
-        BaseType $bases_quiver {
+        BaseType == $bases_quiver {
             Set $comp_rare_t1
             SetBorderColor $color_rare_bow_border
             Show
@@ -1730,7 +1739,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
 Rarity = Rare {
     Height < $toggle_t1_rares {
         Class "Amulets" "Belts" "Rings" {
-            BaseType $bases_jewellery_t1 {
+            BaseType == $bases_jewellery_t1 {
                 SetFontSize $font_xl
                 SetBackgroundColor 50 0 100
                 SetBorderColor 175 75 255
@@ -1749,7 +1758,7 @@ Rarity = Rare {
                 Show
             }
             
-            BaseType $bases_jewellery_t2 {
+            BaseType == $bases_jewellery_t2 {
                 SetFontSize $font_small
                 SetBackgroundColor 0 50 100
                 SetBorderColor 75 150 255
@@ -1764,6 +1773,15 @@ Rarity = Rare {
             Show
         }
     }
+}
+
+ItemLevel = 64 {
+	BaseType == $bases_64 {
+		Rarity <= Magic {
+			Set $comp_i84_bases
+			Show  #TOGGLE-64-BASES
+		}
+	}
 }
 
 # Cluster Jewels
@@ -2923,7 +2941,7 @@ Height < $leveling_bow_toggle {
             }
         }
         ItemLevel <= 25 {
-            BaseType "Serrated Arrow Quiver" {
+            BaseType "Serrated Arrow Quiver" "Sharktooth Arrow Quiver" {
                 SetBorderColor $color_leveling_bows_border
                 SetFontSize $font_max
                 Show #TOGGLE-LEVELING
@@ -3175,6 +3193,15 @@ Class "Map Fragments" {
     # SafetyNet for fragments
     Set $comp_failsafe
     Show
+}
+
+Class "Misc Map Item" {
+	SetBackgroundColor $white
+	SetBorderColor $color_frag_light
+	SetTextColor $color_frag_light
+	MinimapIcon 0 Red Cross
+	SetAlertSound $alert_t1
+	Show
 }
 
 # [SECTION 19] MISC
