@@ -216,7 +216,7 @@ Class "Currency" {
     }
     BaseType $currency_t4 {
         Expand $comp_t4_currency
-        Show  #TOGGLE-T4-CURRENCY
+        ShowHide $toggle_t4_currency
     }
     BaseType $currency_t5 {
         Expand $comp_t5_currency
@@ -231,7 +231,7 @@ Class "Currency" {
         Expand $comp_t6_currency
         StackSize >= 3 {
             Expand $comp_t4_currency
-            Show #TOGGLE-T4-CURRENCY
+            ShowHide $toggle_t4_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
@@ -270,17 +270,17 @@ Class "Currency" {
 	BaseType $currency_t9 {
 	    StackSize >= 10 {
 		    Expand $comp_t8_currency
-			Show  #TOGGLE-T9-CURRENCY-BIGSTACK
+			ShowHide $toggle_t9_currency_bigstack
 		}
 	
-		Hide #TOGGLE-T9-CURRENCY
+		ShowHide $toggle_t9_currency
 	}
     
     BaseType "Portal Scroll" {
         Expand $comp_portal
         StackSize >= 20 {
             Expand $comp_t4_currency
-            Show #TOGGLE-T4-CURRENCY
+            ShowHide $toggle_t4_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
@@ -293,7 +293,7 @@ Class "Currency" {
         Expand $comp_wisdom
         StackSize >= 40 {
             Expand $comp_t4_currency
-            Show #TOGGLE-T4-CURRENCY
+            ShowHide $toggle_t4_currency
         }
         
         AreaLevel <= 67 {
@@ -315,7 +315,7 @@ Class "Currency" {
             SetTextColor $color_perandus
             SetBorderColor $color_perandus
             PlayEffect White
-            Show #TOGGLE-T4-CURRENCY
+            ShowHide $toggle_t4_currency
         }
         StackSize > 4 {
             SetFontSize $font_xl
@@ -533,7 +533,7 @@ BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter 
         Show
     }
     Expand $comp_splinters_t2
-    Show #TOGGLE-T2-BREACH-SPLINTERS
+    ShowHide $toggle_t2_breach_splinters
 }
 
 BaseType "Blessing of Chayula" "Blessing of Esh" "Blessing of Xoph" "Blessing of Tul" "Blessing of Uul-Netol" {
@@ -888,7 +888,7 @@ BaseType $oils_t4 {
     SetBackgroundColor $color_oil_t4
     SetBorderColor $black
     SetTextColor $black
-    Show #TOGGLE-T4-OILS
+    ShowHide $toggle_t4_oils
 }
 
 # Metamorph
@@ -1167,7 +1167,7 @@ Rarity = Unique {
         Show
     }
     Expand $comp_t4_unique
-    Show #TOGGLE-T4-UNIQUES
+    ShowHide $toggle_t4_uniques
 }
 
 # [SECTION 7] DIVINATION CARDS
@@ -1194,11 +1194,11 @@ Class "Divination Card" {
     
     BaseType == $div_cards_t6 {
         Expand $comp_div_t5
-        Hide #TOGGLE-T6-DIV-CARDS
+        ShowHide $toggle_t6_div_cards
     }
     
     Expand $comp_div_t5
-    Show #TOGGLE-T5-DIV-CARDS
+    ShowHide $toggle_t5_div_cards
 }
 
 # [SECTION 8] MAPS
@@ -1281,7 +1281,7 @@ Class "Maps" {
             Show
         }
         Expand $comp_map_outleveled
-        Show #TOGGLE-OUTLEVELED-MAPS
+        ShowHide $toggle_outleveled_maps
     }
     MapTier >= 4 {
         ItemLevel < 83 {
@@ -1289,7 +1289,7 @@ Class "Maps" {
             Show
         }
         Expand $comp_map_outleveled
-        Show #TOGGLE-OUTLEVELED-MAPS
+        ShowHide $toggle_outleveled_maps
     }
     MapTier >= 3 {
         ItemLevel < 82 {
@@ -1297,7 +1297,7 @@ Class "Maps" {
             Show
         }
         Expand $comp_map_outleveled
-        Show #TOGGLE-OUTLEVELED-MAPS
+        ShowHide $toggle_outleveled_maps
     }
     MapTier >= 2 {
         ItemLevel < 81 {
@@ -1305,7 +1305,7 @@ Class "Maps" {
             Show
         }
         Expand $comp_map_outleveled
-        Show #TOGGLE-OUTLEVELED-MAPS
+        ShowHide $toggle_outleveled_maps
     }
     MapTier <= 1 {
         ItemLevel < 80 {
@@ -1313,7 +1313,7 @@ Class "Maps" {
             Show
         }
         Expand $comp_map_outleveled
-        Show #TOGGLE-OUTLEVELED-MAPS
+        ShowHide $toggle_outleveled_maps
     }
 }
 
@@ -1613,7 +1613,7 @@ ItemLevel >= 73 {
     BaseType == $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            Hide #TOGGLE-EARLY-TRICKSTER-CI
+            ShowHide $toggle_early_trickster_ci
         }
     }
 }
@@ -1649,7 +1649,7 @@ BaseType $bases_atlas_armour {
         Show
     }
     SetBorderColor 200 0 200
-    Show #TOGGLE-LOW-ATLAS-ARMOUR
+    ShowHide $toggle_low_atlas_armour
 }
 
 ItemLevel >= $non_jewellery_rare_min_level {
@@ -1665,7 +1665,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
             BaseType == $bases_big_armour_t1 $bases_big_armour_t2 {
                 SetBorderColor $color_rare_t1_border
                 SetFontSize $font_medium
-                Show  #TOGGLE-BIG-RARES
+                ShowHide $toggle_big_rares
             }
         }
     }
@@ -1682,7 +1682,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
             BaseType == $bases_big_armour_t3 {
                 SetBorderColor $color_rare_t2_border
                 SetFontSize $font_medium
-                Show  #TOGGLE-BIG-RARES
+                ShowHide $toggle_big_rares
             }
         }
     }
@@ -1777,7 +1777,7 @@ ItemLevel = 64 {
 	BaseType == $bases_64 {
 		Rarity <= Magic {
 			Expand $comp_i84_bases
-			Show  #TOGGLE-64-BASES
+			ShowHide $toggle_64_bases
 		}
 	}
 }
@@ -1908,14 +1908,14 @@ AreaLevel < $chrome_cutoff {
                 Width = 1{
                     Expand $comp_recipe_base
                     SetFontSize $font_medium
-                    Show #TOGGLE-CHROMATIC-ITEMS
+                    ShowHide $toggle_chromatic_items
                 }
             }
             Height = 2{
                 Width = 2 {
                     Expand $comp_recipe_base
                     SetFontSize $font_medium
-                    Show#TOGGLE-CHROMATIC-ITEMS
+                    ShowHide $toggle_chromatic_items
                 }
             }
         }
@@ -1929,13 +1929,13 @@ BaseType $flasks_t1 {
         SetBackgroundColor $recipe_gray
         SetBorderColor $color_quality_flasks_border
         SetAlertSound $alert_t3
-        Show #TOGGLE-QUALITY-FLASKS
+        ShowHide $toggle_quality_flasks
     }
     Quality >= 10 {
         SetFontSize $font_medium
         SetBackgroundColor $recipe_gray 200
         SetBorderColor $color_quality_flasks_border 200
-        Show #TOGGLE-QUALITY-FLASKS
+        ShowHide $toggle_quality_flasks
     }
 }
 Class "Flask" {
@@ -1943,7 +1943,7 @@ Class "Flask" {
         SetFontSize $font_xl
         SetBackgroundColor $recipe_gray
         SetBorderColor $color_quality_flasks_border
-        Show #TOGGLE-QUALITY-FLASKS
+        ShowHide $toggle_quality_flasks
     }
 }
 
@@ -1954,7 +1954,7 @@ Class "Utility Flasks" {
         ItemLevel >= 67 {
             AreaLevel <= 75 {
                 SetFontSize $font_medium
-                Show #TOGGLE-UTILITY-FLASKS
+                ShowHide $toggle_utility_flasks
             }
         }
     }
@@ -2108,7 +2108,7 @@ Class "Mana Flasks" {
         BaseType "Eternal Mana Flask"{
             SetFontSize $font_large
             SetBorderColor $color_mana_flasks_border
-            Show #TOGGLE-UTILITY-FLASKS
+            ShowHide $toggle_utility_flasks
         }
     }
 }
