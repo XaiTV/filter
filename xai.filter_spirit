@@ -45,97 +45,95 @@ Class "Map" {
 }
 
 # [SECTION 2] LEVELING LINKS
-Height < $leveling_links_toggle {
-    # 4-links with colors
-    AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
-        SocketGroup = $leveling_link4_colors {
-            LinkedSockets = 4 {
-                Sockets < 6 {
-                    Rarity <= Rare {
-                        Class "Gloves" "Helm" "Boots" "Body Armour" {
-                            AreaLevel <= 52 {
-                                Expand $comp_leveling_links
-                                MinimapIcon $icon_leveling_4link
-                                SetAlertSound $alert_leveling_link
-                                Show
-                            }
-                            AreaLevel <= 67 {
-                                Expand $comp_leveling_links
-                                Show
-                            }
-                        }
-                    }
-                }
-            }
-        }
+# 4-links with colors
+AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie and similar zones
+	SocketGroup = $leveling_link4_colors {
+		LinkedSockets = 4 {
+			Sockets < 6 {
+				Rarity <= Rare {
+					Class "Gloves" "Helm" "Boots" "Body Armour" {
+						AreaLevel <= 52 {
+							Expand $comp_leveling_links
+							MinimapIcon $icon_leveling_4link
+							SetAlertSound $alert_leveling_link
+							ShowDiscard $toggle_leveling_links
+						}
+						AreaLevel <= 67 {
+							Expand $comp_leveling_links
+							ShowDiscard $toggle_leveling_links
+						}
+					}
+				}
+			}
+		}
+	}
 
-        # 3-links
-        SocketGroup = $leveling_link3_colors {
-            LinkedSockets = 3 {
-                Sockets < 6 {
-                    Rarity <= Rare {
-                        Class "Gloves" "Helm" "Boots" "Body Armour" {
-                            AreaLevel <= 25 {
-                                Expand $comp_leveling_links
-                                MinimapIcon $icon_leveling_3link
-                                SetAlertSound $alert_leveling_link
-                                Show
-                            }
-                            AreaLevel <= 47 {
-                                Expand $comp_leveling_links
-                                Show
-                            }
-                        }
-                    }
-                }
-            }
-        }
+	# 3-links
+	SocketGroup = $leveling_link3_colors {
+		LinkedSockets = 3 {
+			Sockets < 6 {
+				Rarity <= Rare {
+					Class "Gloves" "Helm" "Boots" "Body Armour" {
+						AreaLevel <= 25 {
+							Expand $comp_leveling_links
+							MinimapIcon $icon_leveling_3link
+							SetAlertSound $alert_leveling_link
+							ShowDiscard $toggle_leveling_links
+						}
+						AreaLevel <= 47 {
+							Expand $comp_leveling_links
+							ShowDiscard $toggle_leveling_links
+						}
+					}
+				}
+			}
+		}
+	}
 
-        # 2-links
-        SocketGroup = $leveling_link2_colors {
-            LinkedSockets = 2 {
-                Sockets < 6 {
-                    Rarity <= Rare {
-                        AreaLevel <= 15 {
-                            Class "Gloves" "Helm" "Boots" {
-                                Expand $comp_leveling_2l
-                                Show
-                            }
-                        }
-                    }
-                }
-            }
-        }
+	# 2-links
+	SocketGroup = $leveling_link2_colors {
+		LinkedSockets = 2 {
+			Sockets < 6 {
+				Rarity <= Rare {
+					AreaLevel <= 15 {
+						Class "Gloves" "Helm" "Boots" {
+							Expand $comp_leveling_2l
+							ShowDiscard $toggle_leveling_links
+						}
+					}
+				}
+			}
+		}
+	}
 
-        # caster weapons
-        SocketGroup = $leveling_link3_colors {
-            LinkedSockets = 3 {
-                Rarity <= Rare {
-                    AreaLevel <= 25 {
-                        Class $leveling_caster_weapons {
-                            Expand $comp_leveling_links
-                            Show
-                        }
-                    }
-                }
-            }
-        }
+	# caster weapons
+	SocketGroup = $leveling_link3_colors {
+		LinkedSockets = 3 {
+			Rarity <= Rare {
+				AreaLevel <= 25 {
+					Class $leveling_caster_weapons {
+						Expand $comp_leveling_links
+						ShowDiscard $toggle_leveling_links
+					}
+				}
+			}
+		}
+	}
 
-        # 4-links without specific colors
-        LinkedSockets = 4 {
-            Sockets < 6 {
-                AreaLevel <= 52 {
-                    Rarity <= Rare {
-                        Class "Gloves" "Helm" "Boots" "Body Armour" {
-                            Expand $comp_leveling_links
-                            SetFontSize $font_medium
-                            Show
-                        }
-                    }
-                }
-            }
-        }
-    }
+	# 4-links without specific colors
+	LinkedSockets = 4 {
+		Sockets < 6 {
+			AreaLevel <= 52 {
+				Rarity <= Rare {
+					Class "Gloves" "Helm" "Boots" "Body Armour" {
+						Expand $comp_leveling_links
+						SetFontSize $font_medium
+						ShowDiscard $toggle_leveling_links
+					}
+				}
+			}
+		}
+	}
 }
 
 # [SECTION 3] CURRENCY
@@ -192,13 +190,13 @@ Class $shaper_voicelines {
     BaseType "Orb of Alchemy" {
         Expand $comp_t5_currency
         SetAlertSound ShAlchemy 300
-        Show #TOGGLE-T5-CURRENCY
+        ShowHide $toggle_currency_t5
     }
     
     BaseType "Orb of Fusing" {
         Expand $comp_t5_currency
         SetAlertSound ShFusing 300
-        Show #TOGGLE-T5-CURRENCY
+        ShowHide $toggle_currency_t5
     }
 }
 
@@ -227,7 +225,7 @@ Class "Currency" {
             Show
         }
         
-        Show #TOGGLE-T5-CURRENCY
+        ShowHide $toggle_currency_t5
     }
     BaseType $currency_t6 {
         Expand $comp_t6_currency
@@ -246,7 +244,7 @@ Class "Currency" {
         Expand $comp_t7_currency
         StackSize >= 3 {
             Expand $comp_t5_currency
-            Show #TOGGLE-T5-CURRENCY
+            ShowHide $toggle_currency_t5
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
@@ -1482,7 +1480,7 @@ ItemLevel >= 86 {
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
 
@@ -1490,7 +1488,7 @@ ItemLevel >= 86 {
     BaseType == $bases_helmets_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
     
@@ -1498,7 +1496,7 @@ ItemLevel >= 86 {
     BaseType == $bases_boots_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
     
@@ -1506,7 +1504,7 @@ ItemLevel >= 86 {
     BaseType == $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
     
@@ -1514,14 +1512,14 @@ ItemLevel >= 86 {
     BaseType == $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
 	
 	BaseType == $bases_caster_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            Show #TOGGLE-86-BASES
+            ShowHide $toggle_86_bases
         }
     }
 }
@@ -1544,7 +1542,7 @@ ItemLevel >= 85 {
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
         Rarity <= Magic {
             Expand $comp_i85_bases
-            Show #TOGGLE-HIGH-BASES
+            ShowHide $toggle_high_bases
         }
     }
     
@@ -1552,7 +1550,7 @@ ItemLevel >= 85 {
     BaseType == $bases_shield_t1 {
         Rarity <= Magic {
             Expand $comp_i85_bases
-            Show #TOGGLE-HIGH-BASES
+            ShowHide $toggle_high_bases
         }
     }
 }
@@ -1563,7 +1561,7 @@ ItemLevel >= 84 {
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            Show #TOGGLE-ES-BASES
+            ShowHide $toggle_es_bases
         }
     }
 }
@@ -1587,7 +1585,7 @@ ItemLevel >= 84 {
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            Show #TOGGLE-HIGH-BASES
+            ShowHide $toggle_high_bases
         }
     }
     
@@ -1595,7 +1593,7 @@ ItemLevel >= 84 {
     BaseType == $bases_caster_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            Show #TOGGLE-HIGH-BASES
+            ShowHide $toggle_high_bases
         }
     }
 }
@@ -1606,7 +1604,7 @@ ItemLevel >= 83 {
     BaseType == $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
         Rarity <= Magic {
             Expand $comp_i83_bases
-            Show #TOGGLE-HIGH-BASES
+            ShowHide $toggle_high_bases
         }
     }
 }
@@ -2608,7 +2606,7 @@ Class "Helmets" "Gloves" "Shields" {
 }
 
 # Caster leveling
-Height < $leveling_caster_toggle {
+Height < $toggle_leveling_caster {
     Class "Wand" "Sceptre" {
         SetBorderColor $color_leveling_caster_border
         # Special rule for 3 linked high value bases
@@ -2677,7 +2675,7 @@ Height < $leveling_caster_toggle {
 }
 
 # Melee leveling
-Height < $leveling_melee_toggle {
+Height < $toggle_leveling_melee {
     Class $leveling_melee_classes {
         SetBorderColor $color_leveling_melee_border
         Rarity = Rare {
@@ -2804,7 +2802,7 @@ Height < $leveling_melee_toggle {
 }
 
 # Bow leveling
-Height < $leveling_bow_toggle {
+Height < $toggle_leveling_bow {
     Class "Bows" {
         SetBorderColor $color_leveling_bows_border
         SetFontSize $font_large
@@ -2972,7 +2970,7 @@ Height < $leveling_bow_toggle {
 }
 
 # Summoner leveling
-Height < $leveling_summoner_toggle {
+Height < $toggle_leveling_summoner {
     BaseType "Pagan Wand" {
         ItemLevel <= 67 {
             LinkedSockets = 3 {
