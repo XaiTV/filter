@@ -7,7 +7,7 @@ BaseType $priority_base_types {
                     ElderItem False {
                         ShaperItem False {
                             Sockets < 6 {
-                                Set $comp_override
+                                Expand $comp_override
                                 Show
                             }
                         }
@@ -25,7 +25,7 @@ BaseType $chance_base_types {
                 ItemLevel >= 50 {
                     Sockets < 6 {
                         Rarity = Normal {
-                            Set $comp_chance
+                            Expand $comp_chance
                             Show
                         }
                     }
@@ -38,7 +38,7 @@ BaseType $chance_base_types {
 Class "Map" {
     Rarity <= Rare {
         BaseType $map_highlighting {
-            Set $comp_t1_map
+            Expand $comp_t1_map
             Show
         }
     }
@@ -54,13 +54,13 @@ Height < $leveling_links_toggle {
                     Rarity <= Rare {
                         Class "Gloves" "Helm" "Boots" "Body Armour" {
                             AreaLevel <= 52 {
-                                Set $comp_leveling_links
+                                Expand $comp_leveling_links
                                 MinimapIcon $icon_leveling_4link
                                 SetAlertSound $alert_leveling_link
                                 Show
                             }
                             AreaLevel <= 67 {
-                                Set $comp_leveling_links
+                                Expand $comp_leveling_links
                                 Show
                             }
                         }
@@ -76,13 +76,13 @@ Height < $leveling_links_toggle {
                     Rarity <= Rare {
                         Class "Gloves" "Helm" "Boots" "Body Armour" {
                             AreaLevel <= 25 {
-                                Set $comp_leveling_links
+                                Expand $comp_leveling_links
                                 MinimapIcon $icon_leveling_3link
                                 SetAlertSound $alert_leveling_link
                                 Show
                             }
                             AreaLevel <= 47 {
-                                Set $comp_leveling_links
+                                Expand $comp_leveling_links
                                 Show
                             }
                         }
@@ -98,7 +98,7 @@ Height < $leveling_links_toggle {
                     Rarity <= Rare {
                         AreaLevel <= 15 {
                             Class "Gloves" "Helm" "Boots" {
-                                Set $comp_leveling_2l
+                                Expand $comp_leveling_2l
                                 Show
                             }
                         }
@@ -113,7 +113,7 @@ Height < $leveling_links_toggle {
                 Rarity <= Rare {
                     AreaLevel <= 25 {
                         Class $leveling_caster_weapons {
-                            Set $comp_leveling_links
+                            Expand $comp_leveling_links
                             Show
                         }
                     }
@@ -127,7 +127,7 @@ Height < $leveling_links_toggle {
                 AreaLevel <= 52 {
                     Rarity <= Rare {
                         Class "Gloves" "Helm" "Boots" "Body Armour" {
-                            Set $comp_leveling_links
+                            Expand $comp_leveling_links
                             SetFontSize $font_medium
                             Show
                         }
@@ -141,62 +141,62 @@ Height < $leveling_links_toggle {
 # [SECTION 3] CURRENCY
 # meme items
 BaseType "Fishing Rod" "Albino Rhoa Feather" {
-    Set $comp_t1_currency
+    Expand $comp_t1_currency
     Show
 }
 
 # SHAPER VOICELINES
 Class $shaper_voicelines {
     BaseType "Mirror of Kalandra" {
-        Set $comp_t1_currency
+        Expand $comp_t1_currency
         SetAlertSound ShMirror 300
         Show
     }
     
     BaseType "Exalted Orb" {
-        Set $comp_t1_currency
+        Expand $comp_t1_currency
         SetAlertSound ShExalted 300
         Show
     }
     
     BaseType "Divine Orb" {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         SetAlertSound ShDivine 300
         Show
     }
     
     BaseType "Orb of Annulment" "Harbinger's Orb" "Ancient Orb" "Exalted Shard" {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         SetAlertSound ShGeneral 300
         Show
     }
     
     BaseType "Regal Orb" {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         SetAlertSound ShRegal 300
         Show
     }
     
     BaseType "Chaos Orb" {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         SetAlertSound ShChaos 300
         Show
     }
     
     BaseType "Vaal Orb" {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         SetAlertSound ShVaal 300
         Show
     }
     
     BaseType "Orb of Alchemy" {
-        Set $comp_t5_currency
+        Expand $comp_t5_currency
         SetAlertSound ShAlchemy 300
         Show #TOGGLE-T5-CURRENCY
     }
     
     BaseType "Orb of Fusing" {
-        Set $comp_t5_currency
+        Expand $comp_t5_currency
         SetAlertSound ShFusing 300
         Show #TOGGLE-T5-CURRENCY
     }
@@ -205,34 +205,34 @@ Class $shaper_voicelines {
 # Generic currency handling
 Class "Currency" {
     BaseType $currency_t1 {
-        Set $comp_t1_currency
+        Expand $comp_t1_currency
         Show
     }
     BaseType $currency_t2 {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         Show
     }
     BaseType $currency_t3 {
-        Set $comp_t3_currency
+        Expand $comp_t3_currency
         Show
     }
     BaseType $currency_t4 {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         Show  #TOGGLE-T4-CURRENCY
     }
     BaseType $currency_t5 {
-        Set $comp_t5_currency
+        Expand $comp_t5_currency
         StackSize >= 3 {
-            Set $comp_t3_currency
+            Expand $comp_t3_currency
             Show
         }
         
         Show #TOGGLE-T5-CURRENCY
     }
     BaseType $currency_t6 {
-        Set $comp_t6_currency
+        Expand $comp_t6_currency
         StackSize >= 3 {
-            Set $comp_t4_currency
+            Expand $comp_t4_currency
             Show #TOGGLE-T4-CURRENCY
         }
         AreaLevel <= 67 {
@@ -243,9 +243,9 @@ Class "Currency" {
         Show #TOGGLE-T6-CURRENCY
     }
     BaseType $currency_t7 {
-        Set $comp_t7_currency
+        Expand $comp_t7_currency
         StackSize >= 3 {
-            Set $comp_t5_currency
+            Expand $comp_t5_currency
             Show #TOGGLE-T5-CURRENCY
         }
         AreaLevel <= 67 {
@@ -256,9 +256,9 @@ Class "Currency" {
         Show #TOGGLE-T7-CURRENCY
     }
     BaseType $currency_t8 {
-        Set $comp_t8_currency
+        Expand $comp_t8_currency
         StackSize >= 3 {
-            Set $comp_t6_currency
+            Expand $comp_t6_currency
             Show #TOGGLE-T6-CURRENCY
         }
         AreaLevel <= 67 {
@@ -271,7 +271,7 @@ Class "Currency" {
 	
 	BaseType $currency_t9 {
 	    StackSize >= 10 {
-		    Set $comp_t8_currency
+		    Expand $comp_t8_currency
 			Show  #TOGGLE-T9-CURRENCY-BIGSTACK
 		}
 	
@@ -279,9 +279,9 @@ Class "Currency" {
 	}
     
     BaseType "Portal Scroll" {
-        Set $comp_portal
+        Expand $comp_portal
         StackSize >= 20 {
-            Set $comp_t4_currency
+            Expand $comp_t4_currency
             Show #TOGGLE-T4-CURRENCY
         }
         AreaLevel <= 67 {
@@ -292,9 +292,9 @@ Class "Currency" {
     }
 
     BaseType "Scroll of Wisdom" {
-        Set $comp_wisdom
+        Expand $comp_wisdom
         StackSize >= 40 {
-            Set $comp_t4_currency
+            Expand $comp_t4_currency
             Show #TOGGLE-T4-CURRENCY
         }
         
@@ -333,32 +333,32 @@ Class "Currency" {
 }
 
 BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Decadent Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Portentous Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" {
-    Set $comp_t2_currency
+    Expand $comp_t2_currency
     SetAlertSound $alert_t3_currency
     Show
 }
 
 # this really feels like currency to me -_-
 BaseType "Divine Vessel" {
-    Set $comp_divine_vessel
+    Expand $comp_divine_vessel
     Show
 }
 
 Class "Pantheon Soul" {
-    Set $comp_divine_vessel
+    Expand $comp_divine_vessel
     Show
 }
 
 # [SECTION 4] 6L
 LinkedSockets = 6 {
-    Set $comp_6l
+    Expand $comp_6l
 
     Rarity = Unique {
-        Set $comp_t1_unique
+        Expand $comp_t1_unique
         BaseType "Simple Robe" {
             SocketGroup WWWWWW {
                 # TABULA
-                Set $comp_t2_unique
+                Expand $comp_t2_unique
                 Show
             }
         }
@@ -391,16 +391,16 @@ LinkedSockets = 6 {
 Rarity <= Rare {
     BaseType "Talisman" {
         HasExplicitMod "Virile" "Rotund" "Athlete's" "Overpowering" "Devastating" "of Exile" "of Bameth" {
-            Set $comp_good_talisman
+            Expand $comp_good_talisman
             Show #TOGGLE-GOOD-TALISMAN
         }
     }
     BaseType "Primal Skull Talisman" "Fangjaw Talisman" "Clutching Talisman" "Horned Talisman" "Wereclaw Talisman" "Rotfeather Talisman" "Longtooth Talisman" "Spinefuse Talisman" "Three Rat Talisman" {
-        Set $comp_good_talisman_base
+        Expand $comp_good_talisman_base
         Show #TOGGLE-GOOD-TALISMAN
     }
     BaseType "Talisman" {
-        Set $comp_talisman
+        Expand $comp_talisman
         Show #TOGGLE-TALISMAN
     }
 }
@@ -408,7 +408,7 @@ Rarity <= Rare {
 # Enchanted items
 AnyEnchantment True {
     Class "Helmets" "Belts" {
-        Set $comp_rare_t1
+        Expand $comp_rare_t1
         SetBorderColor $color_special_rares_border
         SetAlertSound $alert_special_rares
         PlayEffect $beam_special
@@ -417,7 +417,7 @@ AnyEnchantment True {
     }
 
     Class "Gloves" "Boots" "Claws" "Daggers" "Wands" "One Hand" "Bows" "Staves" "Sceptres" "Two Hand" "Quivers" "Body Armours" "Shields" "Amulets" "Rings" {
-        Set $comp_rare_t1
+        Expand $comp_rare_t1
         SetBorderColor $color_special_rares_border
         SetAlertSound $alert_special_rares
         Show
@@ -426,22 +426,22 @@ AnyEnchantment True {
 
 # Warbands
 HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
-    Set $comp_warbands
+    Expand $comp_warbands
     Show
 }
 
 # Prophecy
 Class "Currency"{
     Prophecy $prophecy_t1 {
-        Set $comp_prophecy_t1
+        Expand $comp_prophecy_t1
         Show
     }
     Prophecy $prophecy_t2 {
-        Set $comp_prophecy_t2
+        Expand $comp_prophecy_t2
         Show
     }
     Prophecy $prophecy_t3 {
-        Set $comp_prophecy_t3
+        Expand $comp_prophecy_t3
         Show
     }
     Prophecy $prophecy_t5 {
@@ -451,7 +451,7 @@ Class "Currency"{
         Hide
     }
     BaseType "Prophecy" {
-        Set $comp_prophecy_t4
+        Expand $comp_prophecy_t4
         Show # TOGGLE-T4-PROPHECIES
     }
 }
@@ -522,24 +522,24 @@ Class "Rings" {
 
 BaseType "Splinter of Chayula" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         Show
     }
-    Set $comp_splinters_t1
+    Expand $comp_splinters_t1
     Show
 }
 
 BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter of Tul" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         Show
     }
-    Set $comp_splinters_t2
+    Expand $comp_splinters_t2
     Show #TOGGLE-T2-BREACH-SPLINTERS
 }
 
 BaseType "Blessing of Chayula" "Blessing of Esh" "Blessing of Xoph" "Blessing of Tul" "Blessing of Uul-Netol" {
-    Set $comp_t2_currency
+    Expand $comp_t2_currency
     Show
 }
 
@@ -556,7 +556,7 @@ Class "Leaguestone" {
 
 # Garbinger Harbinger
 Class "Piece" {
-    Set $comp_t3_unique
+    Expand $comp_t3_unique
     Show
 }
 
@@ -607,7 +607,7 @@ BaseType "Thaumaturgical Net" "Necromancy Net" "Strong Steel Net" "Simple Steel 
 
 # Incursion
 BaseType $incursion_vials_t1 {
-    Set $comp_t1_currency
+    Expand $comp_t1_currency
     SetBackgroundColor $color_incursion
     MinimapIcon 0 Red Cross
     PlayEffect Red
@@ -656,36 +656,36 @@ Class "Gloves" "Helmet" "Boots" "Body Armour" "Ring" "Shield" "Amulet" "One Hand
 # Delve - BLEH
 Class "Currency"{
     BaseType "Prime Alchemical Resonator" "Prime Chaotic Resonator"{
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         Show
     }
     BaseType "Powerful Chaotic Resonator" "Potent Chaotic Resonator" "Primitive Chaotic Resonator"{
-        Set $comp_t3_currency
+        Expand $comp_t3_currency
         Show
     }
     BaseType "Powerful Alchemical Resonator" "Potent Alchemical Resonator" "Primitive Alchemical Resonator"{
-        Set $comp_t5_currency
+        Expand $comp_t5_currency
         Show
     }
 
     BaseType $fossil_t1 {
-        Set $comp_t1_currency
+        Expand $comp_t1_currency
         Show
     }
     BaseType $fossil_t2 {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         Show
     }
     BaseType $fossil_t3 {
-        Set $comp_t3_currency
+        Expand $comp_t3_currency
         Show
     }
     BaseType $fossil_t4 {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         Show
     }
     BaseType "Fossil" {
-        Set $comp_failsafe
+        Expand $comp_failsafe
         Show
     }
 }
@@ -697,7 +697,7 @@ HasExplicitMod "of Weaponcraft" "of Spellcraft" "of Crafting" "Subterranean" "of
 }
 
 BaseType "Reliquary Key" {
-    Set $comp_t1_currency
+    Expand $comp_t1_currency
     Show
 }
 
@@ -705,7 +705,7 @@ BaseType "Reliquary Key" {
 # Scarabs are located under the Fragments section since they are technically fragments
 HasExplicitMod "Elreon's" "Rin's" {
     Rarity <= Rare {
-        Set $comp_rare_t1
+        Expand $comp_rare_t1
         SetBorderColor $white
 		SetBackgroundColor $white
         MinimapIcon 2 White Diamond
@@ -717,7 +717,7 @@ HasExplicitMod "Elreon's" "Rin's" {
 }
 HasExplicitMod "Veil" {
     Rarity <= Rare {
-        Set $comp_rare_t1
+        Expand $comp_rare_t1
         SetBorderColor $white
         MinimapIcon 2 White Diamond
         PlayEffect White
@@ -730,14 +730,14 @@ HasExplicitMod "Veil" {
 # Synthesis
 SynthesisedItem True {
     Rarity <= Rare {
-        Set $comp_failsafe # in case some league mechanic starts dropping Synthesized items
+        Expand $comp_failsafe # in case some league mechanic starts dropping Synthesized items
         Show
     }
 }
 FracturedItem True {
     Rarity <= Rare {
         ItemLevel >= 86 {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetFontSize $font_max
             SetBorderColor $color_synthesis
             MinimapIcon 1 Blue Diamond
@@ -746,7 +746,7 @@ FracturedItem True {
             Show
         }
         BaseType "Vaal Regalia" "Hubris Circlet" "Sorcerer Boots" "Sorcerer Gloves" "Titanium Spirit Shield" {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetFontSize $font_max
             SetBorderColor $color_synthesis
             MinimapIcon 1 Blue Diamond
@@ -755,7 +755,7 @@ FracturedItem True {
             Show
         }
         ItemLevel >= 84 {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetFontSize $font_max
             SetBorderColor $color_synthesis
             MinimapIcon 1 Blue Diamond
@@ -764,7 +764,7 @@ FracturedItem True {
             Show
         }
         Class "Boots" "Body Armour" "Gloves" "Jewel" "Abyss Jewel" "Amulet" "Shield" "Wand" "Sceptre" "Staves" "Bow" {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetFontSize $font_max
             SetBorderColor $color_synthesis
             MinimapIcon 2 Blue Diamond
@@ -772,7 +772,7 @@ FracturedItem True {
             PlayEffect Blue
             Show
         }
-        Set $comp_rare_t2
+        Expand $comp_rare_t2
         SetBorderColor $color_synthesis
         MinimapIcon 2 Blue Diamond
         Show
@@ -783,70 +783,70 @@ FracturedItem True {
 # Incubators
 Class "Incubator"{
     BaseType $incubators_t1 {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         Show
     }
-    Set $comp_t3_currency
+    Expand $comp_t3_currency
     Show
 }
 
 # Splinters
 BaseType "Timeless Maraketh Splinter" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         SetBackgroundColor 40 40 0
         SetTextColor 225 225 0
         Show
     }
-    Set $comp_splinters_t1
+    Expand $comp_splinters_t1
     SetBackgroundColor 40 40 0
     SetTextColor 225 225 0
     Show
 }
 BaseType "Timeless Templar Splinter" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         SetBackgroundColor 0 40 0
         SetTextColor 0 225 0
         Show
     }
-    Set $comp_splinters_t1
+    Expand $comp_splinters_t1
     SetBackgroundColor 0 40 0
     SetTextColor 0 225 0
     Show
 }
 BaseType "Timeless Vaal Splinter" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         SetBackgroundColor 40 0 0
         SetTextColor 225 0 0
         Show
     }
-    Set $comp_splinters_t2
+    Expand $comp_splinters_t2
     SetBackgroundColor 40 0 0
     SetTextColor 225 0 0
     Show
 }
 BaseType "Timeless Karui Splinter" {
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         SetBackgroundColor 60 20 0
         SetTextColor 225 125 0
         Show
     }
-    Set $comp_splinters_t2
+    Expand $comp_splinters_t2
     SetBackgroundColor 60 20 0
     SetTextColor 225 125 0
     Show
 }
 BaseType "Timeless Eternal Empire Splinter"{
     StackSize >= 2 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         SetBackgroundColor 40 40 40
         SetTextColor 225 225 225
         Show
     }
-    Set $comp_splinters_t2
+    Expand $comp_splinters_t2
     SetBackgroundColor 40 40 40
     SetTextColor 225 225 225
     Show
@@ -939,10 +939,10 @@ Class "Currency"{
 # Cluster jewels are in the jewels section
 BaseType "Simulacrum Splinter"{
     StackSize >= 3 {
-        Set $comp_splinters_stacked
+        Expand $comp_splinters_stacked
         Show
     }
-    Set $comp_splinters_t1
+    Expand $comp_splinters_t1
     Show
 }
 
@@ -961,11 +961,11 @@ BaseType "Dedication to the Goddess" "Gift to the Goddess" "Tribute to the Godde
 Class "Currency" {
     #New scrolls
     BaseType "Time-light Scroll" "Fragmentation Scroll" "Deregulation Scroll" "Electroshock Scroll" "Haemocombustion Scroll" "Specularity Scroll"{
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         Show
     }
     BaseType "Facetor's Lens" {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         Show
     }
 }
@@ -973,22 +973,22 @@ Class "Currency" {
 # Heist
 Class "Currency" {
     BaseType "Prime Regrading Lens" {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         Show
     }
 
     BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" {
-        Set $comp_t4_currency
+        Expand $comp_t4_currency
         Show
     }
 
     BaseType "Rogue's Marker" {
         StackSize >= 100 {
-            Set $comp_t5_currency
+            Expand $comp_t5_currency
             Show
         }
 
-        Set $comp_t6_currency
+        Expand $comp_t6_currency
         Show
     }
 }
@@ -1014,7 +1014,7 @@ Class "Blueprint"{
         SetAlertSound $alert_t3_currency
         Show
     }
-    Set $comp_failsafe
+    Expand $comp_failsafe
     Show
 }
 
@@ -1043,7 +1043,7 @@ Class "Contract"{
         Show
     }
 
-    Set $comp_failsafe
+    Expand $comp_failsafe
     Show
 }
 
@@ -1060,7 +1060,7 @@ Class "Quest Item" {
 }
 
 Class "Trinket" {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     Show
 }
 
@@ -1098,7 +1098,7 @@ Class "Gem" {
 # Replica Uniques
 Rarity = Unique {
     Replica True {
-        Set $comp_t2_unique
+        Expand $comp_t2_unique
         SetBorderColor $color_heist_light
         Show
     }
@@ -1108,25 +1108,25 @@ Rarity = Unique {
 # @TODO: currently overrides 6L/6S rules
 # Jewellery
 BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring" {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     Show
 }
 
 # Highest Tier
 BaseType "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield" "Accumulator Wand" {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     Show
 }
 
 # Mid Tier
 BaseType "Pressurised Dagger" "Flashfire Blade" "Malign Fangs" "Disapprobation Axe" "Capricious Spiritblade" "Crack Mace" "Stabilising Sceptre" "Foundry Bow" "Reciprocation Staff" "Potentiality Rod" "Honed Cleaver" "Blasting Blade" "Crushing Force Magnifier" "Subsuming Spirit Shield" "Polar Buckler" "Magmatic Tower Shield" "Congregator Wand" {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     Show
 }
 
 # Lowest Tier
 BaseType "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment Axe" "Fickle Spiritblade" "Flare Mace" "Oscillating Sceptre" "Hedron Bow" "Transformer Staff" "Capacity Rod" "Prime Cleaver" "Rebuking Blade" "Blunt Force Condenser" "Exhausting Spirit Shield" "Endothermic Buckler" "Exothermic Tower Shield" "Assembler Wand" {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     Show
 }
 
@@ -1136,7 +1136,7 @@ Rarity = Unique {
     # Ziggy ring exception
     BaseType "Unset Ring" {
         SocketGroup W {
-            Set $comp_t4_unique
+            Expand $comp_t4_unique
             Show
         }
     }
@@ -1144,62 +1144,62 @@ Rarity = Unique {
     # Skyforth
     BaseType "Sorcerer Boots" {
         ItemLevel >= 84 {
-            Set $comp_t1_unique
+            Expand $comp_t1_unique
             Show
         }
     }
 
     BaseType $uniques_t1 {
-        Set $comp_t1_unique
+        Expand $comp_t1_unique
         Show
     }
     BaseType $uniques_t2_guaranteed $uniques_t2_specific {
-        Set $comp_t2_unique
+        Expand $comp_t2_unique
         Show
     }
     BaseType "Steelscale Gauntlets" "Murder Boots" {
         #Exception for 2xAbyss socket uniques
         SocketGroup = A A {
-            Set $comp_t2_unique
+            Expand $comp_t2_unique
             Show
         }
     }
     BaseType $uniques_t3_guaranteed $uniques_t3_specific {
-        Set $comp_t3_unique
+        Expand $comp_t3_unique
         Show
     }
-    Set $comp_t4_unique
+    Expand $comp_t4_unique
     Show #TOGGLE-T4-UNIQUES
 }
 
 # [SECTION 7] DIVINATION CARDS
 Class "Divination Card" {
     BaseType == $div_cards_t1 {
-        Set $comp_div_t1
+        Expand $comp_div_t1
         Show
     }
     
     BaseType == $div_cards_t2 {
-        Set $comp_div_t2
+        Expand $comp_div_t2
         Show
     }
     
     BaseType == $div_cards_t3 {
-        Set $comp_div_t3
+        Expand $comp_div_t3
         Show
     }
     
     BaseType == $div_cards_t4 {
-        Set $comp_div_t4
+        Expand $comp_div_t4
         Show
     }
     
     BaseType == $div_cards_t6 {
-        Set $comp_div_t5
+        Expand $comp_div_t5
         Hide #TOGGLE-T6-DIV-CARDS
     }
     
-    Set $comp_div_t5
+    Expand $comp_div_t5
     Show #TOGGLE-T5-DIV-CARDS
 }
 
@@ -1207,11 +1207,11 @@ Class "Divination Card" {
 # Influenced Maps
 Class "Maps" {
     HasInfluence Shaper {
-        Set $comp_map_influence
+        Expand $comp_map_influence
         Show
     }
     HasInfluence Elder {
-        Set $comp_map_influence
+        Expand $comp_map_influence
         Show
     }
 }
@@ -1220,12 +1220,12 @@ Class "Maps" {
 Class "Maps" {
     BlightedMap True {
         MapTier >= 15 {
-            Set $comp_map_t1
+            Expand $comp_map_t1
             SetAlertSound $alert_t1
             MinimapIcon 0 Red Hexagon
             Show
         }
-        Set $comp_map_t2
+        Expand $comp_map_t2
         SetAlertSound $alert_t2
         MinimapIcon 0 Yellow Hexagon
         Show
@@ -1235,7 +1235,7 @@ Class "Maps" {
 # real maps
 Class "Maps" {
     MapTier >= 16 {
-        Set $comp_map_t1
+        Expand $comp_map_t1
         # Exception for "Vaal" maps from temple
         Identified True {
             HasExplicitMod "Vaal" {
@@ -1246,7 +1246,7 @@ Class "Maps" {
         Show
     }
     MapTier >= 11 {
-        Set $comp_map_t2
+        Expand $comp_map_t2
         # Exception for "Vaal" maps from temple
         Identified True {
             HasExplicitMod "Vaal" {
@@ -1257,7 +1257,7 @@ Class "Maps" {
         Show
     }
     MapTier >= 6 {
-        Set $comp_map_t3
+        Expand $comp_map_t3
         # Exception for "Vaal" maps from temple
         Identified True {
             HasExplicitMod "Vaal" {
@@ -1271,7 +1271,7 @@ Class "Maps" {
     # Exception for "Vaal" maps from temple
     Identified True {
         HasExplicitMod "Vaal" {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             SetBorderColor $color_frag_dark
             Show
         }
@@ -1279,42 +1279,42 @@ Class "Maps" {
     
     MapTier >= 5 {
         ItemLevel < 84 {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             Show
         }
-        Set $comp_map_outleveled
+        Expand $comp_map_outleveled
         Show #TOGGLE-OUTLEVELED-MAPS
     }
     MapTier >= 4 {
         ItemLevel < 83 {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             Show
         }
-        Set $comp_map_outleveled
+        Expand $comp_map_outleveled
         Show #TOGGLE-OUTLEVELED-MAPS
     }
     MapTier >= 3 {
         ItemLevel < 82 {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             Show
         }
-        Set $comp_map_outleveled
+        Expand $comp_map_outleveled
         Show #TOGGLE-OUTLEVELED-MAPS
     }
     MapTier >= 2 {
         ItemLevel < 81 {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             Show
         }
-        Set $comp_map_outleveled
+        Expand $comp_map_outleveled
         Show #TOGGLE-OUTLEVELED-MAPS
     }
     MapTier <= 1 {
         ItemLevel < 80 {
-            Set $comp_map_t4
+            Expand $comp_map_t4
             Show
         }
-        Set $comp_map_outleveled
+        Expand $comp_map_outleveled
         Show #TOGGLE-OUTLEVELED-MAPS
     }
 }
@@ -1325,7 +1325,7 @@ Class "Maps" {
 HasInfluence Crusader {
     Class "Body Armour" {
         ItemLevel >= 85 {
-            Set $comp_rare_influence_t1
+            Expand $comp_rare_influence_t1
             Show
         }
     }
@@ -1335,7 +1335,7 @@ HasInfluence Crusader {
 HasInfluence Elder {
     BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 $bases_2h_melee_t1 $bases_2h_melee_t2 $bases_bow $bases_bleed_bow {
         ItemLevel >= 83 {
-            Set $comp_rare_influence_t2
+            Expand $comp_rare_influence_t2
             Show
         }
     }
@@ -1344,18 +1344,18 @@ HasInfluence Elder {
 HasInfluence Shaper {
     BaseType "Titanium Spirit Shield" {
         ItemLevel >= 85 {
-            Set $comp_rare_influence_t1
+            Expand $comp_rare_influence_t1
             Show
         }
         ItemLevel >= 84 {
-            Set $comp_rare_influence_t2
+            Expand $comp_rare_influence_t2
             Show
         }
     }
     
     BaseType "Hubris Circlet" {
         ItemLevel >= 84 {
-            Set $comp_rare_influence_t2
+            Expand $comp_rare_influence_t2
             Show
         }
     }
@@ -1363,17 +1363,17 @@ HasInfluence Shaper {
 
 HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
     BaseType $bases_atlas {
-        Set $comp_rare_influence_t1
+        Expand $comp_rare_influence_t1
         Show
     }
     
     BaseType $bases_rings_t1 {
         ItemLevel >= 75 {
-            Set $comp_rare_influence_t2
+            Expand $comp_rare_influence_t2
         }
     }
     
-    Set $comp_rare_influence_t3
+    Expand $comp_rare_influence_t3
     Show
 }
 
@@ -1381,7 +1381,7 @@ HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
 LinkedSockets = 5  { #5-Link rules
     Sockets = 6 {
         Rarity <= Rare {
-            Set $comp_recipe_base
+            Expand $comp_recipe_base
             SetFontSize $font_max
             SetBorderColor $color_special_rares_border
             SetAlertSound $alert_t3
@@ -1422,7 +1422,7 @@ LinkedSockets = 5  { #5-Link rules
 }
 Sockets = 6 { #6 Sockets
     Rarity <= Rare  {
-        Set $comp_recipe_base
+        Expand $comp_recipe_base
         SetFontSize $font_xl
         SetBorderColor $white
         SetTextColor $white
@@ -1469,19 +1469,19 @@ Corrupted False {
 # @TODO: high rare highlighting
 ItemLevel >= 86 {
     BaseType == $bases_atlas_jewellery_t1 {
-        Set $comp_atlas_t1
+        Expand $comp_atlas_t1
         Show
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
-        Set $comp_atlas_t2
+        Expand $comp_atlas_t2
         Show
     }
     
     # t1 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            Set $comp_i86_bases
+            Expand $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
@@ -1489,7 +1489,7 @@ ItemLevel >= 86 {
     # +3 minions
     BaseType == $bases_helmets_t1 {
         Rarity <= Magic {
-            Set $comp_i86_bases
+            Expand $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
@@ -1497,7 +1497,7 @@ ItemLevel >= 86 {
     # t1 %ms
     BaseType == $bases_boots_t1 {
         Rarity <= Magic {
-            Set $comp_i86_bases
+            Expand $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
@@ -1505,7 +1505,7 @@ ItemLevel >= 86 {
     # t1 defense
     BaseType == $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
         Rarity <= Magic {
-            Set $comp_i86_bases
+            Expand $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
@@ -1513,14 +1513,14 @@ ItemLevel >= 86 {
     # ele damage with attacks
     BaseType == $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
         Rarity <= Magic {
-            Set $comp_i86_bases
+            Expand $comp_i86_bases
             Show #TOGGLE-86-BASES
         }
     }
 	
 	BaseType == $bases_caster_t1 {
         Rarity <= Magic {
-            Set $comp_i84_bases
+            Expand $comp_i84_bases
             Show #TOGGLE-86-BASES
         }
     }
@@ -1528,14 +1528,14 @@ ItemLevel >= 86 {
 
 ItemLevel >= 85 {
     BaseType == $bases_atlas_jewellery_t1 {
-        Set $comp_atlas_t1
+        Expand $comp_atlas_t1
         MinimapIcon 1 Yellow Diamond
         SetBorderColor 250 200 150
         Show
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
-        Set $comp_atlas_t2
+        Expand $comp_atlas_t2
         SetBorderColor 200 150 0
         Show
     }
@@ -1543,7 +1543,7 @@ ItemLevel >= 85 {
     # t1 attributes
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
         Rarity <= Magic {
-            Set $comp_i85_bases
+            Expand $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1551,7 +1551,7 @@ ItemLevel >= 85 {
     # chance to block
     BaseType == $bases_shield_t1 {
         Rarity <= Magic {
-            Set $comp_i85_bases
+            Expand $comp_i85_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1562,7 +1562,7 @@ ItemLevel >= 84 {
     # t2 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            Set $comp_i84_bases
+            Expand $comp_i84_bases
             Show #TOGGLE-ES-BASES
         }
     }
@@ -1571,14 +1571,14 @@ ItemLevel >= 84 {
 # High defense rolls, resists & caster damage mods
 ItemLevel >= 84 {
     BaseType == $bases_atlas_jewellery_t1 {
-        Set $comp_atlas_t1
+        Expand $comp_atlas_t1
         MinimapIcon 1 Yellow Diamond
         SetBorderColor 200 150 0
         Show
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
-        Set $comp_atlas_t2
+        Expand $comp_atlas_t2
         SetBorderColor 150 100 0
         Show
     }
@@ -1586,7 +1586,7 @@ ItemLevel >= 84 {
     # t1 resists
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
         Rarity <= Magic {
-            Set $comp_i84_bases
+            Expand $comp_i84_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1594,7 +1594,7 @@ ItemLevel >= 84 {
     # t1 spell damage etc.
     BaseType == $bases_caster_t1 {
         Rarity <= Magic {
-            Set $comp_i84_bases
+            Expand $comp_i84_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1605,7 +1605,7 @@ ItemLevel >= 83 {
     # @TODO: split these up, 2h should probably be a bit smaller
     BaseType == $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
         Rarity <= Magic {
-            Set $comp_i83_bases
+            Expand $comp_i83_bases
             Show #TOGGLE-HIGH-BASES
         }
     }
@@ -1614,7 +1614,7 @@ ItemLevel >= 83 {
 ItemLevel >= 73 {
     BaseType == $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-            Set $comp_i84_bases
+            Expand $comp_i84_bases
             Hide #TOGGLE-EARLY-TRICKSTER-CI
         }
     }
@@ -1623,28 +1623,28 @@ ItemLevel >= 73 {
 ItemLevel >= $bases_always_show_ilvl {
 	BaseType == $bases_always_show {
 		Rarity <= Magic {
-			Set $comp_i84_bases
+			Expand $comp_i84_bases
 			Show
 		}
 	}
 }
 
 BaseType $bases_atlas_jewellery_t1 {
-    Set $comp_atlas_t1
+    Expand $comp_atlas_t1
     SetBorderColor 220 0 220
     MinimapIcon 2 Yellow Diamond
     Show
 }
 
 BaseType $bases_atlas_jewellery_t2 {
-    Set $comp_atlas_t2
+    Expand $comp_atlas_t2
     SetBackgroundColor 50 0 100
     SetBorderColor 175 75 255
     Show
 }
 
 BaseType $bases_atlas_armour {
-    Set $comp_atlas_t2
+    Expand $comp_atlas_t2
     Rarity = Rare {
         SetFontSize $font_large
         SetBorderColor 200 0 200
@@ -1658,7 +1658,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
     # Tier 1 armour rares(Is made up of T1 and T2 bases)
     Height < $toggle_t1_rares {
         Rarity = Rare {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             BaseType == $bases_small_armour_t1 $bases_small_armour_t2 {
                 SetBorderColor $color_rare_t1_border
                 Show
@@ -1675,7 +1675,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
     # Tier 2 armour rares(Is made up of T3 bases)
     Height < $toggle_t2_rares {
         Rarity = Rare {
-            Set $comp_rare_t2
+            Expand $comp_rare_t2
             BaseType == $bases_small_armour_t3 {
                 SetBorderColor $color_rare_t2_border
                 Show
@@ -1694,7 +1694,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
         Class $t3_rare_classes {
             AreaLevel <= $t3_rare_cutoff {
                 AreaLevel >= 68 {
-                    Set $comp_rare_t3
+                    Expand $comp_rare_t3
                     Show
                 }
             }
@@ -1703,33 +1703,33 @@ ItemLevel >= $non_jewellery_rare_min_level {
 
     Rarity = Rare {
         BaseType == $bases_caster_t1 {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetBorderColor $color_rare_caster_border
             Show
         }
         BaseType == $bases_caster_t2 {
-            Set $comp_rare_t2
+            Expand $comp_rare_t2
             SetBorderColor $color_rare_caster_border 200
             Show
         }
         BaseType == $bases_1h_melee_t1 $bases_1h_melee_t2 {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetFontSize $font_medium
             SetBorderColor $color_rare_melee_border
             Show
         }
         BaseType == $bases_2h_melee_t1 $bases_2h_melee_t2 {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetBorderColor $color_rare_melee_border
             Show
         }
         BaseType == $bases_bow {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetBorderColor $color_rare_bow_border
             Show
         }
         BaseType == $bases_quiver {
-            Set $comp_rare_t1
+            Expand $comp_rare_t1
             SetBorderColor $color_rare_bow_border
             Show
         }
@@ -1769,7 +1769,7 @@ Rarity = Rare {
                 Show
             }
             
-            Set $comp_failsafe
+            Expand $comp_failsafe
             Show
         }
     }
@@ -1778,7 +1778,7 @@ Rarity = Rare {
 ItemLevel = 64 {
 	BaseType == $bases_64 {
 		Rarity <= Magic {
-			Set $comp_i84_bases
+			Expand $comp_i84_bases
 			Show  #TOGGLE-64-BASES
 		}
 	}
@@ -1813,7 +1813,7 @@ Class "Jewel" {
 Class "Abyss Jewel"	{
     ItemLevel >= 82 {
         Rarity = Rare {
-            Set $comp_rare_jewel
+            Expand $comp_rare_jewel
             SetBorderColor $white
             MinimapIcon 1 Brown Raindrop
             PlayEffect Brown
@@ -1821,7 +1821,7 @@ Class "Abyss Jewel"	{
             Show
         }
         Rarity = Magic {
-            Set $comp_magic_jewel
+            Expand $comp_magic_jewel
             SetBorderColor $white
             MinimapIcon 1 Brown Raindrop
             PlayEffect Brown
@@ -1831,13 +1831,13 @@ Class "Abyss Jewel"	{
     }
 
     Rarity = Rare {
-        Set $comp_rare_jewel
+        Expand $comp_rare_jewel
         SetBorderColor $black
         SetFontSize $font_medium
         Show
     }
     Rarity = Magic {
-        Set $comp_magic_jewel
+        Expand $comp_magic_jewel
         SetBorderColor $black
         SetFontSize $font_medium
         Show
@@ -1887,14 +1887,14 @@ AreaLevel >= $chrome_cutoff {
         SocketGroup = RGB {
             Height = 3{
                 Width = 1{
-                    Set $comp_recipe_base
+                    Expand $comp_recipe_base
                     SetFontSize $font_medium
                     Hide
                 }
             }
             Height = 2{
                 Width = 2 {
-                    Set $comp_recipe_base
+                    Expand $comp_recipe_base
                     SetFontSize $font_medium
                     Hide
                 }
@@ -1908,14 +1908,14 @@ AreaLevel < $chrome_cutoff {
         SocketGroup = RGB {
             Height = 3{
                 Width = 1{
-                    Set $comp_recipe_base
+                    Expand $comp_recipe_base
                     SetFontSize $font_medium
                     Show #TOGGLE-CHROMATIC-ITEMS
                 }
             }
             Height = 2{
                 Width = 2 {
-                    Set $comp_recipe_base
+                    Expand $comp_recipe_base
                     SetFontSize $font_medium
                     Show#TOGGLE-CHROMATIC-ITEMS
                 }
@@ -2146,7 +2146,7 @@ Class "Flask" {
 
 Class "Gem" {
     BaseType $gems_t0 {
-        Set $comp_t1_currency
+        Expand $comp_t1_currency
         SetBorderColor $color_t1_gem
         SetTextColor $color_t1_gem
         MinimapIcon 0 Cyan Moon
@@ -2155,7 +2155,7 @@ Class "Gem" {
     }
     BaseType $gems_t1 $gems_t2 {
         GemLevel >= 2{
-            Set $comp_t1_currency
+            Expand $comp_t1_currency
             SetBorderColor $color_t1_gem
             SetTextColor $color_t1_gem
             MinimapIcon 0 Cyan Moon
@@ -2164,7 +2164,7 @@ Class "Gem" {
         }
     }
     BaseType $gems_t1 {
-        Set $comp_t2_currency
+        Expand $comp_t2_currency
         SetBackgroundColor $color_t1_gem
         MinimapIcon 1 Cyan Moon
         PlayEffect Cyan
@@ -2176,7 +2176,7 @@ Class "Gem" {
     }
     BaseType $gems_t2 {
         Quality >= 5 {
-            Set $comp_t3_currency
+            Expand $comp_t3_currency
             SetBackgroundColor $color_t1_gem
             MinimapIcon 2 Cyan Moon
             PlayEffect Cyan Temp
@@ -3191,7 +3191,7 @@ Class "Map Fragments" {
         Show
     }
     # SafetyNet for fragments
-    Set $comp_failsafe
+    Expand $comp_failsafe
     Show
 }
 
@@ -3253,7 +3253,7 @@ BaseType "Scroll Fragment" "Transmutation Shard" "Alteration Shard" {
 }
 # Failsafe to show currency
 Class "Currency" {
-    Set $comp_failsafe
+    Expand $comp_failsafe
     Show
 }
 
@@ -3271,5 +3271,5 @@ Class $all_classes {
     Hide
 }
 
-Set $comp_failsafe
+Expand $comp_failsafe
 Show
