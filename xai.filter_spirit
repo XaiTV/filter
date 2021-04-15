@@ -190,13 +190,13 @@ Class $shaper_voicelines {
     BaseType "Orb of Alchemy" {
         Expand $comp_t5_currency
         SetAlertSound ShAlchemy 300
-        ShowHide $toggle_currency_t5
+        ShowHide $toggle_t5_currency
     }
     
     BaseType "Orb of Fusing" {
         Expand $comp_t5_currency
         SetAlertSound ShFusing 300
-        ShowHide $toggle_currency_t5
+        ShowHide $toggle_t5_currency
     }
 }
 
@@ -225,7 +225,7 @@ Class "Currency" {
             Show
         }
         
-        ShowHide $toggle_currency_t5
+        ShowHide $toggle_t5_currency
     }
     BaseType $currency_t6 {
         Expand $comp_t6_currency
@@ -235,36 +235,36 @@ Class "Currency" {
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
-            Show #TOGGLE-T6-CURRENCY
+            ShowHide $toggle_t6_currency
         }
         
-        Show #TOGGLE-T6-CURRENCY
+        ShowHide $toggle_t6_currency
     }
     BaseType $currency_t7 {
         Expand $comp_t7_currency
         StackSize >= 3 {
             Expand $comp_t5_currency
-            ShowHide $toggle_currency_t5
+            ShowHide $toggle_t5_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
-            Show #TOGGLE-T7-CURRENCY
+            ShowHide $toggle_t7_currency
         }
         
-        Show #TOGGLE-T7-CURRENCY
+        ShowHide $toggle_t7_currency
     }
     BaseType $currency_t8 {
         Expand $comp_t8_currency
         StackSize >= 3 {
             Expand $comp_t6_currency
-            Show #TOGGLE-T6-CURRENCY
+            ShowHide $toggle_t6_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
-            Show #TOGGLE-T8-CURRENCY
+            ShowHide $toggle_t8_currency
         }
         
-        Show #TOGGLE-T8-CURRENCY
+        ShowHide $toggle_t8_currency
     }
 	
 	BaseType $currency_t9 {
@@ -284,9 +284,9 @@ Class "Currency" {
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
-            Show #TOGGLE-T8-CURRENCY
+            ShowHide $toggle_t8_currency
         }
-        Show #TOGGLE-T8-CURRENCY
+        ShowHide $toggle_t8_currency
     }
 
     BaseType "Scroll of Wisdom" {
@@ -298,12 +298,12 @@ Class "Currency" {
         
         AreaLevel <= 67 {
             SetFontSize $font_max
-            Show #TOGGLE-T9-CURRENCY
+            ShowHide $toggle_t9_currency
         }
         
         AreaLevel <= 72 {
             SetFontSize $font_medium
-            Show #TOGGLE-T9-CURRENCY
+            ShowHide $toggle_t9_currency
         }
         
         Hide
@@ -322,11 +322,11 @@ Class "Currency" {
             SetTextColor $color_perandus
             SetBorderColor $color_perandus
             PlayEffect White Temp
-            Show #TOGGLE-T6-CURRENCY
+            ShowHide $toggle_t6_currency
         }
         SetFontSize $font_medium
         SetTextColor $color_perandus
-        Show #TOGGLE-T7-CURRENCY
+        ShowHide $toggle_t7_currency
     }
 }
 
@@ -388,18 +388,18 @@ LinkedSockets = 6 {
 # uniques are handled in uniques section
 Rarity <= Rare {
     BaseType "Talisman" {
-        HasExplicitMod "Virile" "Rotund" "Athlete's" "Overpowering" "Devastating" "of Exile" "of Bameth" {
+        HasExplicitMod "Virile" "Rotund" "Athlete's" "Overpowering" "Devastating" "Unassailable" "Dazzling" "of Exile" "of Bameth" {
             Expand $comp_good_talisman
-            Show #TOGGLE-GOOD-TALISMAN
+            ShowHide $toggle_good_talisman
         }
     }
     BaseType "Primal Skull Talisman" "Fangjaw Talisman" "Clutching Talisman" "Horned Talisman" "Wereclaw Talisman" "Rotfeather Talisman" "Longtooth Talisman" "Spinefuse Talisman" "Three Rat Talisman" {
         Expand $comp_good_talisman_base
-        Show #TOGGLE-GOOD-TALISMAN
+        ShowHide $toggle_good_talisman
     }
     BaseType "Talisman" {
         Expand $comp_talisman
-        Show #TOGGLE-TALISMAN
+        ShowHide $toggle_talisman
     }
 }
 
@@ -450,7 +450,7 @@ Class "Currency"{
     }
     BaseType "Prophecy" {
         Expand $comp_prophecy_t4
-        Show # TOGGLE-T4-PROPHECIES
+        ShowHide $toggle_t4_prophecies
     }
 }
 
@@ -502,7 +502,7 @@ Class "Currency" {
         SetBorderColor $black
         SetFontSize $font_medium
         SetTextColor $black
-        Show #TOGGLE-LOW-ESSENCES
+        ShowHide $toggle_low_essences
     }
 }
 
@@ -513,7 +513,7 @@ Class "Rings" {
         # @TODO: id filtering
         Rarity <= Rare {
             SetFontSize $font_xs
-            Show #TOGGLE-BREACH-RINGS
+            ShowHide $toggle_breach_rings
         }
     }
 }
