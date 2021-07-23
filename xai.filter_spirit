@@ -1128,6 +1128,33 @@ BaseType "Hollowpoint Dagger" "Flickerflame Blade" "Shadow Fangs" "Maltreatment 
     Show
 }
 
+# Expedition
+BaseType $expedition_t1 {
+	Expand $comp_expedition_t1
+	Show
+}
+
+BaseType $expedition_t2 {
+	Expand $comp_expedition_t2
+	Show
+}
+
+BaseType $expedition_t3 {
+	Expand $comp_expedition_t3
+	Show
+}
+
+Class "Expedition Logbook" {
+	SetBackgroundColor $color_heist_light
+	SetBorderColor $color_heist_dark
+	SetTextColor $color_heist_dark
+	SetFontSize $font_max
+	PlayEffect Red
+	SetAlertSound $alert_t2_currency
+	MinimapIcon 1 Red Circle
+	Show
+}
+
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
@@ -3106,6 +3133,36 @@ BaseType $leveling_shield_skill_bases {
 		}
 	}
 }
+
+# Show act 1 melee stuff in case we don't have the desired skill yet or a decent shield
+Class $leveling_melee_classes {
+	SetBorderColor $color_leveling_melee_border
+	Rarity = Rare {
+		SetFontSize $font_xl
+
+		ItemLevel <= 12 {
+			ShowDiscard $toggle_leveling $toggle_leveling_shields
+		}
+		ItemLevel <= 15 {
+			DropLevel > 5 {
+				ShowDiscard $toggle_leveling $toggle_leveling_shields
+			}
+		}
+	}
+	Rarity <= Magic {
+		SetFontSize $font_large
+
+		ItemLevel <= 12 {
+			ShowDiscard $toggle_leveling $toggle_leveling_shields
+		}
+		ItemLevel <= 15 {
+			DropLevel > 5 {
+				ShowDiscard $toggle_leveling $toggle_leveling_shields
+			}
+		}
+	}
+}
+
 # -----------------------------
 # -  END OF SHIELD LEVELING   -
 # -----------------------------
