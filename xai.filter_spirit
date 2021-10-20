@@ -1149,6 +1149,16 @@ Class "Expedition Logbook" {
 	Show
 }
 
+# Scourge
+Scourged True {
+	SetBorderColor 122 0 0
+	SetAlertSound $alert_t3_currency
+	PlayEffect Red
+	SetFontSize $font_max
+	Show
+}
+
+
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
 Rarity = Unique {
@@ -1237,6 +1247,13 @@ Class "Maps" {
 
 # Blighted Maps
 Class "Maps" {
+    UberBlightedMap True {
+		Expand $comp_map_t1
+		SetAlertSound $alert_t1
+		MinimapIcon 0 Red Hexagon
+		Show
+	}
+
     BlightedMap True {
         MapTier >= 15 {
             Expand $comp_map_t1
