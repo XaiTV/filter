@@ -4,14 +4,10 @@ BaseType $priority_base_types {
         Rarity <= Rare {
             Corrupted False {
                 FracturedItem False {
-                    ElderItem False {
-                        ShaperItem False {
-                            Sockets < 6 {
-                                Expand $comp_override
-                                Show
-                            }
-                        }
-                    }
+					Sockets < 6 {
+						Expand $comp_override
+						Show
+					}
                 }
             }
         }
@@ -22,14 +18,12 @@ BaseType $chance_base_types {
     Corrupted False {
         Mirrored False {
             FracturedItem False {
-                ItemLevel >= 50 {
-                    Sockets < 6 {
-                        Rarity = Normal {
-                            Expand $comp_chance
-                            Show
-                        }
-                    }
-                }
+				Sockets < 6 {
+					Rarity = Normal {
+						Expand $comp_chance
+						Show
+					}
+				}
             }
         }
     }
@@ -1387,14 +1381,17 @@ HasInfluence Shaper {
 }
 
 HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
-    BaseType $bases_atlas {
-        Expand $comp_rare_influence_t1
-        Show
+    BaseType $bases_atlas_influence {
+	    ItemLevel >= 80 {
+			Expand $comp_rare_influence_t1
+			Show
+		}
     }
     
     BaseType $bases_rings_t1 {
         ItemLevel >= 75 {
             Expand $comp_rare_influence_t2
+			Show
         }
     }
     
@@ -1798,11 +1795,13 @@ Rarity = Rare {
     }
 }
 
-ItemLevel = 64 {
-	BaseType == $bases_64 {
-		Rarity <= Magic {
-			Expand $comp_i84_bases
-			ShowHide $toggle_64_bases
+ItemLevel >= 64 {
+	ItemLevel <= 65 {
+		BaseType == $bases_64 {
+			Rarity <= Magic {
+				Expand $comp_i84_bases
+				ShowHide $toggle_64_bases
+			}
 		}
 	}
 }
@@ -1949,6 +1948,13 @@ AreaLevel < $chrome_cutoff {
 
 # [SECTION 14] FLASKS
 BaseType $flasks_t1 {
+	SetFontSize $font_max
+	SetBackgroundColor $recipe_gray
+	SetBorderColor $color_quality_flasks_border
+	SetAlertSound $alert_t3
+	Show
+}
+BaseType $flasks_t2 {
     Quality = 20 {
         SetFontSize $font_xl
         SetBackgroundColor $recipe_gray
@@ -3180,6 +3186,28 @@ BaseType "Pagan Wand" {
 			ShowDiscard $toggle_leveling $toggle_leveling_summoner
 		}
 	}
+	ItemLevel <= 50 {
+		SetFontSize $font_large
+		SetBorderColor $color_leveling_summoner_border
+		ShowDiscard $toggle_leveling $toggle_leveling_summoner
+	}
+}
+BaseType "Double Claw" "Twin Claw" {
+	ItemLevel <= 67 {
+		LinkedSockets = 3 {
+			SetFontSize $font_xl
+			SetBorderColor $color_leveling_summoner_border
+			SetBackgroundColor 25 0 50
+			ShowDiscard $toggle_leveling $toggle_leveling_summoner
+		}
+		
+		Rarity>= Magic {
+			SetBorderColor $color_leveling_summoner_border
+			SetFontSize $font_xl
+			ShowDiscard $toggle_leveling $toggle_leveling_summoner
+		}
+	}
+	
 	ItemLevel <= 50 {
 		SetFontSize $font_large
 		SetBorderColor $color_leveling_summoner_border
