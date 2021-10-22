@@ -2004,6 +2004,24 @@ BaseType $flasks_t1 {
 	SetAlertSound $alert_t3
 	Show
 }
+
+BaseType "Quicksilver Flask" {
+	ItemLevel >= 85 {
+		SetFontSize $font_max
+		SetBackgroundColor $recipe_gray
+		SetBorderColor $color_quality_flasks_border
+		SetAlertSound $alert_t3
+		ShowDiscard $toggle_max_level_flasks
+	}
+}
+
+BaseType $flasks_t2 "Divine Life Flask" "Eternal Mana Flask" {
+	ItemLevel >= 84 {
+		SetFontSize $font_medium
+		ShowDiscard $toggle_max_level_flasks
+	}
+}
+
 BaseType $flasks_t2 {
     Quality = 20 {
         SetFontSize $font_xl
@@ -2028,12 +2046,12 @@ Class "Flask" {
     }
 }
 
-# Show all utility flasks until arealevel 75
+# Show all utility flasks until arealevel $max_flask_ilvl
 Class "Utility Flasks" {
     Rarity <= Magic {
         # AFTER LEVELING
         ItemLevel >= 67 {
-            AreaLevel <= 75 {
+            AreaLevel <= $max_flask_ilvl {
                 SetFontSize $font_medium
                 ShowHide $toggle_utility_flasks
             }
