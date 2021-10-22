@@ -1519,32 +1519,48 @@ ItemLevel >= 86 {
     # t1 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i86_bases_90p
+				ShowHide $toggle_86_bases
+			}
             Expand $comp_i86_bases
-            ShowHide $toggle_86_bases
+            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
         }
     }
 
     # +3 minions
     BaseType == $bases_helmets_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i86_bases_90p
+				ShowHide $toggle_86_bases
+			}
             Expand $comp_i86_bases
-            ShowHide $toggle_86_bases
+            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
         }
     }
     
     # t1 %ms
     BaseType == $bases_boots_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i86_bases_90p
+				ShowHide $toggle_86_bases
+			}
             Expand $comp_i86_bases
-            ShowHide $toggle_86_bases
+            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
         }
     }
     
     # t1 defense
     BaseType == $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i86_bases_90p
+				ShowHide $toggle_86_bases
+			}
             Expand $comp_i86_bases
-            ShowHide $toggle_86_bases
+            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
         }
     }
     
@@ -1581,16 +1597,24 @@ ItemLevel >= 85 {
     # t1 attributes
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i84_bases_90p
+				ShowHide $toggle_high_bases
+			}
             Expand $comp_i85_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
         }
     }
     
     # chance to block
     BaseType == $bases_shield_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i84_bases_90p
+				ShowHide $toggle_high_bases
+			}
             Expand $comp_i85_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
         }
     }
 }
@@ -1600,8 +1624,12 @@ ItemLevel >= 84 {
     # t2 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i84_bases_90p
+				ShowHide $toggle_es_bases
+			}
             Expand $comp_i84_bases
-            ShowHide $toggle_es_bases
+            ShowHide $toggle_84_sub_90p_bases $toggle_es_bases
         }
     }
 }
@@ -1624,8 +1652,12 @@ ItemLevel >= 84 {
     # t1 resists
     BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
         Rarity <= Magic {
+			BaseDefencePercentile >= 90 {
+				Expand $comp_i84_bases_90p
+				ShowHide $toggle_high_bases
+			}
             Expand $comp_i84_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
         }
     }
     
