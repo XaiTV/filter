@@ -324,7 +324,7 @@ Class "Currency" {
     }
 }
 
-BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Decadent Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Portentous Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
+BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Portentous Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
     Expand $comp_t2_currency
     SetAlertSound $alert_t3_currency
     Show
@@ -1152,10 +1152,7 @@ Class "Expedition Logbook" {
 # Scourge
 Scourged True {
 	SetBorderColor 122 0 0
-	SetAlertSound $alert_t3_currency
-	PlayEffect Red
-	SetFontSize $font_max
-	MinimapIcon 1 Red Pentagon
+	SetFontSize $font_xl
 	Show
 }
 
@@ -1519,48 +1516,56 @@ ItemLevel >= 86 {
     # t1 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i86_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i86_bases_threshold
 				ShowHide $toggle_86_bases
 			}
-            Expand $comp_i86_bases
-            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i86_bases
+				ShowHide $toggle_86_sub_perfect_bases $toggle_86_bases
+			}
         }
     }
 
     # +3 minions
     BaseType == $bases_helmets_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i86_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i86_bases_threshold
 				ShowHide $toggle_86_bases
 			}
-            Expand $comp_i86_bases
-            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i86_bases
+				ShowHide $toggle_86_sub_perfect_bases $toggle_86_bases
+			}
         }
     }
     
     # t1 %ms
     BaseType == $bases_boots_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i86_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i86_bases_threshold
 				ShowHide $toggle_86_bases
 			}
-            Expand $comp_i86_bases
-            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i86_bases
+				ShowHide $toggle_86_sub_perfect_bases $toggle_86_bases
+			}
         }
     }
     
     # t1 defense
     BaseType == $bases_shield_t1 $bases_gloves_t1 $bases_body_t1 $bases_helmets_t1 $bases_boots_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i86_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i86_bases_threshold
 				ShowHide $toggle_86_bases
 			}
-            Expand $comp_i86_bases
-            ShowHide $toggle_86_sub_90p_bases $toggle_86_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i86_bases
+				ShowHide $toggle_86_sub_perfect_bases $toggle_86_bases
+			}
         }
     }
     
@@ -1595,26 +1600,37 @@ ItemLevel >= 85 {
     }
 
     # t1 attributes
-    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 {
+    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_shield_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i84_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i84_bases_threshold
 				ShowHide $toggle_high_bases
 			}
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i85_bases
+				ShowHide $toggle_84_sub_perfect_bases $toggle_high_bases
+			}
+        }
+    }
+	
+	BaseType == $bases_jewellery_t1 {
+        Rarity <= Magic {
             Expand $comp_i85_bases
-            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
+            ShowHide $toggle_high_bases
         }
     }
     
     # chance to block
     BaseType == $bases_shield_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i84_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i84_bases_threshold
 				ShowHide $toggle_high_bases
 			}
-            Expand $comp_i85_bases
-            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i85_bases
+				ShowHide $toggle_84_sub_perfect_bases $toggle_high_bases
+			}
         }
     }
 }
@@ -1624,12 +1640,14 @@ ItemLevel >= 84 {
     # t2 %es
     BaseType == $bases_energy_shield_t1 $bases_evasion_energy_shield_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i84_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i84_bases_threshold
 				ShowHide $toggle_es_bases
 			}
-            Expand $comp_i84_bases
-            ShowHide $toggle_84_sub_90p_bases $toggle_es_bases
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i84_bases
+				ShowHide $toggle_84_sub_perfect_bases $toggle_es_bases
+			}
         }
     }
 }
@@ -1650,14 +1668,23 @@ ItemLevel >= 84 {
     }
 
     # t1 resists
-    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_jewellery_t1 $bases_shield_t1 $bases_quiver {
+    BaseType == $bases_helmets_t1 $bases_boots_t1 $bases_gloves_t1 $bases_body_t1 $bases_shield_t1 {
         Rarity <= Magic {
-			BaseDefencePercentile >= 90 {
-				Expand $comp_i84_bases_90p
+			BaseDefencePercentile >= 95 {
+				Expand $comp_i84_bases_threshold
 				ShowHide $toggle_high_bases
 			}
+			BaseDefencePercentile >= $base_defence_treshold {
+				Expand $comp_i84_bases
+				ShowHide $toggle_84_sub_perfect_bases $toggle_high_bases
+			}
+        }
+    }
+	
+	BaseType == $bases_jewellery_t1 $bases_quiver {
+        Rarity <= Magic {
             Expand $comp_i84_bases
-            ShowHide $toggle_84_sub_90p_bases $toggle_high_bases
+            ShowHide $toggle_high_bases
         }
     }
     
