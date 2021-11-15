@@ -249,7 +249,7 @@ Class "Currency" {
     }
     BaseType $currency_t8 {
         Expand $comp_t8_currency
-        StackSize >= 3 {
+        StackSize >= 5 {
             Expand $comp_t6_currency
             ShowHide $toggle_t6_currency
         }
@@ -1153,7 +1153,7 @@ Class "Expedition Logbook" {
 Scourged True {
 	SetBorderColor 122 0 0
 	SetFontSize $font_xl
-	Show
+	ShowDiscard $toggle_scourged
 }
 
 
@@ -1167,6 +1167,14 @@ Rarity = Unique {
             Show
         }
     }
+	
+	# Squire
+	BaseType "Elegant Round Shield" {
+	    Sockets 3WWW {
+			Expand $comp_t1_unique
+            Show
+		}
+	}
 
     # Skyforth
     BaseType "Sorcerer Boots" {
@@ -1464,7 +1472,7 @@ Sockets = 6 { #6 Sockets
         PlayEffect Grey
         MinimapIcon 2 White Pentagon
         SetAlertSound $alert_6s
-        Show
+        ShowDiscard $toggle_6s
     }
 }
 
@@ -1616,7 +1624,7 @@ ItemLevel >= 85 {
 	BaseType == $bases_jewellery_t1 {
         Rarity <= Magic {
             Expand $comp_i85_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_high_bases $toggle_84_non_base_defence
         }
     }
     
@@ -1684,7 +1692,7 @@ ItemLevel >= 84 {
 	BaseType == $bases_jewellery_t1 $bases_quiver {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_high_bases $toggle_84_non_base_defence
         }
     }
     
@@ -1692,7 +1700,7 @@ ItemLevel >= 84 {
     BaseType == $bases_caster_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_high_bases $toggle_84_non_base_defence
         }
     }
 }
@@ -1703,7 +1711,7 @@ ItemLevel >= 83 {
     BaseType == $bases_2h_melee_t1 $bases_1h_melee_t1 $bases_bow {
         Rarity <= Magic {
             Expand $comp_i83_bases
-            ShowHide $toggle_high_bases
+            ShowHide $toggle_high_bases $toggle_84_non_base_defence
         }
     }
 }
@@ -1863,7 +1871,7 @@ Rarity = Rare {
                     SetFontSize $font_xl
                     Show
                 }
-                Show
+                ShowHide $toggle_t2_jewellery
             }
             
             Expand $comp_failsafe
