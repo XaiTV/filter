@@ -1151,9 +1151,11 @@ Class "Expedition Logbook" {
 
 # Scourge
 Scourged True {
-	SetBorderColor 122 0 0
-	SetFontSize $font_xl
-	ShowDiscard $toggle_scourged
+	Rarity < Unique {
+		SetBorderColor 122 0 0
+		SetFontSize $font_xl
+		ShowDiscard $toggle_scourged
+	}
 }
 
 
@@ -1526,7 +1528,7 @@ ItemLevel >= 86 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i86_bases_threshold
-				ShowHide $toggle_86_bases
+				ShowDiscard $toggle_86_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i86_bases
@@ -1540,7 +1542,7 @@ ItemLevel >= 86 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i86_bases_threshold
-				ShowHide $toggle_86_bases
+				ShowDiscard $toggle_86_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i86_bases
@@ -1554,7 +1556,7 @@ ItemLevel >= 86 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i86_bases_threshold
-				ShowHide $toggle_86_bases
+				ShowDiscard $toggle_86_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i86_bases
@@ -1568,7 +1570,7 @@ ItemLevel >= 86 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i86_bases_threshold
-				ShowHide $toggle_86_bases
+				ShowDiscard $toggle_86_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i86_bases
@@ -1612,7 +1614,7 @@ ItemLevel >= 85 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i84_bases_threshold
-				ShowHide $toggle_high_bases
+				ShowDiscard $toggle_high_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i85_bases
@@ -1633,7 +1635,7 @@ ItemLevel >= 85 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i84_bases_threshold
-				ShowHide $toggle_high_bases
+				ShowDiscard $toggle_high_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i85_bases
@@ -1650,7 +1652,7 @@ ItemLevel >= 84 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i84_bases_threshold
-				ShowHide $toggle_es_bases
+				ShowDiscard $toggle_es_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i84_bases
@@ -1680,7 +1682,7 @@ ItemLevel >= 84 {
         Rarity <= Magic {
 			BaseDefencePercentile >= 95 {
 				Expand $comp_i84_bases_threshold
-				ShowHide $toggle_high_bases
+				ShowDiscard $toggle_high_bases
 			}
 			BaseDefencePercentile >= $base_defence_treshold {
 				Expand $comp_i84_bases
@@ -2320,6 +2322,17 @@ Class "Gem" {
         SetAlertSound $alert_gems
         Show
     }
+	
+	BaseType == $gems_plus_one_recipe {
+		Quality >= 1 {
+			Expand $comp_t3_currency
+            SetBackgroundColor $color_t1_gem
+            MinimapIcon 2 Cyan Moon
+            PlayEffect Cyan Temp
+            SetAlertSound $alert_gems
+            Show
+		}
+	}
 }
 Class "Active Skill Gem" {
     GemLevel >= 21 {
@@ -2328,6 +2341,7 @@ Class "Active Skill Gem" {
         SetAlertSound $alert_t2
         MinimapIcon 1 Cyan Moon
         PlayEffect Cyan
+		Show
     }
 }
 
@@ -3590,6 +3604,13 @@ Class "Currency" {
 }
 
 # [SECTION 21] FAILSAFE & HIDE ALL
+BaseType $bases_all_t1 {
+	Expand $comp_i84_bases
+	SetFontSize $font_large
+	DisableDropSound
+	Hide
+}
+
 Rarity <= Magic {
     SetFontSize 22
     SetBackgroundColor 0 0 0 200
