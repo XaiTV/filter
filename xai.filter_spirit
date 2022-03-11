@@ -322,9 +322,19 @@ Class "Currency" {
         SetTextColor $color_perandus
         ShowHide $toggle_t7_currency
     }
+	
+	BaseType == $scouting_report_t1 {
+		Expand $comp_prophecy_t2
+		Show
+	}
+	
+	BaseType "Scouting Report" {
+		Expand $comp_prophecy_t3
+		Show
+	}
 }
 
-BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Portentous Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
+BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
     Expand $comp_t2_currency
     SetAlertSound $alert_t3_currency
     Show
@@ -420,32 +430,6 @@ AnyEnchantment True {
 HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
     Expand $comp_warbands
     Show
-}
-
-# Prophecy
-Class "Currency"{
-    Prophecy $prophecy_t1 {
-        Expand $comp_prophecy_t1
-        Show
-    }
-    Prophecy $prophecy_t2 {
-        Expand $comp_prophecy_t2
-        Show
-    }
-    Prophecy $prophecy_t3 {
-        Expand $comp_prophecy_t3
-        Show
-    }
-    Prophecy $prophecy_t5 {
-        SetFontSize $font_small
-        SetTextColor $color_prophecy
-        SetBackgroundColor $black
-        Hide
-    }
-    BaseType "Prophecy" {
-        Expand $comp_prophecy_t4
-        ShowHide $toggle_t4_prophecies
-    }
 }
 
 # Essences
@@ -1158,6 +1142,31 @@ Scourged True {
 	}
 }
 
+# Archnemesis
+Class "Archnemesis Mod" {
+	ArchnemesisMod $archnemesis_mods_t1 {
+		SetBackgroundColor $color_archnemesis
+		SetFontSize $font_max
+		SetBorderColor $color_archnemesis
+		SetTextColor 0 0 0
+		Show
+	}
+	
+	ArchnemesisMod $archnemesis_mods_t2 {
+		SetBackgroundColor 0 0 0
+		SetFontSize $font_xl
+		SetBorderColor $color_archnemesis
+		SetTextColor $color_archnemesis
+		Show
+	}
+	
+	SetBackgroundColor 0 0 0
+	SetFontSize $font_small
+	SetBorderColor $color_archnemesis
+	SetTextColor $color_archnemesis
+	Show
+}
+
 
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
@@ -1424,6 +1433,28 @@ HasInfluence Crusader Elder Hunter Redeemer Shaper Warlord {
     Show
 }
 
+BaseType $bases_all_t1 {
+	HasEaterOfWorldsImplicit >= 4 {
+		Expand $comp_rare_influence_t2
+		Show
+	}
+
+	HasSearingExarchImplicit >= 4 {
+		Expand $comp_rare_influence_t2
+		Show
+	}
+	
+	HasEaterOfWorldsImplicit >= 3 {
+		Expand $comp_rare_influence_t3
+		Show
+	}
+
+	HasSearingExarchImplicit >= 3 {
+		Expand $comp_rare_influence_t3
+		Show
+	}
+}
+
 # [SECTION 10] LINKS & SOCKETS
 LinkedSockets = 5  { #5-Link rules
     Sockets = 6 {
@@ -1508,6 +1539,10 @@ Corrupted False {
     HasExplicitMod "Runic" {
         Show
     }
+	
+	HasExplicitMod "Essence" {
+		Show
+	}
 }
 
 # [SECTION 12] BASES
@@ -1580,7 +1615,7 @@ ItemLevel >= 86 {
     }
     
     # ele damage with attacks
-    BaseType == $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver $bases_jewellery_t1 {
+    BaseType == $bases_1h_melee_t1 $bases_2h_melee_t1 $bases_bow $bases_quiver_t1 $bases_jewellery_t1 {
         Rarity <= Magic {
             Expand $comp_i86_bases
             ShowHide $toggle_86_bases
@@ -1691,7 +1726,7 @@ ItemLevel >= 84 {
         }
     }
 	
-	BaseType == $bases_jewellery_t1 $bases_quiver {
+	BaseType == $bases_jewellery_t1 $bases_quiver_t1 {
         Rarity <= Magic {
             Expand $comp_i84_bases
             ShowHide $toggle_high_bases $toggle_84_non_base_defence
@@ -1835,7 +1870,7 @@ ItemLevel >= $non_jewellery_rare_min_level {
             SetBorderColor $color_rare_bow_border
             Show
         }
-        BaseType == $bases_quiver {
+        BaseType == $bases_quiver_t1 {
             Expand $comp_rare_t1
             SetBorderColor $color_rare_bow_border
             Show
@@ -3110,7 +3145,7 @@ Class "Quivers" {
 		}
 	}
 	ItemLevel <= 47 {
-		BaseType "Broadhead Arrow Quiver" "Fire Arrow Quiver" "Penetrating Arrow Quiver" {
+		BaseType "Broadhead Arrow Quiver" "Penetrating Arrow Quiver" {
 			SetBorderColor $color_leveling_bows_border
 			SetFontSize $font_medium
 			ShowDiscard $toggle_leveling $toggle_leveling_bow
@@ -3124,7 +3159,7 @@ Class "Quivers" {
 			ShowDiscard $toggle_leveling $toggle_leveling_bow
 		}
 	
-		BaseType "Broadhead Arrow Quiver" "Spike-Point Arrow Quiver" "Penetrating Arrow Quiver" "Fire Arrow Quiver" {
+		BaseType $bases_quiver_t1 $bases_quiver_t2 {
 			SetBorderColor $color_leveling_bows_border
 			ShowDiscard $toggle_leveling $toggle_leveling_bow
 		}
@@ -3424,7 +3459,7 @@ Class "Quest Items"{
     Show
 }
 
-BaseType "Maven's Invitation" {
+BaseType "Maven's Invitation" "Writhing Invitation" "Screaming Invitation" "Polaric Invitation" "Incandescent Invitation" {
 	SetFontSize $font_max
     SetTextColor $white
     SetBackgroundColor $quest_green
@@ -3434,14 +3469,16 @@ BaseType "Maven's Invitation" {
     Show
 }
 
-BaseType "Watchstone" {
-    SetTextColor $white
-    SetBackgroundColor $quest_green
-    SetBorderColor $white
-    SetFontSize $font_max
-    PlayEffect $beam_quest
-    PlayAlertSound $alert_t3_currency
-    Show
+Class "Atlas Upgrade Item" {
+	BaseType "Voidstone" {
+		SetTextColor $white
+		SetBackgroundColor $quest_green
+		SetBorderColor $white
+		SetFontSize $font_max
+		PlayEffect $beam_quest
+		PlayAlertSound $alert_t3_currency
+		Show
+	}
 }
 
 Class "Labyrinth Item" "Labyrinth Map Item" "Labyrinth Trinket"{
