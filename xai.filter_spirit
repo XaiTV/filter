@@ -1142,29 +1142,29 @@ Scourged True {
 	}
 }
 
-# Archnemesis
-Class "Archnemesis Mod" {
-	ArchnemesisMod $archnemesis_mods_t1 {
-		SetBackgroundColor $color_archnemesis
-		SetFontSize $font_max
-		SetBorderColor $color_archnemesis
-		SetTextColor 0 0 0
-		Show
-	}
-	
-	ArchnemesisMod $archnemesis_mods_t2 {
+# Sentinel
+Class "Stackable Currency" {
+	BaseType "Power Core" {
 		SetBackgroundColor 0 0 0
-		SetFontSize $font_xl
-		SetBorderColor $color_archnemesis
-		SetTextColor $color_archnemesis
+		SetFontSize $font_max
+		SetBorderColor $color_sentinel
+		SetTextColor $color_sentinel
+		PlayEffect Pink Temp
+        MinimapIcon 2 Pink Circle
+        SetAlertSound $alert_t3_currency
 		Show
 	}
 	
-	SetBackgroundColor 0 0 0
-	SetFontSize $font_small
-	SetBorderColor $color_archnemesis
-	SetTextColor $color_archnemesis
-	Show
+	BaseType "Recombinator" {
+		SetBackgroundColor $color_sentinel
+		SetFontSize $font_max
+		SetBorderColor $color_sentinel
+		SetTextColor 0 0 0
+		PlayEffect Pink
+        MinimapIcon 2 Pink Circle
+        SetAlertSound $alert_t2_currency
+		Show
+	}
 }
 
 
