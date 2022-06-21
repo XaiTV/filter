@@ -61,6 +61,23 @@ AreaLevel > 1 {  # makes sure we don't trigger this block in Harvest/Menagerie a
 			}
 		}
 	}
+	
+	SocketGroup = $leveling_link4_colors_early {
+		LinkedSockets = 4 {
+			Sockets < 6 {
+				Rarity <= Rare {
+					Class "Gloves" "Helm" "Boots" "Body Armour" {
+						AreaLevel <= 45 {
+							Expand $comp_leveling_links
+							MinimapIcon $icon_leveling_4link
+							SetAlertSound $alert_leveling_link
+							ShowDiscard $toggle_leveling_links
+						}
+					}
+				}
+			}
+		}
+	}
 
 	# 3-links
 	SocketGroup = $leveling_link3_colors {
@@ -679,7 +696,7 @@ BaseType "Reliquary Key" {
 
 # Betrayal
 # Scarabs are located under the Fragments section since they are technically fragments
-HasExplicitMod "Elreon's" "Rin's" {
+HasExplicitMod "Elreon's" "Rin's" "Gravicius'" {
     Rarity <= Rare {
         Expand $comp_rare_t1
         SetBorderColor $white
@@ -1158,11 +1175,52 @@ Class "Stackable Currency" {
 	BaseType "Recombinator" {
 		SetBackgroundColor $color_sentinel
 		SetFontSize $font_max
-		SetBorderColor $color_sentinel
+		SetBorderColor 0 0 0
 		SetTextColor 0 0 0
 		PlayEffect Pink
         MinimapIcon 2 Pink Circle
         SetAlertSound $alert_t2_currency
+		Show
+	}
+}
+
+Class "Sentinel Drone" {
+	BaseType "Cobalt Stalker Sentinel" "Bronze Stalker Sentinel" "Cobalt Pandemonium Sentinel" "Bronze Pandemonium Sentinel" "Bronze Apex Sentinel"  "Cobalt Apex Sentinel"  "Brimstone Apex Sentinel"  "Emberstone Apex Sentinel" {
+		Rarity < Unique {
+			ItemLevel >= 50 {
+				Hide		
+			}
+		}
+	}
+
+	Rarity = Normal {
+		ItemLevel <= 50 {
+			SetFontSize $font_medium
+			SetBackgroundColor $color_sentinel
+			SetBorderColor $light_gray
+			SetTextColor $light_gray
+			Show
+		}
+	}
+	
+	Rarity = Magic {
+		SetFontSize $font_large
+		SetBackgroundColor $color_sentinel
+		SetBorderColor 135 135 254
+		SetTextColor 135 135 254
+		Show
+	}
+	
+	Rarity = Rare {
+		SetFontSize $font_max
+		SetBackgroundColor $color_sentinel
+		SetBorderColor 250 225 100
+		SetTextColor 250 225 100
+		Show
+	}
+	
+	Rarity = Unique {
+		Expand $comp_t2_unique
 		Show
 	}
 }
@@ -1510,25 +1568,26 @@ Sockets = 6 { #6 Sockets
 }
 
 # [SECTION 11] IDENTIFIED HIGHLIGHTING
-Corrupted False {
-    SetBorderColor $color_special_rares_border
+{
+	SetBorderColor 0 0 255
+	SetBackgroundColor $color_special_rares_border
     PlayEffect Blue
     MinimapIcon 2 Blue Diamond
     SetFontSize $font_max
     SetAlertSound $alert_special_rares
     
-    BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 $bases_2h_melee_t1 $bases_2h_melee_t2 {
-        HasExplicitMod "Merciless" {
-            Show
-        }
-    }
+    # BaseType $bases_1h_melee_t1 $bases_1h_melee_t2 $bases_2h_melee_t1 $bases_2h_melee_t2 {
+	HasExplicitMod "Merciless" {
+		Show
+	}
+    # }
     Class "Helmet" { # +3 Minion Helmet
         HasExplicitMod "Necromancer's"{
             Show
         }
     }
 	Class "Jewel" {
-		HasExplicitMod "Shimmering" "Vivid" {
+		HasExplicitMod "Vivid" {
 			Show
 		}
 	}
@@ -1542,6 +1601,10 @@ Corrupted False {
 	
 	HasExplicitMod "Essence" {
 		Show
+	}
+	
+	HasExplicitMod "Vulcanist's" "Rimedweller's" "Stormbrewer's" "Behemoth's" "Provocateur's" "Exalter's" {  # +1 ammy
+	    Show
 	}
 }
 
@@ -3610,29 +3673,29 @@ BaseType "Jet Amulet" "Jet Ring" "Golden Obi" "Golden Mantle" "Golden Bracers" "
     Show
 }
 # High quality items...
-DropLevel >= 60 {
-    ShaperItem False {
-        ElderItem False {
-            LinkedSockets <= 4 {
-                Rarity <= Rare {
-                    ItemLevel >= 75 {
-                        Quality >= 26 {
-                            SetFontSize $font_max
-                            SetBorderColor $light_gray
-                            Show
-                        }
-                        Quality >= 21 {
-                            SetFontSize $font_xl
-                            SetBorderColor $light_gray
-                            Show
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-}
+# DropLevel >= 60 {
+#     ShaperItem False {
+#         ElderItem False {
+#             LinkedSockets <= 4 {
+#                 Rarity <= Rare {
+#                     ItemLevel >= 75 {
+#                         Quality >= 26 {
+#                             SetFontSize $font_max
+#                             SetBorderColor $light_gray
+#                             Show
+#                         }
+#                         Quality >= 21 {
+#                             SetFontSize $font_xl
+#                             SetBorderColor $light_gray
+#                             Show
+#                         }
+#                     }
+#                 }
+# 
+#             }
+#         }
+#     }
+# }
 
 # [SECTION 20] SAFETY NETS
 BaseType "Sacrificial Garb" {
