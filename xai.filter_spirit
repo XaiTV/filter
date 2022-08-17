@@ -377,7 +377,7 @@ LinkedSockets = 6 {
         BaseType "Simple Robe" {
             SocketGroup WWWWWW {
                 # TABULA
-                Expand $comp_t2_unique
+                Expand $comp_t3_unique
                 Show
             }
         }
