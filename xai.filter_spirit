@@ -961,6 +961,16 @@ Class "Currency" {
         Expand $comp_t4_currency
         Show
     }
+	
+	BaseType "Wild Crystallised Lifeforce" "Vivid Crystallised Lifeforce" "Primal Crystallised Lifeforce" {
+		Expand $comp_harvest_t2
+		Show
+	}
+	
+	BaseType "Sacred Crystallised Lifeforce" {
+		Expand $comp_harvest_t1
+		Show
+	}
 }
 
 # Heist
@@ -1160,18 +1170,7 @@ Scourged True {
 }
 
 # Sentinel
-Class "Stackable Currency" {
-	BaseType "Power Core" {
-		SetBackgroundColor 0 0 0
-		SetFontSize $font_max
-		SetBorderColor $color_sentinel
-		SetTextColor $color_sentinel
-		PlayEffect Pink Temp
-        MinimapIcon 2 Pink Circle
-        SetAlertSound $alert_t3_currency
-		Show
-	}
-	
+Class "Stackable Currency" {	
 	BaseType "Recombinator" {
 		SetBackgroundColor $color_sentinel
 		SetFontSize $font_max
@@ -1180,47 +1179,6 @@ Class "Stackable Currency" {
 		PlayEffect Pink
         MinimapIcon 2 Pink Circle
         SetAlertSound $alert_t2_currency
-		Show
-	}
-}
-
-Class "Sentinel Drone" {
-	BaseType "Cobalt Stalker Sentinel" "Bronze Stalker Sentinel" "Cobalt Pandemonium Sentinel" "Bronze Pandemonium Sentinel" "Bronze Apex Sentinel"  "Cobalt Apex Sentinel"  "Brimstone Apex Sentinel"  "Emberstone Apex Sentinel" {
-		Rarity < Unique {
-			ItemLevel >= 50 {
-				Hide		
-			}
-		}
-	}
-
-	Rarity = Normal {
-		ItemLevel <= 50 {
-			SetFontSize $font_medium
-			SetBackgroundColor $color_sentinel
-			SetBorderColor $light_gray
-			SetTextColor $light_gray
-			Show
-		}
-	}
-	
-	Rarity = Magic {
-		SetFontSize $font_large
-		SetBackgroundColor $color_sentinel
-		SetBorderColor 135 135 254
-		SetTextColor 135 135 254
-		Show
-	}
-	
-	Rarity = Rare {
-		SetFontSize $font_max
-		SetBackgroundColor $color_sentinel
-		SetBorderColor 250 225 100
-		SetTextColor 250 225 100
-		Show
-	}
-	
-	Rarity = Unique {
-		Expand $comp_t2_unique
 		Show
 	}
 }
@@ -3400,7 +3358,7 @@ Class $leveling_melee_classes {
 # -----------------------------
 # -     SUMMONER LEVELING     -
 # -----------------------------
-BaseType "Pagan Wand" {
+BaseType $leveling_summoner_bases {
 	ItemLevel <= 67 {
 		LinkedSockets = 3 {
 			SetFontSize $font_xl
@@ -3470,8 +3428,8 @@ BaseType "Helmet" {
 		}
 	}
 }
-BaseType "Bone Spirit Shield" {
-	AreaLevel <= 35 {
+BaseType $leveling_summoner_shields {
+	AreaLevel <= 67 {
 		SetBorderColor $color_leveling_summoner_border
 		SetBackgroundColor $color_leveling_summoner_border 200
 		SetTextColor $black
@@ -3566,6 +3524,35 @@ BaseType "Offering to the Goddess"{
 }
 
 # [SECTION 18] FRAGMENTS
+Class "Memory" {
+	Expand $comp_prophecy_t2
+	Show
+}
+
+Class "Pieces" {
+	BaseType "Ultimatum Aspect" {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Moon
+        SetAlertSound $alert_t2
+        Show
+	}
+}
+
+
+Class "Map" {
+	BaseType "Engraved Ultimatum" {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Cross
+        SetAlertSound $alert_t1
+        Show
+	}
+}
+
+
 # Scarabs
 Class "Map Fragments" {
     BaseType "Winged" {
