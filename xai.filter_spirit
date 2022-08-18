@@ -547,12 +547,6 @@ Class "Leaguestone" {
     Show
 }
 
-# Garbinger Harbinger
-Class "Piece" {
-    Expand $comp_t3_unique
-    Show
-}
-
 # Bestiary :)
 # @TODO: at least for the id filtering this should probably use some compounds
 BaseType "Bestiary Orb" "Imprinted Bestiary Orb" {
@@ -1180,6 +1174,36 @@ Class "Stackable Currency" {
         MinimapIcon 2 Pink Circle
         SetAlertSound $alert_t2_currency
 		Show
+	}
+}
+
+# Ultimatum
+Class "Pieces" {
+	BaseType "Ultimatum Aspect" {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Moon
+        SetAlertSound $alert_t2
+		SetFontSize $font_max
+        Show
+	}
+	
+	# Garbinger Harbinger
+    Expand $comp_t3_unique
+    Show
+}
+
+
+Class "Map" {
+	BaseType "Engraved Ultimatum" {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Cross
+        SetAlertSound $alert_t1
+		SetFontSize $font_max
+        Show
 	}
 }
 
@@ -3360,12 +3384,10 @@ Class $leveling_melee_classes {
 # -----------------------------
 BaseType $leveling_summoner_bases {
 	ItemLevel <= 67 {
-		LinkedSockets = 3 {
-			SetFontSize $font_xl
-			SetBorderColor $color_leveling_summoner_border
-			SetBackgroundColor 25 0 50
-			ShowDiscard $toggle_leveling $toggle_leveling_summoner
-		}
+		SetFontSize $font_xl
+		SetBorderColor $color_leveling_summoner_border
+		SetBackgroundColor 25 0 50
+		ShowDiscard $toggle_leveling $toggle_leveling_summoner
 	}
 	ItemLevel <= 50 {
 		SetFontSize $font_large
@@ -3527,29 +3549,6 @@ BaseType "Offering to the Goddess"{
 Class "Memory" {
 	Expand $comp_prophecy_t2
 	Show
-}
-
-Class "Pieces" {
-	BaseType "Ultimatum Aspect" {
-		SetBackgroundColor $white
-        SetBorderColor $color_frag_light
-        SetTextColor $color_frag_light
-        MinimapIcon 0 Red Moon
-        SetAlertSound $alert_t2
-        Show
-	}
-}
-
-
-Class "Map" {
-	BaseType "Engraved Ultimatum" {
-		SetBackgroundColor $white
-        SetBorderColor $color_frag_light
-        SetTextColor $color_frag_light
-        MinimapIcon 0 Red Cross
-        SetAlertSound $alert_t1
-        Show
-	}
 }
 
 
