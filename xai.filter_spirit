@@ -1234,6 +1234,12 @@ Rarity = Unique {
             Show
         }
     }
+	
+	# Kalandra mirror ring (@TODO: rewrite everything else to use ==)
+	BaseType == "Ring" {
+		Expand $comp_t2_unique
+        Show
+	}
 
     BaseType $uniques_t1 {
         Expand $comp_t1_unique
