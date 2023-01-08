@@ -163,13 +163,13 @@ Class $shaper_voicelines {
     }
     
     BaseType "Exalted Orb" {
-        Expand $comp_t1_currency
+        Expand $comp_t2_currency
         SetAlertSound ShExalted 300
         Show
     }
     
     BaseType "Divine Orb" {
-        Expand $comp_t2_currency
+        Expand $comp_t1_currency
         SetAlertSound ShDivine 300
         Show
     }
@@ -386,8 +386,7 @@ LinkedSockets = 6 {
     
     Corrupted False {
         # block for good 6Ls
-        SetBorderColor $red
-        SetTextColor $red
+		Expand $comp_6l_good
         
         Class "Body Armour" {
             Show
@@ -773,7 +772,10 @@ Class "Incubator"{
         Expand $comp_t2_currency
         Show
     }
-    Expand $comp_t3_currency
+    Expand $comp_splinters_t2
+    SetBackgroundColor 40 40 40
+    SetTextColor $color_t5_currency_bg
+	SetFontSize $font_medium
     Show
 }
 
@@ -1017,6 +1019,17 @@ Class "Blueprint"{
 
 # Contracts
 Class "Contract"{
+	Rarity = Unique {
+		SetBackgroundColor $black
+        SetTextColor $color_unique_light
+        SetBorderColor $color_unique_light
+        SetFontSize $font_xl
+        PlayEffect Orange Temp
+        MinimapIcon 2 Orange Circle
+        SetAlertSound $alert_t3_currency
+        Show
+	}
+
     # t1-contracts
     BaseType None {
         SetBackgroundColor $color_heist_light
@@ -1207,6 +1220,35 @@ Class "Map" {
 	}
 }
 
+# Sanctum
+Class "Sanctified Relic" {
+	SetFontSize $font_max
+    SetBackgroundColor $white
+    SetBorderColor $color_oil_t1
+    SetTextColor $color_oil_t1
+    PlayEffect Pink
+    MinimapIcon 0 Pink Cross
+    SetAlertSound $alert_t1_currency
+    Show
+}
+
+Class "Relic" {
+	SetBackgroundColor $black
+	SetTextColor $color_heist_light
+	SetBorderColor $color_heist_light
+	SetFontSize $font_max
+	PlayEffect Red Temp
+	MinimapIcon 2 Red Circle
+	SetAlertSound $alert_t3_currency
+	Show
+}
+
+Class "Stackable Currency" {
+	BaseType "Invocation" {
+		Expand $comp_t1_currency
+		Show
+	}
+}
 
 # [SECTION 6] UNIQUES
 # @TODO: split up specific and guaranteed in some way
@@ -1237,7 +1279,7 @@ Rarity = Unique {
 	
 	# Kalandra mirror ring (@TODO: rewrite everything else to use ==)
 	BaseType == "Ring" {
-		Expand $comp_t2_unique
+		Expand $comp_t1_unique
         Show
 	}
 
@@ -1303,6 +1345,10 @@ Class "Maps" {
         Show
     }
     HasInfluence Elder {
+        Expand $comp_map_influence
+        Show
+    }
+	HasInfluence Hunter Warlord Redeemer Crusader {
         Expand $comp_map_influence
         Show
     }
@@ -1424,7 +1470,7 @@ Class "Maps" {
 HasInfluence Crusader {
     Class "Body Armour" {
         ItemLevel >= 85 {
-            Expand $comp_rare_influence_t1
+            Expand $comp_rare_influence_t2
             Show
         }
     }
@@ -3036,6 +3082,35 @@ Class $leveling_melee_classes {
 BaseType "Astral Plate" {
 	ItemLevel <= 67 {
 		ShowDiscard $toggle_leveling $toggle_leveling_melee
+	}
+}
+
+# Show act 1 melee stuff in case we don't have the desired skill yet
+Class $leveling_melee_classes_act_one {
+	SetBorderColor $color_leveling_melee_border
+	Rarity = Rare {
+		SetFontSize $font_xl
+
+		ItemLevel <= 12 {
+			ShowDiscard $toggle_leveling $toggle_leveling_melee
+		}
+		ItemLevel <= 15 {
+			DropLevel > 5 {
+				ShowDiscard $toggle_leveling $toggle_leveling_melee
+			}
+		}
+	}
+	Rarity <= Magic {
+		SetFontSize $font_large
+
+		ItemLevel <= 12 {
+			ShowDiscard $toggle_leveling $toggle_leveling_melee
+		}
+		ItemLevel <= 15 {
+			DropLevel > 5 {
+				ShowDiscard $toggle_leveling $toggle_leveling_melee
+			}
+		}
 	}
 }
 # -------------------------
