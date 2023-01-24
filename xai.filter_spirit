@@ -201,13 +201,13 @@ Class $shaper_voicelines {
     BaseType "Orb of Alchemy" {
         Expand $comp_t5_currency
         SetAlertSound ShAlchemy 300
-        ShowHide $toggle_t5_currency
+        ShowDiscard $toggle_t5_currency
     }
     
-    BaseType "Orb of Fusing" {
+    BaseType == "Orb of Fusing" {
         Expand $comp_t5_currency
         SetAlertSound ShFusing 300
-        ShowHide $toggle_t5_currency
+        ShowDiscard $toggle_t5_currency
     }
 }
 
@@ -236,8 +236,9 @@ Class "Currency" {
             Show
         }
         
-        ShowHide $toggle_t5_currency
+        ShowDiscard $toggle_t5_currency
     }
+	
     BaseType $currency_t6 {
         Expand $comp_t6_currency
         StackSize >= 3 {
@@ -246,16 +247,16 @@ Class "Currency" {
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
-            ShowHide $toggle_t6_currency
+            ShowDiscard $toggle_t6_currency
         }
         
-        ShowHide $toggle_t6_currency
+        ShowDiscard $toggle_t6_currency
     }
     BaseType $currency_t7 {
         Expand $comp_t7_currency
         StackSize >= 3 {
-            Expand $comp_t5_currency
-            ShowHide $toggle_t5_currency
+            Expand $comp_t6_currency
+            ShowHide $toggle_t6_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
@@ -266,7 +267,7 @@ Class "Currency" {
     }
     BaseType $currency_t8 {
         Expand $comp_t8_currency
-        StackSize >= 5 {
+        StackSize >= 7 {
             Expand $comp_t6_currency
             ShowHide $toggle_t6_currency
         }
@@ -290,8 +291,8 @@ Class "Currency" {
     BaseType "Portal Scroll" {
         Expand $comp_portal
         StackSize >= 20 {
-            Expand $comp_t4_currency
-            ShowHide $toggle_t4_currency
+            Expand $comp_t6_currency
+            ShowDiscard $toggle_t6_currency
         }
         AreaLevel <= 67 {
             SetFontSize $font_max
@@ -303,8 +304,8 @@ Class "Currency" {
     BaseType "Scroll of Wisdom" {
         Expand $comp_wisdom
         StackSize >= 40 {
-            Expand $comp_t4_currency
-            ShowHide $toggle_t4_currency
+            Expand $comp_t6_currency
+            ShowDiscard $toggle_t6_currency
         }
         
         AreaLevel <= 67 {
@@ -349,6 +350,13 @@ Class "Currency" {
 		Expand $comp_prophecy_t3
 		Show
 	}
+	
+	# this rule is just here to prevent sound when hiding
+	BaseType $currency_t5 {
+        Expand $comp_t5_currency
+		SetAlertSound None        
+        ShowHide $toggle_t5_currency
+    }
 }
 
 BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
@@ -400,7 +408,7 @@ LinkedSockets = 6 {
     }
     
     # rest of the 6L
-    Show
+    ShowDiscard $toggle_bad_6l
 }
 
 # [SECTION 5] LEAGUES & SOME SPECIAL STUFF
@@ -445,7 +453,7 @@ AnyEnchantment True {
 # Warbands
 HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's" {
     Expand $comp_warbands
-    Show
+    ShowDiscard $toggle_warbands
 }
 
 # Essences
@@ -488,7 +496,7 @@ Class "Currency" {
         SetFontSize $font_xl
         SetTextColor $black
         SetAlertSound $alert_t5_currency
-        Show
+        ShowDiscard $toggle_mid_essence
 
     }
     BaseType "Essence" {
@@ -518,7 +526,7 @@ BaseType "Splinter of Chayula" {
         Show
     }
     Expand $comp_splinters_t1
-    Show
+    ShowDiscard $toggle_t2_breach_splinters
 }
 
 BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter of Tul" {
@@ -527,7 +535,11 @@ BaseType "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter 
         Show
     }
     Expand $comp_splinters_t2
-    ShowHide $toggle_t2_breach_splinters
+    ShowDiscard $toggle_t3_breach_splinters
+}
+
+BaseType "Splinter of Chayula" "Splinter of Uul-Netol" "Splinter of Xoph" "Splinter of Esh" "Splinter of Tul" {
+	Hide
 }
 
 BaseType "Blessing of Chayula" "Blessing of Esh" "Blessing of Xoph" "Blessing of Tul" "Blessing of Uul-Netol" {
@@ -731,29 +743,11 @@ FracturedItem True {
             PlayEffect Blue
             Show
         }
-        BaseType "Vaal Regalia" "Hubris Circlet" "Sorcerer Boots" "Sorcerer Gloves" "Titanium Spirit Shield" {
+        BaseType $bases_t1_fractured {
             Expand $comp_rare_t1
             SetFontSize $font_max
             SetBorderColor $color_synthesis
             MinimapIcon 1 Blue Diamond
-            SetAlertSound $alert_special_rares
-            PlayEffect Blue
-            Show
-        }
-        ItemLevel >= 84 {
-            Expand $comp_rare_t1
-            SetFontSize $font_max
-            SetBorderColor $color_synthesis
-            MinimapIcon 1 Blue Diamond
-            SetAlertSound $alert_special_rares
-            PlayEffect Blue
-            Show
-        }
-        Class "Boots" "Body Armour" "Gloves" "Jewel" "Abyss Jewel" "Amulet" "Shield" "Wand" "Sceptre" "Staves" "Bow" {
-            Expand $comp_rare_t1
-            SetFontSize $font_max
-            SetBorderColor $color_synthesis
-            MinimapIcon 2 Blue Diamond
             SetAlertSound $alert_special_rares
             PlayEffect Blue
             Show
@@ -761,7 +755,7 @@ FracturedItem True {
         Expand $comp_rare_t2
         SetBorderColor $color_synthesis
         MinimapIcon 2 Blue Diamond
-        Show
+        ShowHide $toggle_t2_fractured
     }
 }
 
@@ -775,8 +769,8 @@ Class "Incubator"{
     Expand $comp_splinters_t2
     SetBackgroundColor 40 40 40
     SetTextColor $color_t5_currency_bg
-	SetFontSize $font_medium
-    Show
+	SetFontSize $font_large
+    ShowHide $toggle_t2_incubators
 }
 
 # Splinters
@@ -790,7 +784,7 @@ BaseType "Timeless Maraketh Splinter" {
     Expand $comp_splinters_t1
     SetBackgroundColor 40 40 0
     SetTextColor 225 225 0
-    Show
+    ShowHide $toggle_t2_legion_splinters
 }
 BaseType "Timeless Templar Splinter" {
     StackSize >= 2 {
@@ -802,7 +796,7 @@ BaseType "Timeless Templar Splinter" {
     Expand $comp_splinters_t1
     SetBackgroundColor 0 40 0
     SetTextColor 0 225 0
-    Show
+    ShowHide $toggle_t2_legion_splinters
 }
 BaseType "Timeless Vaal Splinter" {
     StackSize >= 2 {
@@ -814,7 +808,7 @@ BaseType "Timeless Vaal Splinter" {
     Expand $comp_splinters_t2
     SetBackgroundColor 40 0 0
     SetTextColor 225 0 0
-    Show
+    ShowHide $toggle_t3_legion_splinters
 }
 BaseType "Timeless Karui Splinter" {
     StackSize >= 2 {
@@ -826,7 +820,7 @@ BaseType "Timeless Karui Splinter" {
     Expand $comp_splinters_t2
     SetBackgroundColor 60 20 0
     SetTextColor 225 125 0
-    Show
+    ShowHide $toggle_t3_legion_splinters
 }
 BaseType "Timeless Eternal Empire Splinter"{
     StackSize >= 2 {
@@ -838,7 +832,7 @@ BaseType "Timeless Eternal Empire Splinter"{
     Expand $comp_splinters_t2
     SetBackgroundColor 40 40 40
     SetTextColor 225 225 225
-    Show
+    ShowHide $toggle_t3_legion_splinters
 }
 
 # Blight
@@ -984,11 +978,11 @@ Class "Currency" {
     BaseType "Rogue's Marker" {
         StackSize >= 100 {
             Expand $comp_t5_currency
-            Show
+            ShowHide $toggle_high_marker_stacks
         }
 
         Expand $comp_t6_currency
-        Show
+        ShowHide $toggle_low_marker_stacks
     }
 }
 
@@ -1647,12 +1641,12 @@ Sockets = 6 { #6 Sockets
 ItemLevel >= 86 {
     BaseType == $bases_atlas_jewellery_t1 {
         Expand $comp_atlas_t1
-        Show
+        ShowDiscard $toggle_86_atlas_bases_t1
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Expand $comp_atlas_t2
-        Show
+        ShowDiscard $toggle_86_atlas_bases_t2
     }
     
     # t1 %es
@@ -1730,15 +1724,14 @@ ItemLevel >= 86 {
 ItemLevel >= 85 {
     BaseType == $bases_atlas_jewellery_t1 {
         Expand $comp_atlas_t1
-        MinimapIcon 1 Yellow Diamond
         SetBorderColor 250 200 150
-        Show
+        ShowDiscard $toggle_85_atlas_bases_t1
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Expand $comp_atlas_t2
         SetBorderColor 200 150 0
-        Show
+        ShowDiscard $toggle_85_atlas_bases_t2
     }
 
     # t1 attributes
@@ -1798,15 +1791,14 @@ ItemLevel >= 84 {
 ItemLevel >= 84 {
     BaseType == $bases_atlas_jewellery_t1 {
         Expand $comp_atlas_t1
-        MinimapIcon 1 Yellow Diamond
         SetBorderColor 200 150 0
-        Show
+        ShowDiscard $toggle_84_atlas_bases_t1
     }
     
     BaseType == $bases_atlas_jewellery_t2 $bases_atlas_armour {
         Expand $comp_atlas_t2
         SetBorderColor 150 100 0
-        Show
+        ShowDiscard $toggle_84_atlas_bases_t2
     }
 
     # t1 resists
@@ -1871,15 +1863,14 @@ ItemLevel >= $bases_always_show_ilvl {
 BaseType $bases_atlas_jewellery_t1 {
     Expand $comp_atlas_t1
     SetBorderColor 220 0 220
-    MinimapIcon 2 Yellow Diamond
-    Show
+    ShowHide $toggle_atlas_bases_t1
 }
 
 BaseType $bases_atlas_jewellery_t2 {
     Expand $comp_atlas_t2
     SetBackgroundColor 50 0 100
     SetBorderColor 175 75 255
-    Show
+    ShowHide $toggle_atlas_bases_t2
 }
 
 BaseType $bases_atlas_armour {
