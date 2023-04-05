@@ -162,13 +162,13 @@ Class $shaper_voicelines {
         Show
     }
     
-    BaseType "Exalted Orb" {
+    BaseType == "Exalted Orb" {
         Expand $comp_t2_currency
         SetAlertSound ShExalted 300
         Show
     }
     
-    BaseType "Divine Orb" {
+    BaseType == "Divine Orb" {
         Expand $comp_t1_currency
         SetAlertSound ShDivine 300
         Show
@@ -180,25 +180,25 @@ Class $shaper_voicelines {
         Show
     }
     
-    BaseType "Regal Orb" {
+    BaseType == "Regal Orb" {
         Expand $comp_t4_currency
         SetAlertSound ShRegal 300
         Show
     }
     
-    BaseType "Chaos Orb" {
+    BaseType == "Chaos Orb" {
         Expand $comp_t4_currency
         SetAlertSound ShChaos 300
         Show
     }
     
-    BaseType "Vaal Orb" {
+    BaseType == "Vaal Orb" {
         Expand $comp_t4_currency
         SetAlertSound ShVaal 300
         Show
     }
     
-    BaseType "Orb of Alchemy" {
+    BaseType == "Orb of Alchemy" {
         Expand $comp_t5_currency
         SetAlertSound ShAlchemy 300
         ShowDiscard $toggle_t5_currency
