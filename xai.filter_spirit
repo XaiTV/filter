@@ -1205,41 +1205,24 @@ Class "Pieces" {
 Class "Map" {
 	BaseType "Engraved Ultimatum" {
 		SetBackgroundColor $white
-        SetBorderColor $color_frag_light
-        SetTextColor $color_frag_light
-        MinimapIcon 0 Red Cross
-        SetAlertSound $alert_t1
+		SetBorderColor $color_frag_light
+		SetTextColor $color_frag_light
+		MinimapIcon 0 Red Cross
+		SetAlertSound $alert_t1
 		SetFontSize $font_max
-        Show
+		Show
 	}
 }
 
-# Sanctum
-Class "Sanctified Relic" {
-	SetFontSize $font_max
-    SetBackgroundColor $white
-    SetBorderColor $color_oil_t1
-    SetTextColor $color_oil_t1
-    PlayEffect Pink
-    MinimapIcon 0 Pink Cross
-    SetAlertSound $alert_t1_currency
-    Show
-}
-
-Class "Relic" {
-	SetBackgroundColor $black
-	SetTextColor $color_heist_light
-	SetBorderColor $color_heist_light
-	SetFontSize $font_max
-	PlayEffect Red Temp
-	MinimapIcon 2 Red Circle
-	SetAlertSound $alert_t3_currency
-	Show
-}
-
+# Crucible
 Class "Stackable Currency" {
-	BaseType "Invocation" {
+	BaseType "Crystalline Geode" {
 		Expand $comp_t1_currency
+		Show
+	}
+
+	BaseType "Igneous Geode" "Magmatic Ore" {
+		Expand $comp_t2_currency
 		Show
 	}
 }
@@ -3704,6 +3687,29 @@ Class "Map Fragments" {
     # SafetyNet for fragments
     Expand $comp_failsafe
     Show
+}
+
+Class "Breachstone" {
+	BaseType $breachstone_t1 {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Cross
+        SetAlertSound $alert_t1
+        Show
+	}
+	
+	BaseType $breachstone_t2 {
+		SetBackgroundColor $white
+        SetBorderColor $color_frag_light
+        SetTextColor $color_frag_light
+        MinimapIcon 0 Red Moon
+        SetAlertSound $alert_t2
+        Show
+	}
+
+	Expand $comp_failsafe
+    Show	
 }
 
 Class "Misc Map Item" {
