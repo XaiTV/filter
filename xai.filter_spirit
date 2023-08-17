@@ -1214,15 +1214,66 @@ Class "Map" {
 	}
 }
 
+# Sanctum
+Class "Relic" {
+	SetBackgroundColor $black
+	SetTextColor $color_heist_light
+	SetBorderColor $color_heist_light
+	SetFontSize $font_max
+	PlayEffect Red Temp
+	MinimapIcon 2 Red Circle
+	SetAlertSound $alert_t3_currency
+	Show
+}
+
+Class "Sanctum Research" {
+	SetBackgroundColor $white
+	SetBorderColor $color_frag_light
+	SetTextColor $color_frag_light
+	MinimapIcon 0 Red Cross
+	SetAlertSound $alert_t1
+	SetFontSize $font_max
+	Show
+}
+
 # Crucible
+#Class "Stackable Currency" {
+#	BaseType "Crystalline Geode" {
+#		Expand $comp_t1_currency
+#		Show
+#	}
+#
+#	BaseType "Igneous Geode" "Magmatic Ore" {
+#		Expand $comp_t2_currency
+#		Show
+#	}
+#}
+
+HasCruciblePassiveTree True {
+	Expand $comp_failsafe
+	Show
+}
+
+# Trial of the Ancestors
 Class "Stackable Currency" {
-	BaseType "Crystalline Geode" {
+	BaseType "Hinekora's Lock" {
 		Expand $comp_t1_currency
 		Show
 	}
 
-	BaseType "Igneous Geode" "Magmatic Ore" {
-		Expand $comp_t2_currency
+	BaseType "Silver Coin" {
+		Expand $comp_t3_currency
+		SetBorderColor $color_prophecy
+		Show
+	}
+
+	BaseType $tattoos_t1 $omens_t1 {
+		Expand $comp_prophecy_t1
+		Show
+	}
+
+	BaseType "Tattoo" "Omen" {
+		Expand $comp_prophecy_t2
 		Show
 	}
 }
@@ -2166,6 +2217,13 @@ BaseType $flasks_t2 "Divine Life Flask" "Eternal Mana Flask" {
 }
 
 BaseType $flasks_t2 {
+	ItemLevel >= 80 {
+		SetFontSize $font_medium
+		ShowDiscard $toggle_flagellant_level_flasks
+	}
+}
+
+BaseType $flasks_t2 {
     Quality = 20 {
         SetFontSize $font_xl
         SetBackgroundColor $recipe_gray
@@ -2440,7 +2498,7 @@ Class "Gem" {
 		}
 	}
 }
-Class "Active Skill Gem" {
+Class "Skill Gem" {
     GemLevel >= 21 {
 		SetFontSize $font_max
         SetBackgroundColor $white
