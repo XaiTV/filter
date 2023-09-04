@@ -1237,11 +1237,12 @@ Class "Sanctum Research" {
 		Show
 	}
 
-	SetBackgroundColor $white
-    SetBorderColor $color_frag_light
-    SetTextColor $color_frag_light
-    MinimapIcon 0 Red Moon
-    SetAlertSound $alert_t2
+	SetBackgroundColor $color_frag_light
+    SetBorderColor $black
+    SetTextColor $black
+    MinimapIcon 1 Red Moon
+    SetAlertSound $alert_t3
+	SetFontSize $font_max
     Show
 }
 
