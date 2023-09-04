@@ -1227,13 +1227,22 @@ Class "Relic" {
 }
 
 Class "Sanctum Research" {
+    ItemLevel >= 81 {
+		SetBackgroundColor $white
+		SetBorderColor $color_frag_light
+		SetTextColor $color_frag_light
+		MinimapIcon 0 Red Cross
+		SetAlertSound $alert_t1
+		SetFontSize $font_max
+		Show
+	}
+
 	SetBackgroundColor $white
-	SetBorderColor $color_frag_light
-	SetTextColor $color_frag_light
-	MinimapIcon 0 Red Cross
-	SetAlertSound $alert_t1
-	SetFontSize $font_max
-	Show
+    SetBorderColor $color_frag_light
+    SetTextColor $color_frag_light
+    MinimapIcon 0 Red Moon
+    SetAlertSound $alert_t2
+    Show
 }
 
 # Crucible
