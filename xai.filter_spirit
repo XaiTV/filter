@@ -359,7 +359,7 @@ Class "Currency" {
     }
 }
 
-BaseType == "Abyssal Delirium Orb" "Amorphous Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
+BaseType == "Abyssal Delirium Orb" "Challenging Delirium Orb" "Armoursmith's Delirium Orb" "Blacksmith's Delirium Orb" "Blighted Delirium Orb" "Cartographer's Delirium Orb" "Delirium Orb" "Diviner's Delirium Orb" "Fine Delirium Orb" "Foreboding Delirium Orb" "Fossilised Delirium Orb" "Fragmented Delirium Orb" "Imperial Delirium Orb" "Jeweller's Delirium Orb" "Obscured Delirium Orb" "Primal Delirium Orb" "Singular Delirium Orb" "Skittering Delirium Orb" "Thaumaturge's Delirium Orb" "Timeless Delirium Orb" "Whispering Delirium Orb" "Kalguuran Delirium Orb" {
     Expand $comp_t2_currency
     SetAlertSound $alert_t3_currency
     Show
@@ -374,6 +374,37 @@ BaseType "Divine Vessel" {
 Class "Pantheon Soul" {
     Expand $comp_divine_vessel
     Show
+}
+
+Class "Currency"{
+    BaseType $catalysts_t1 {
+        SetFontSize $font_max
+        MinimapIcon 0 Brown Circle
+        SetBorderColor $white
+        SetBackgroundColor 250 230 200
+        PlayEffect Brown
+        SetTextColor $black
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    BaseType $catalysts_t2 {
+        SetFontSize $font_max
+        MinimapIcon 2 Brown Circle
+        SetBorderColor $black
+        SetTextColor $black
+        SetBackgroundColor 250 230 200
+        PlayEffect Brown
+        SetAlertSound $alert_t3_currency
+        Show
+    }
+    BaseType "Catalyst" {
+        SetFontSize $font_max
+        SetBorderColor $black
+        SetTextColor $black
+        SetBackgroundColor 220 208 180
+        PlayEffect Brown Temp
+        Show
+    }
 }
 
 # [SECTION 4] 6L
@@ -876,48 +907,6 @@ BaseType $oils_t4 {
     ShowHide $toggle_t4_oils
 }
 
-# Metamorph
-Class "Metamorph Sample" {
-    SetFontSize $font_max
-    SetBackgroundColor $color_metamorph
-    SetBorderColor $light_gray
-    SetTextColor $light_gray
-    MinimapIcon 1 Green Kite
-    PlayEffect Green
-    SetAlertSound $alert_t3_currency
-    Show
-}
-Class "Currency"{
-    BaseType $catalysts_t1 {
-        SetFontSize $font_max
-        MinimapIcon 0 Brown Circle
-        SetBorderColor $white
-        SetBackgroundColor 250 230 200
-        PlayEffect Brown
-        SetTextColor $black
-        SetAlertSound $alert_t3_currency
-        Show
-    }
-    BaseType $catalysts_t2 {
-        SetFontSize $font_max
-        MinimapIcon 2 Brown Circle
-        SetBorderColor $black
-        SetTextColor $black
-        SetBackgroundColor 250 230 200
-        PlayEffect Brown
-        SetAlertSound $alert_t3_currency
-        Show
-    }
-    BaseType "Catalyst" {
-        SetFontSize $font_max
-        SetBorderColor $black
-        SetTextColor $black
-        SetBackgroundColor 220 208 180
-        PlayEffect Brown Temp
-        Show
-    }
-}
-
 # Delirium
 # Cluster jewels are in the jewels section
 BaseType "Simulacrum Splinter"{
@@ -1111,7 +1100,7 @@ Rarity = Unique {
 # @TODO: all the new bases are just T1 right now
 # @TODO: currently overrides 6L/6S rules
 # Jewellery
-BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring" {
+BaseType "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring" "Composite Ring" "Manifold Ring" "Ratcheting Ring" "Helical Ring" "Focused Amulet" {
     Expand $comp_atlas_t1
     Show
 }
@@ -1186,7 +1175,7 @@ Class "Stackable Currency" {
 
 # Ultimatum
 Class "Pieces" {
-	BaseType "Ultimatum Aspect" {
+	BaseType "Vaal Aspect" {
 		SetBackgroundColor $white
         SetBorderColor $color_frag_light
         SetTextColor $color_frag_light
@@ -1271,12 +1260,6 @@ Class "Stackable Currency" {
 		Show
 	}
 
-	BaseType "Silver Coin" {
-		Expand $comp_t3_currency
-		SetBorderColor $color_prophecy
-		Show
-	}
-
 	BaseType $tattoos_t1 $omens_t1 {
 		Expand $comp_prophecy_t1
 		Show
@@ -1286,6 +1269,12 @@ Class "Stackable Currency" {
 		Expand $comp_prophecy_t2
 		Show
 	}
+}
+
+# Affliction league
+Class "Tincture" "Charm" "Corpse" {
+	Expand $comp_prophecy_t2
+	Show
 }
 
 # [SECTION 6] UNIQUES
