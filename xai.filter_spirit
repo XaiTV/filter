@@ -954,13 +954,8 @@ Class "Currency" {
 
 # Heist
 Class "Currency" {
-    BaseType "Prime Regrading Lens" {
+    BaseType "Tempering Orb" "Tailoring Orb" {
         Expand $comp_t2_currency
-        Show
-    }
-
-    BaseType "Secondary Regrading Lens" "Tempering Orb" "Tailoring Orb" {
-        Expand $comp_t4_currency
         Show
     }
 
@@ -1071,21 +1066,6 @@ Class "Heist" {
 	SetBackgroundColor $color_heist_dark
 	SetBorderColor $color_heist_light
 	Show
-}
-
-
-Class "Gem" {
-    AlternateQuality True {
-        Quality >= 1 {
-            SetFontSize $font_xl
-            SetTextColor $cyan
-            SetBorderColor 255 204 102
-            MinimapIcon 1 Green Moon
-            PlayEffect Green Temp
-            SetAlertSound $alert_gems
-            Show
-        }
-    }
 }
 
 # Replica Uniques
@@ -2465,9 +2445,6 @@ Class "Gem" {
         SetBackgroundColor $color_t1_gem
         MinimapIcon 1 Cyan Moon
         PlayEffect Cyan
-        Quality >= 5 {
-            Show
-        }
         SetBorderColor $black
         Show
     }
@@ -2580,6 +2557,21 @@ Class "Gem"{
     }
 }
 
+# @TODO: replace with transfigured gems once it's supported
+#Class "Gem" {
+#    AlternateQuality True {
+#        Quality >= 1 {
+#            SetFontSize $font_xl
+#            SetTextColor $cyan
+#            SetBorderColor 255 204 102
+#            MinimapIcon 1 Green Moon
+#            PlayEffect Green Temp
+#            SetAlertSound $alert_gems
+#            Show
+#        }
+#    }
+#}
+
 Class "Gem" {
     GemLevel >= 20 {
         Quality >= 20{
@@ -2623,24 +2615,29 @@ Class "Gem" {
         SetAlertSound $alert_gems
         Show
     }
-    Quality >= 14 {
+    Quality >= 10 {
         SetFontSize $font_xl
         SetBorderColor 255 204 102
         MinimapIcon 2 Green Moon
         SetAlertSound $alert_gems
         Show
     }
-    Quality >= 10 {
+    Quality >= 5 {
         SetFontSize $font_medium
         SetBorderColor 200 160 80
         Show
     }
+
     #Rule to make it easier picking up Gems on the Beach.
     AreaLevel <= 1 {
         SetFontSize $font_max
         SetBorderColor $white
         Show
     }
+
+	AreaLevel <= 50 {
+		Show
+	}
     # Hide ALL other gems
     DisableDropSound
     Hide
